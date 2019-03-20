@@ -1,13 +1,15 @@
 \documentclass[DM,lsstdraft,toc]{lsstdoc}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{arydshln}
 
-% lsstdoc documentation: https://lsst-texmf.lsst.io/lsstdoc.html
+\input meta.tex
 
-% Package imports go here.
+\setcounter{tocdepth}{2}
 
-% Local commands go here.
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-% To add a short-form title:
-% \title[Short title]{Title}
 \title{Commissioning Science Verification Test Specification}
 
 % Optional subtitle
@@ -42,10 +44,38 @@ Abstract text.
 % Table of contents is added automatically with the "toc" class option.
 \maketitle
 
-% ADD CONTENT HERE
+\newpage
+\section{Introduction}
+\label{sec:intro}
 
-% Include all the relevant bib files.
-% https://lsst-texmf.lsst.io/lsstdoc.html#bibliographies
+
+\subsection{Applicable Documents}
+\label{sec:docs}
+
+\addtocounter{table}{-1}
+
+\begin{tabular}[htb]{l l}
+\citeds{LPM-17} & LSST Science Requirements Document \\
+\citeds{LSE-30} & LSST Observatory System Specifications \\
+\end{tabular}
+
+
+\subsection{References\label{sect:references}}
+\renewcommand{\refname}{}
 \bibliography{lsst,lsst-dm,refs_ads,refs,books}
+
+
+\newpage
+\section{Approach}
+\label{sec:approach}
+
+
+\newpage
+\input{jira_docugen.tex}
+
+%\newpage
+%\appendix
+%\input{jira_docugen.appendix.tex}
+
 
 \end{document}
