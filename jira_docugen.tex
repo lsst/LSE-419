@@ -1,7 +1,7 @@
 % generated from JIRA project LVV
-% using template at <template>.
-% Collecting ATM data from folder: "/Project Systems Engineering/Commissioning Science Verification/"
-% using docsteady version 1.1.post3+ge96fb3d
+% using template at /usr/local/lib/python3.6/site-packages/docsteady/templates/dm-spec.latex.jinja2.
+% Collecting ATM data from folder: "/Project Systems Engineering/Commissioning Science Verification"
+% using docsteady version 1.1.1
 % Please do not edit -- update information in Jira instead
 
 \section{Test Cases Summary}\label{test-cases-summary}
@@ -33,6 +33,8 @@ Test Id & Test Name\tabularnewline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T389}{Single Visit Photometric Repeatability} \tabularnewline
     \hyperref[lvv-t434]{LVV-T434} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T434}{Acquire Filter Response Verification Data (with flat field screen)} \tabularnewline
+    \hyperref[lvv-t442]{LVV-T442} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T442}{Control Ghosts in Coadds} \tabularnewline
     \hyperref[lvv-t445]{LVV-T445} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T445}{Acquire Filter Response Verification Data (with CBP)} \tabularnewline
     \hyperref[lvv-t446]{LVV-T446} &
@@ -752,13 +754,15 @@ detector position.
                 LSST Photometry from main sequence, variable, bright, non-saturated
 non-resolved point sources. Observations need to span sky position,
 camera position, chip position, object color, brightness, airmass, water
-vapor content, and time of observation.\\[2\baselineskip]Per The LSST
-SRD, bright means 1-4 magnitudes fainter than saturation
-limits.\\[2\baselineskip]We estimate this will require at
-\textasciitilde{} 50,000 objects in order to overcome statistical noise.
-This will require about 50**2 degrees of imaging, assuming there are
-1000 stars per square degree. This roughly corresponds to
-\textasciitilde{}100 ComCam pointing.~
+vapor content, and time of observation.\\
+~\\
+Per The LSST SRD, bright means 1-4 magnitudes fainter than saturation
+limits.\\
+~\\
+We estimate this will require at \textasciitilde{} 50,000 objects in
+order to overcome statistical noise. This will require about 50**2
+degrees of imaging, assuming there are 1000 stars per square degree.
+This roughly corresponds to \textasciitilde{}100 ComCam pointing.~
 
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -968,6 +972,56 @@ Test & Brian Stalder
             \begin{minipage}[t]{13cm}{\footnotesize
             Repeat with same setup with each filter.
 
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T442}{LVV-T442}
+    - Control Ghosts in Coadds}\label{lvv-t442}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Analysis & Keith Bechtol
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+    None.
+
+\subsubsection{Test Items}
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
@@ -2105,7 +2159,7 @@ are real and which are artifacts.
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
                 \begin{minipage}[t]{13cm}{\footnotesize
-                Catalog of DIASources labeled as either `real' or `bogus'.
+                Catalog of DIASources labeled as either 'real' or 'bogus'.
 
                 \vspace{\dp0}
                 } \end{minipage}
@@ -2209,7 +2263,9 @@ Test & Scott Daniel
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Simulate visits at diverse observing conditions (airmass, seeing,
-etc.)\\[2\baselineskip]Could also take data from DESC data challenges.
+etc.)\\
+~\\
+Could also take data from DESC data challenges.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -2241,7 +2297,7 @@ Truth information associated with astrophysical objects in those images.
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
                 \begin{minipage}[t]{13cm}{\footnotesize
-                Template coadd for Level 1 data processing
+                {}Template coadd for Level 1 data processing
 
                 \vspace{\dp0}
                 } \end{minipage}
@@ -2293,11 +2349,12 @@ observing conditions.
             \multirow{3}{*}{ 5 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Compare DIASource measurements from step 3 with true positions of
-astrophysical sources simulated in step 1.\\[2\baselineskip]Compare the
-astrometric errors with the model calculated in step
-4.\\[2\baselineskip]Verify that the RMS of the residual (measured error
-minus error expected just due to observing conditions) is within the
-specified limit.
+astrophysical sources simulated in step 1.\\
+~\\
+Compare the astrometric errors with the model calculated in step 4.\\
+~\\
+Verify that the RMS of the residual (measured error minus error expected
+just due to observing conditions) is within the specified limit.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -2865,7 +2922,7 @@ Characterization of width of flux measurements for each source
             \multirow{3}{*}{ 3 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Perform Level 1 processing on images from step 1. ~Keep difference
-images for ``forced DIA photometry'' in later steps.
+images for "forced DIA photometry" in later steps.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -3319,7 +3376,8 @@ locations overlapping the observations in step 1.
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
             \begin{minipage}[t]{13cm}{\footnotesize
-                Metadata from images in step 1\\[2\baselineskip]
+                Metadata from images in step 1\\
+~\\
 
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -4558,10 +4616,14 @@ Catalog of measured sources in step 3
             \multirow{3}{*}{ 6 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Verify that the residual PSF size at each airmass does not exceed the
-following limits:\\[2\baselineskip]0.4 arcseconds at airmass=1\\
+following limits:\\
+~\\
+0.4 arcseconds at airmass=1\\
 0.49 arcseconds at airmass=1.4\\
-0.6 arcseconds at airmass=2\\[2\baselineskip]so that the system
-contribution to PSF width degrades no more rapidly than airmass\^{}0.6
+0.6 arcseconds at airmass=2\\
+~\\
+so that the system contribution to PSF width degrades no more rapidly
+than airmass\^{}0.6
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -4678,9 +4740,10 @@ unresolved point sources brighter than some threshold (17th magnitude?).
             \multirow{3}{*}{ 4 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             For each full-focal plane exposure, verify that the median PSF
-ellipticity of the sources from step 3 is less than or equal to
-0.04.\\[2\baselineskip]Verify that no more than 5\% of the sources from
-step 3 have PSF ellipticity greater than 0.07.
+ellipticity of the sources from step 3 is less than or equal to 0.04.\\
+~\\
+Verify that no more than 5\% of the sources from step 3 have PSF
+ellipticity greater than 0.07.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -4735,8 +4798,9 @@ Test & Scott Daniel
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Upon completion of mini-survey, select all exposures taken at or
-near\\[2\baselineskip]band = r\\
+            Upon completion of mini-survey, select all exposures taken at or near\\
+~\\
+band = r\\
 airmass = 1\\
 seeing = 0.7 arcsecond\\
 sky brightness = 21 magnitudes per square arcsecond
@@ -4952,9 +5016,9 @@ median 5-sigma limiting magnitude for the entire exposure.
 
 \appendix
 % generated from JIRA project LVV
-% using template at <template>.
-% Collecting ATM data from folder: "/Project Systems Engineering/Commissioning Science Verification/"
-% using dosteady version 1.1.post3+ge96fb3d
+% using template at /usr/local/lib/python3.6/site-packages/docsteady/templates/dm-spec-appendix.latex.jinja2.
+% Collecting ATM data from folder: "/Project Systems Engineering/Commissioning Science Verification"
+% using dosteady version 1.1.1
 % Please do not edit -- update information in Jira instead
 
 \section{Traceability}
