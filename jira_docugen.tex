@@ -1,7 +1,7 @@
 % generated from JIRA project LVV
-% using template at /usr/local/lib/python3.7/site-packages/docsteady/templates/dm-spec.latex.jinja2.
-% Collecting ATM data from folder: "/Project Systems Engineering/Commissioning Science Verification"
-% using docsteady version 1.1.3
+% using template at <template>.
+% Collecting ATM data from folder: "/Project Systems Engineering/Commissioning Science Verification|LSE-419"
+% using docsteady version 1.1.3.post4+g1808947.d20190423
 % Please do not edit -- update information in Jira instead
 
 \section{Test Cases Summary}\label{test-cases-summary}
@@ -756,15 +756,13 @@ detector position.
                 LSST Photometry from main sequence, variable, bright, non-saturated
 non-resolved point sources. Observations need to span sky position,
 camera position, chip position, object color, brightness, airmass, water
-vapor content, and time of observation.\\
-~\\
-Per The LSST SRD, bright means 1-4 magnitudes fainter than saturation
-limits.\\
-~\\
-We estimate this will require at \textasciitilde{} 50,000 objects in
-order to overcome statistical noise. This will require about 50**2
-degrees of imaging, assuming there are 1000 stars per square degree.
-This roughly corresponds to \textasciitilde{}100 ComCam pointing.~
+vapor content, and time of observation.\\[2\baselineskip]Per The LSST
+SRD, bright means 1-4 magnitudes fainter than saturation
+limits.\\[2\baselineskip]We estimate this will require at
+\textasciitilde{} 50,000 objects in order to overcome statistical noise.
+This will require about 50**2 degrees of imaging, assuming there are
+1000 stars per square degree. This roughly corresponds to
+\textasciitilde{}100 ComCam pointing.~
 
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -2161,7 +2159,7 @@ are real and which are artifacts.
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
                 \begin{minipage}[t]{13cm}{\footnotesize
-                Catalog of DIASources labeled as either 'real' or 'bogus'.
+                Catalog of DIASources labeled as either `real' or `bogus'.
 
                 \vspace{\dp0}
                 } \end{minipage}
@@ -2265,9 +2263,7 @@ Test & Scott Daniel
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Simulate visits at diverse observing conditions (airmass, seeing,
-etc.)\\
-~\\
-Could also take data from DESC data challenges.
+etc.)\\[2\baselineskip]Could also take data from DESC data challenges.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -2299,7 +2295,7 @@ Truth information associated with astrophysical objects in those images.
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
                 \begin{minipage}[t]{13cm}{\footnotesize
-                {}Template coadd for Level 1 data processing
+                Template coadd for Level 1 data processing
 
                 \vspace{\dp0}
                 } \end{minipage}
@@ -2351,12 +2347,11 @@ observing conditions.
             \multirow{3}{*}{ 5 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Compare DIASource measurements from step 3 with true positions of
-astrophysical sources simulated in step 1.\\
-~\\
-Compare the astrometric errors with the model calculated in step 4.\\
-~\\
-Verify that the RMS of the residual (measured error minus error expected
-just due to observing conditions) is within the specified limit.
+astrophysical sources simulated in step 1.\\[2\baselineskip]Compare the
+astrometric errors with the model calculated in step
+4.\\[2\baselineskip]Verify that the RMS of the residual (measured error
+minus error expected just due to observing conditions) is within the
+specified limit.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -2924,7 +2919,7 @@ Characterization of width of flux measurements for each source
             \multirow{3}{*}{ 3 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Perform Level 1 processing on images from step 1. ~Keep difference
-images for "forced DIA photometry" in later steps.
+images for ``forced DIA photometry'' in later steps.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -3378,8 +3373,7 @@ locations overlapping the observations in step 1.
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
             \begin{minipage}[t]{13cm}{\footnotesize
-                Metadata from images in step 1\\
-~\\
+                Metadata from images in step 1\\[2\baselineskip]
 
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -4618,14 +4612,10 @@ Catalog of measured sources in step 3
             \multirow{3}{*}{ 6 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Verify that the residual PSF size at each airmass does not exceed the
-following limits:\\
-~\\
-0.4 arcseconds at airmass=1\\
+following limits:\\[2\baselineskip]0.4 arcseconds at airmass=1\\
 0.49 arcseconds at airmass=1.4\\
-0.6 arcseconds at airmass=2\\
-~\\
-so that the system contribution to PSF width degrades no more rapidly
-than airmass\^{}0.6
+0.6 arcseconds at airmass=2\\[2\baselineskip]so that the system
+contribution to PSF width degrades no more rapidly than airmass\^{}0.6
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -4742,10 +4732,9 @@ unresolved point sources brighter than some threshold (17th magnitude?).
             \multirow{3}{*}{ 4 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             For each full-focal plane exposure, verify that the median PSF
-ellipticity of the sources from step 3 is less than or equal to 0.04.\\
-~\\
-Verify that no more than 5\% of the sources from step 3 have PSF
-ellipticity greater than 0.07.
+ellipticity of the sources from step 3 is less than or equal to
+0.04.\\[2\baselineskip]Verify that no more than 5\% of the sources from
+step 3 have PSF ellipticity greater than 0.07.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -4800,9 +4789,8 @@ Test & Scott Daniel
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Upon completion of mini-survey, select all exposures taken at or near\\
-~\\
-band = r\\
+            Upon completion of mini-survey, select all exposures taken at or
+near\\[2\baselineskip]band = r\\
 airmass = 1\\
 seeing = 0.7 arcsecond\\
 sky brightness = 21 magnitudes per square arcsecond
@@ -5018,418 +5006,1062 @@ median 5-sigma limiting magnitude for the entire exposure.
 
 \appendix
 % generated from JIRA project LVV
-% using template at /usr/local/lib/python3.7/site-packages/docsteady/templates/dm-spec-appendix.latex.jinja2.
-% Collecting ATM data from folder: "/Project Systems Engineering/Commissioning Science Verification"
-% using dosteady version 1.1.3
+% using template at <template>.
+% Collecting ATM data from folder: "/Project Systems Engineering/Commissioning Science Verification|LSE-419"
+% using dosteady version 1.1.3.post4+g1808947.d20190423
 % Please do not edit -- update information in Jira instead
 
 \section{Traceability}
 \scriptsize{
-\begin{longtable}[]{p{13cm}p{3cm}}
+\begin{longtable}[]{p{6cm}p{2cm}p{2cm}p{1.5cm}p{2cm}p{1.5cm}}
 \toprule
-Verification Elements & Test Cases\tabularnewline
+Verification Elements & VE Status & VE Assignee &Test Cases & TC Status & TC Owner \tabularnewline
 \midrule
 \endhead
 
 \href{https://jira.lsstcorp.org/browse/LVV-1544}{LVV-1544 - OSS-REQ-0228-V-02: Image Size in Pixels
 }
-& {
-\hyperref[lvv-t293]{LVV-T293}
-\hyperref[lvv-t295]{LVV-T295}
-\hyperref[lvv-t297]{LVV-T297}
-\hyperref[lvv-t298]{LVV-T298}
-\hyperref[lvv-t299]{LVV-T299}
-} \\
+& Not Covered & Bo Xin
+        & 
+        \hyperref[lvv-t293]{LVV-T293} 
+        & Draft & Keith Bechtol
+        \\
+            &&
+        & 
+        \hyperref[lvv-t295]{LVV-T295} 
+        & Draft & Keith Bechtol
+        \\
+            &&
+        & 
+        \hyperref[lvv-t297]{LVV-T297} 
+        & Draft & Keith Bechtol
+        \\
+            &&
+        & 
+        \hyperref[lvv-t298]{LVV-T298} 
+        & Draft & Keith Bechtol
+        \\
+            &&
+        & 
+        \hyperref[lvv-t299]{LVV-T299} 
+        & Draft & Keith Bechtol
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1545}{LVV-1545 - OSS-REQ-0228-V-03: Image Quality vs Field
 }
-& {
-\hyperref[lvv-t294]{LVV-T294}
-\hyperref[lvv-t296]{LVV-T296}
-} \\
+& Not Covered & Bo Xin
+        & 
+        \hyperref[lvv-t294]{LVV-T294} 
+        & Draft & Keith Bechtol
+        \\
+            &&
+        & 
+        \hyperref[lvv-t296]{LVV-T296} 
+        & Draft & Keith Bechtol
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-7213}{LVV-7213 - OSS-REQ-0228-V-04: Image Quality in Encircled Energy
 }
-& {
-\hyperref[lvv-t294]{LVV-T294}
-\hyperref[lvv-t296]{LVV-T296}
-} \\
+& Not Covered & Bo Xin
+        & 
+        \hyperref[lvv-t294]{LVV-T294} 
+        & Draft & Keith Bechtol
+        \\
+            &&
+        & 
+        \hyperref[lvv-t296]{LVV-T296} 
+        & Draft & Keith Bechtol
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-7214}{LVV-7214 - OSS-REQ-0228-V-05: System Contribution to Image Quality
 }
-& {
-\hyperref[lvv-t294]{LVV-T294}
-\hyperref[lvv-t296]{LVV-T296}
-} \\
+& Not Covered & Bo Xin
+        & 
+        \hyperref[lvv-t294]{LVV-T294} 
+        & Draft & Keith Bechtol
+        \\
+            &&
+        & 
+        \hyperref[lvv-t296]{LVV-T296} 
+        & Draft & Keith Bechtol
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-238}{LVV-238 - LSR-REQ-0094-V-01: Astrometric Performance1
 }
-& {
-\hyperref[lvv-t297]{LVV-T297}
-} \\
+& Not Covered & Chuck Claver
+        & 
+        \hyperref[lvv-t297]{LVV-T297} 
+        & Draft & Keith Bechtol
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1543}{LVV-1543 - OSS-REQ-0228-V-01: Image Quality Off-Zenith Degredation
 }
-& {
-\hyperref[lvv-t360]{LVV-T360}
-} \\
+& Not Covered & Bo Xin
+        & 
+        \hyperref[lvv-t360]{LVV-T360} 
+        & Draft & Keith Bechtol
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1546}{LVV-1546 - OSS-REQ-0234-V-01: 10-year Ellipticity Residuals
 }
-& {
-\hyperref[lvv-t361]{LVV-T361}
-} \\
+& Not Covered & Tony Tyson
+        & 
+        \hyperref[lvv-t361]{LVV-T361} 
+        & Draft & Keith Bechtol
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1366}{LVV-1366 - OSS-REQ-0390-V-01: Ellipticity Correlations
 }
-& {
-\hyperref[lvv-t361]{LVV-T361}
-} \\
+& Not Covered & Chuck Claver
+        & 
+        \hyperref[lvv-t361]{LVV-T361} 
+        & Draft & Keith Bechtol
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-273}{LVV-273 - LSR-REQ-0093-V-01: Photometric Performance1
 }
-& {
-\hyperref[lvv-t389]{LVV-T389}
-} \\
+& Not Covered & Imram Hasan
+        & 
+        \hyperref[lvv-t389]{LVV-T389} 
+        & Draft & Imram Hasan
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1372}{LVV-1372 - OSS-REQ-0387-V-01: Photometric Performance\_1
 }
-& {
-\hyperref[lvv-t389]{LVV-T389}
-} \\
+& Not Covered & Imram Hasan
+        & 
+        \hyperref[lvv-t389]{LVV-T389} 
+        & Draft & Imram Hasan
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1555}{LVV-1555 - OSS-REQ-0238-V-01: Filter Response Uniformity u-band blue edge
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t448]{LVV-T448}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t448]{LVV-T448} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1570}{LVV-1570 - OSS-REQ-0239-V-01: In-band Ripple u-band
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t452]{LVV-T452}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t452]{LVV-T452} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1582}{LVV-1582 - OSS-REQ-0240-V-01: u-band Response Envelope
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t453]{LVV-T453}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t453]{LVV-T453} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1579}{LVV-1579 - OSS-REQ-0366-V-01: u-band not-to-exceed envelope
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t453]{LVV-T453}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t453]{LVV-T453} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1561}{LVV-1561 - OSS-REQ-0241-V-01: g-band Response Envelope
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t453]{LVV-T453}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t453]{LVV-T453} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1558}{LVV-1558 - OSS-REQ-0367-V-01: g-band not-to-exceed envelope
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t453]{LVV-T453}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t453]{LVV-T453} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1576}{LVV-1576 - OSS-REQ-0242-V-01: r-band Response Envelope
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t453]{LVV-T453}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t453]{LVV-T453} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1573}{LVV-1573 - OSS-REQ-0368-V-01: r-band not-to-exceed envelope
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t453]{LVV-T453}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t453]{LVV-T453} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1567}{LVV-1567 - OSS-REQ-0243-V-01: i-band Response Envelope
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t453]{LVV-T453}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t453]{LVV-T453} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1564}{LVV-1564 - OSS-REQ-0369-V-01: i-band not-to-exceed envelope
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t453]{LVV-T453}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t453]{LVV-T453} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1594}{LVV-1594 - OSS-REQ-0244-V-01: z-band Response Envelope
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t453]{LVV-T453}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t453]{LVV-T453} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1591}{LVV-1591 - OSS-REQ-0370-V-01: z-band not-to-exceed envelope
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t453]{LVV-T453}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t453]{LVV-T453} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1588}{LVV-1588 - OSS-REQ-0245-V-01: y-band Response Envelope
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t453]{LVV-T453}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t453]{LVV-T453} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1585}{LVV-1585 - OSS-REQ-0371-V-01: y-band not-to-exceed envelope
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t453]{LVV-T453}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t453]{LVV-T453} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1556}{LVV-1556 - OSS-REQ-0238-V-02: Filter Response Uniformity u-band red edge
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t448]{LVV-T448}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t448]{LVV-T448} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1557}{LVV-1557 - OSS-REQ-0238-V-03: Filter Response Uniformity g-band blue edge
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t448]{LVV-T448}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t448]{LVV-T448} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-8678}{LVV-8678 - OSS-REQ-0238-V-04: Filter Response Uniformity g-band red edge
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t448]{LVV-T448}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t448]{LVV-T448} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-8681}{LVV-8681 - OSS-REQ-0238-V-05: Filter Response Uniformity r-band blue edge
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t448]{LVV-T448}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t448]{LVV-T448} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-8683}{LVV-8683 - OSS-REQ-0238-V-06: Filter Response Uniformity r-band red edge
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t448]{LVV-T448}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t448]{LVV-T448} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-8686}{LVV-8686 - OSS-REQ-0238-V-07: Filter Response Uniformity i-band blue edge
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t448]{LVV-T448}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t448]{LVV-T448} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-8689}{LVV-8689 - OSS-REQ-0238-V-08: Filter Response Uniformity i-band red edge
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t448]{LVV-T448}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t448]{LVV-T448} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-8691}{LVV-8691 - OSS-REQ-0238-V-09: Filter Response Uniformity z-band blue edge
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t448]{LVV-T448}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t448]{LVV-T448} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-8694}{LVV-8694 - OSS-REQ-0238-V-10: Filter Response Uniformity z-band red edge
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t448]{LVV-T448}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t448]{LVV-T448} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-8696}{LVV-8696 - OSS-REQ-0238-V-11: Filter Response Uniformity y-band blue edge
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t448]{LVV-T448}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t448]{LVV-T448} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-8698}{LVV-8698 - OSS-REQ-0238-V-12: Filter Response Uniformity y-band red edge
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t448]{LVV-T448}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t448]{LVV-T448} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1572}{LVV-1572 - OSS-REQ-0239-V-03: In-band Ripple r-band
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t452]{LVV-T452}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t452]{LVV-T452} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1571}{LVV-1571 - OSS-REQ-0239-V-02: In-band Ripple g-band
 }
-& {
-\hyperref[lvv-t434]{LVV-T434}
-\hyperref[lvv-t445]{LVV-T445}
-\hyperref[lvv-t446]{LVV-T446}
-\hyperref[lvv-t447]{LVV-T447}
-\hyperref[lvv-t452]{LVV-T452}
-} \\
+& Not Covered & Brian Stalder
+        & 
+        \hyperref[lvv-t434]{LVV-T434} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t445]{LVV-T445} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t446]{LVV-T446} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t447]{LVV-T447} 
+        & Draft & Brian Stalder
+        \\
+            &&
+        & 
+        \hyperref[lvv-t452]{LVV-T452} 
+        & Draft & Brian Stalder
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1261}{LVV-1261 - OSS-REQ-0354-V-01: Difference Source Spuriousness Threshold - MOPS
 }
-& {
-\hyperref[lvv-t532]{LVV-T532}
-} \\
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t532]{LVV-T532} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1262}{LVV-1262 - OSS-REQ-0354-V-02: Difference Source Spuriousness Threshold - MOPS2
 }
-& {
-\hyperref[lvv-t533]{LVV-T533}
-} \\
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t533]{LVV-T533} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1273}{LVV-1273 - OSS-REQ-0149-V-01: Level 1 Catalog Precision
 }
-& {
-\hyperref[lvv-t543]{LVV-T543}
-\hyperref[lvv-t544]{LVV-T544}
-\hyperref[lvv-t545]{LVV-T545}
-} \\
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t543]{LVV-T543} 
+        & Draft & Scott Daniel
+        \\
+            &&
+        & 
+        \hyperref[lvv-t544]{LVV-T544} 
+        & Draft & Scott Daniel
+        \\
+            &&
+        & 
+        \hyperref[lvv-t545]{LVV-T545} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1274}{LVV-1274 - OSS-REQ-0149-V-02: Level 1 Catalog Precision2
 }
-& {
-\hyperref[lvv-t546]{LVV-T546}
-\hyperref[lvv-t547]{LVV-T547}
-\hyperref[lvv-t548]{LVV-T548}
-} \\
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t546]{LVV-T546} 
+        & Draft & Scott Daniel
+        \\
+            &&
+        & 
+        \hyperref[lvv-t547]{LVV-T547} 
+        & Draft & Scott Daniel
+        \\
+            &&
+        & 
+        \hyperref[lvv-t548]{LVV-T548} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1291}{LVV-1291 - OSS-REQ-0152-V-01: Level 1 Photometric Zero Point Error
 }
-& {
-\hyperref[lvv-t549]{LVV-T549}
-} \\
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t549]{LVV-T549} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-3766}{LVV-3766 - OSS-REQ-0159-V-01: Level 1 Moving Object Quality
 }
-& {
-\hyperref[lvv-t550]{LVV-T550}
-} \\
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t550]{LVV-T550} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1339}{LVV-1339 - OSS-REQ-0153-V-01: World Coordinate System Accuracy
 }
-& {
-\hyperref[lvv-t551]{LVV-T551}
-} \\
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t551]{LVV-T551} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-1645}{LVV-1645 - OSS-REQ-0268-V-01: Dynamic Range
 }
-& {
-\hyperref[lvv-t554]{LVV-T554}
-} \\
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t554]{LVV-T554} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-253}{LVV-253 - LSR-REQ-0007-V-01: Delivered Image Quality1
 }
-& {
-\hyperref[lvv-t587]{LVV-T587}
-} \\
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t587]{LVV-T587} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-254}{LVV-254 - LSR-REQ-0007-V-02: Delivered Image Quality2
 }
-& {
-\hyperref[lvv-t588]{LVV-T588}
-} \\
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t588]{LVV-T588} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-255}{LVV-255 - LSR-REQ-0007-V-03: Delivered Image Quality3
 }
-& {
-\hyperref[lvv-t589]{LVV-T589}
-} \\
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t589]{LVV-T589} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-256}{LVV-256 - LSR-REQ-0007-V-04: Delivered Image Quality4
 }
-& {
-\hyperref[lvv-t590]{LVV-T590}
-} \\
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t590]{LVV-T590} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-257}{LVV-257 - LSR-REQ-0007-V-05: Delivered Image Quality5
 }
-& {
-\hyperref[lvv-t591]{LVV-T591}
-} \\
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t591]{LVV-T591} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-9804}{LVV-9804 - LSR-REQ-0007-V-06: Delivered Image Quality\_6
 }
-& {
-\hyperref[lvv-t592]{LVV-T592}
-} \\
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t592]{LVV-T592} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-9805}{LVV-9805 - LSR-REQ-0007-V-07: Delivered Image Quality\_7
 }
-& {
-\hyperref[lvv-t593]{LVV-T593}
-} \\
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t593]{LVV-T593} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-268}{LVV-268 - LSR-REQ-0087-V-01: Off Zenith Degradation1
 }
-& {
-\hyperref[lvv-t594]{LVV-T594}
-} \\
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t594]{LVV-T594} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-248}{LVV-248 - LSR-REQ-0092-V-01: Delivered Image Ellipticity1
 }
-& {
-\hyperref[lvv-t595]{LVV-T595}
-} \\
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t595]{LVV-T595} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-3751}{LVV-3751 - LSR-REQ-0089-V-01: r-band Reference Depth1
 }
-& {
-\hyperref[lvv-t596]{LVV-T596}
-} \\
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t596]{LVV-T596} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
 \href{https://jira.lsstcorp.org/browse/LVV-258}{LVV-258 - LSR-REQ-0109-V-01: Depth Variation Over FOV1
 }
-& {
-\hyperref[lvv-t597]{LVV-T597}
-} \\
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t597]{LVV-T597} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
 \tabularnewline
 \bottomrule
 \end{longtable}
