@@ -95,6 +95,18 @@ Test Id & Test Name\tabularnewline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T596}{Depth: r-band} \tabularnewline
     \hyperref[lvv-t597]{LVV-T597} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T597}{Depth variation over field of view} \tabularnewline
+    \hyperref[lvv-t938]{LVV-T938} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T938}{Level 2 reproducibility (same computer hardware)} \tabularnewline
+    \hyperref[lvv-t939]{LVV-T939} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T939}{Level 1 reproducibility (same computer hardware)} \tabularnewline
+    \hyperref[lvv-t940]{LVV-T940} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T940}{Level 2 reproducibility (different computer hardware)} \tabularnewline
+    \hyperref[lvv-t941]{LVV-T941} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T941}{Level 1 reproducibility (different computer hardware)} \tabularnewline
+    \hyperref[lvv-t942]{LVV-T942} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T942}{Provenance on Level 2 catalogs} \tabularnewline
+    \hyperref[lvv-t943]{LVV-T943} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T943}{Provenance in Level 1 catalogs} \tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -5016,6 +5028,727 @@ median 5-sigma limiting magnitude for the entire exposure.
         \\ \midrule
     \end{longtable}
 
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T938}{LVV-T938}
+    - Level 2 reproducibility (same computer hardware)}\label{lvv-t938}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1237}{LVV-1237} - OSS-REQ-0123-V-01: Reproducibility
+
+\end{itemize}
+
+\subsubsection{Test Items}
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Take precursor mini-survey data
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Images and calibration products
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run Level 2 processing on precursor data from step 1
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Images and calibration products from step 1
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Coadded images\\
+Catalogs detected on coadded images
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Re-run Level 2 processing on data from step 1, using the same system as
+in step 2
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Images and calibration products from step 1
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Coadded images\\
+Catalogs detected on coadded images
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that catalogs from step 2 and step 3 identify all of the same
+sources and give identical measurements (since the two analyses were run
+on the same system).
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Catalogs from steps 2 and 3
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Catalogs are identical
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T939}{LVV-T939}
+    - Level 1 reproducibility (same computer hardware)}\label{lvv-t939}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1237}{LVV-1237} - OSS-REQ-0123-V-01: Reproducibility
+
+\end{itemize}
+
+\subsubsection{Test Items}
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+LVV-T938 has been run
+
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run Level 1 analysis on images taken in LVV-T938 using coadds from the
+first run as templates.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Precursor survey and coadded images from LVV-T938
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Set of DIASources
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run Level 1 analysis on images taken in LVV-T938 using coadds from the
+first run as templates. ~Run on the same system as step 1.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Precursor survey and coadded images from LVV-T938
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Set of DIASources
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that the sets of DIASources produced in steps 1 and 2 are
+identical, since they were run on the same system.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                DIASources detected in steps 1 and 2
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Sets of DIASources should be identical
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T940}{LVV-T940}
+    - Level 2 reproducibility (different computer hardware)}\label{lvv-t940}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1237}{LVV-1237} - OSS-REQ-0123-V-01: Reproducibility
+
+\end{itemize}
+
+\subsubsection{Test Items}
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Take precursor data and calibration products from mini survey
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Calibration products\\
+Images
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run Level 2 analysis on data from step 1
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Calibration products and images from step 1
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Coadded images\\
+Catalogs of detected sources
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Re-run Level 2 analysis on data from step 1 using a different hardware
+system
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Calibration products and images from step 1
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Coadded images\\
+Catalogs of detected sources
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that the catalogs from steps 2 and 3 agree to within some small
+tolerance
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Catalogs of detected sources from steps 2 and 3
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Catalogs will agree to within some tolerance
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T941}{LVV-T941}
+    - Level 1 reproducibility (different computer hardware)}\label{lvv-t941}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1237}{LVV-1237} - OSS-REQ-0123-V-01: Reproducibility
+
+\end{itemize}
+
+\subsubsection{Test Items}
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+LVV-T940 has been run
+
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run Level 1 analysis on data from step 1 of LVV-T940, using coadded
+images from first Level 2 run as templates
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Precursor data and coadded images from step 2 LVV-T940
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Catalog of DIASources
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Re-run Level 1 analysis on data from step 1 of LVV-T940 using coadded
+images from second Level 2 run and using a different computer system
+than step 1 of this requirement
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Precursor data and coadded images from step 3 of LVV-T940
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Catalog of DIASources
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that DIASource catalogs from steps 1 and 2 agree to within some
+small tolerance
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                DIASource catalogs from steps 1 and 2
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                DIASource catalogs should agree to within some small tolerance
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T942}{LVV-T942}
+    - Provenance on Level 2 catalogs}\label{lvv-t942}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1234}{LVV-1234} - OSS-REQ-0122-V-01: Provenance
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that provenance information is stored in level 2 catalog products
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-1
+                {\scriptsize from \hyperref[lvv-t64]
+                {LVV-T64} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-2
+                {\scriptsize from \hyperref[lvv-t64]
+                {LVV-T64} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Query and verify provenance of input images, and software versions that
+went into producing stack.
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-3
+                {\scriptsize from \hyperref[lvv-t64]
+                {LVV-T64} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Test re-generating 10 different coadds tract+patches based on the
+provenance image given
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run source detection on coadded images from step 1
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Coadded images from step 1
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Catalog of sources detected on coadds
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that correct provenance information is stored in catalogs from
+step 2
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T943}{LVV-T943}
+    - Provenance in Level 1 catalogs}\label{lvv-t943}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1234}{LVV-1234} - OSS-REQ-0122-V-01: Provenance
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that provenance information is correctly stored in Level 1
+catalog products
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-1
+                {\scriptsize from \hyperref[lvv-t33]
+                {LVV-T33} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Verify that time of exposure start/end, site metadata, telescope
+metadata, and camera metadata are stored in DMS system.\\
+~\\
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-2
+                {\scriptsize from \hyperref[lvv-t33]
+                {LVV-T33} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-3
+                {\scriptsize from \hyperref[lvv-t33]
+                {LVV-T33} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Detect sources on difference images from step 1
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Difference images from step 1
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Catalog of DIASources
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that provenance information is correctly stored in DIASource
+catalogs from step 2
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
 \appendix
 % generated from JIRA project LVV
 % using template at /var/jenkins_home/.local/lib/python3.7/site-packages/docsteady/templates/dm-spec-appendix.latex.jinja2.
@@ -6128,6 +6861,144 @@ median 5-sigma limiting magnitude for the entire exposure.
         & 
         \hyperref[lvv-t597]{LVV-T597} 
         & Draft & Scott Daniel
+        \\
+            \hdashline
+57 &
+    \href{https://jira.lsstcorp.org/browse/LVV-1237}{LVV-1237 - OSS-REQ-0123-V-01: Reproducibility
+}
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t938]{LVV-T938} 
+        & Draft & Scott Daniel
+        \\
+            &&&
+        & 
+        \hyperref[lvv-t939]{LVV-T939} 
+        & Draft & Scott Daniel
+        \\
+            &&&
+        & 
+        \hyperref[lvv-t940]{LVV-T940} 
+        & Draft & Scott Daniel
+        \\
+            &&&
+        & 
+        \hyperref[lvv-t941]{LVV-T941} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
+58 &
+    \href{https://jira.lsstcorp.org/browse/LVV-165}{LVV-165 - DMS-REQ-0334-V-01: Persisting Data Products
+}
+& Not Covered & Colin Slater
+        & 
+        \hyperref[lvv-t12]{LVV-T12} 
+        & Approved & Jim Bosch
+        \\
+            \hdashline
+59 &
+    \href{https://jira.lsstcorp.org/browse/LVV-98}{LVV-98 - DMS-REQ-0267-V-01: Source Catalog
+}
+& Not Covered & Jim Bosch
+        & 
+        \hyperref[lvv-t12]{LVV-T12} 
+        & Approved & Jim Bosch
+        \\
+            \hdashline
+60 &
+    \href{https://jira.lsstcorp.org/browse/LVV-99}{LVV-99 - DMS-REQ-0268-V-01: Forced-Source Catalog
+}
+& Not Covered & Jim Bosch
+        & 
+        \hyperref[lvv-t12]{LVV-T12} 
+        & Approved & Jim Bosch
+        \\
+            \hdashline
+61 &
+    \href{https://jira.lsstcorp.org/browse/LVV-106}{LVV-106 - DMS-REQ-0275-V-01: Object Catalog
+}
+& Not Covered & Jim Bosch
+        & 
+        \hyperref[lvv-t12]{LVV-T12} 
+        & Approved & Jim Bosch
+        \\
+            \hdashline
+62 &
+    \href{https://jira.lsstcorp.org/browse/LVV-110}{LVV-110 - DMS-REQ-0279-V-01: Deep Detection Coadds
+}
+& Not Covered & Jim Bosch
+        & 
+        \hyperref[lvv-t12]{LVV-T12} 
+        & Approved & Jim Bosch
+        \\
+            \hdashline
+63 &
+    \href{https://jira.lsstcorp.org/browse/LVV-125}{LVV-125 - DMS-REQ-0294-V-01: Processing of Datasets
+}
+& Not Covered & Robert Lupton
+        & 
+        \hyperref[lvv-t12]{LVV-T12} 
+        & Approved & Jim Bosch
+        \\
+            \hdashline
+64 &
+    \href{https://jira.lsstcorp.org/browse/LVV-46}{LVV-46 - DMS-REQ-0106-V-01: Coadded Image Provenance
+}
+& Not Covered & Robert Gruendl
+        & 
+        \hyperref[lvv-t64]{LVV-T64} 
+        & Draft & Jim Bosch
+        \\
+            \hdashline
+65 &
+    \href{https://jira.lsstcorp.org/browse/LVV-1234}{LVV-1234 - OSS-REQ-0122-V-01: Provenance
+}
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t64]{LVV-T64} 
+        & Draft & Jim Bosch
+        \\
+            &&&
+        & 
+        \hyperref[lvv-t942]{LVV-T942} 
+        & Draft & Scott Daniel
+        \\
+            &&&
+        & 
+        \hyperref[lvv-t33]{LVV-T33} 
+        & Draft & Kian-Tat Lim
+        \\
+            &&&
+        & 
+        \hyperref[lvv-t943]{LVV-T943} 
+        & Draft & Scott Daniel
+        \\
+            \hdashline
+66 &
+    \href{https://jira.lsstcorp.org/browse/LVV-8}{LVV-8 - DMS-REQ-0018-V-01: Raw Science Image Data Acquisition
+}
+& Not Covered & Robert Gruendl
+        & 
+        \hyperref[lvv-t29]{LVV-T29} 
+        & Draft & Kian-Tat Lim
+        \\
+            \hdashline
+67 &
+    \href{https://jira.lsstcorp.org/browse/LVV-11}{LVV-11 - DMS-REQ-0024-V-01: Raw Image Assembly
+}
+& Not Covered & Gregory Dubois-Felsmann
+        & 
+        \hyperref[lvv-t32]{LVV-T32} 
+        & Draft & Kian-Tat Lim
+        \\
+            \hdashline
+68 &
+    \href{https://jira.lsstcorp.org/browse/LVV-28}{LVV-28 - DMS-REQ-0068-V-01: Raw Science Image Metadata
+}
+& Not Covered & Gregory Dubois-Felsmann
+        & 
+        \hyperref[lvv-t33]{LVV-T33} 
+        & Draft & Kian-Tat Lim
         \\
             \hdashline
 \tabularnewline
