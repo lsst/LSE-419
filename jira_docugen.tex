@@ -107,6 +107,8 @@ Test Id & Test Name\tabularnewline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T942}{Provenance on Level 2 catalogs} \tabularnewline
     \hyperref[lvv-t943]{LVV-T943} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T943}{Provenance in Level 1 catalogs} \tabularnewline
+    \hyperref[lvv-t950]{LVV-T950} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T950}{DIASource misassociation rate} \tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -5749,6 +5751,129 @@ catalogs from step 2
         \\ \midrule
     \end{longtable}
 
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T950}{LVV-T950}
+    - DIASource misassociation rate}\label{lvv-t950}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1285}{LVV-1285} - OSS-REQ-0160-V-01: Level 1 Difference Source - Difference Object
+Association Quality
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that DIASources are not misassociated with DIAObjects at too
+large a rate
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Collect images from a minisurvey
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Images and calibration products from a minisurvey
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Use synpipe (or some other tool) to inject variable sources with
+different degrees of variability and different signal-to-noise ratios
+into the images from step 1
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Images from step 1
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Images with an artificial population of variable sources
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Perform level 1 processing on the images with artificial variable
+sources in them
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Images with artificial variable sources from step 2
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Catalog of DIASources and DIAObjects
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Consider only the artificial variables injected in step 2 (for which we
+know the ground truth). ~Verify that they are not misassociated with
+DIAObjects at a larger than acceptable rate.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                DIASources and DIAObjects from step 3
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
 \appendix
 % generated from JIRA project LVV
 % using template at /var/jenkins_home/.local/lib/python3.7/site-packages/docsteady/templates/dm-spec-appendix.latex.jinja2.
@@ -6999,6 +7124,16 @@ catalogs from step 2
         & 
         \hyperref[lvv-t33]{LVV-T33} 
         & Draft & Kian-Tat Lim
+        \\
+            \hdashline
+69 &
+    \href{https://jira.lsstcorp.org/browse/LVV-1285}{LVV-1285 - OSS-REQ-0160-V-01: Level 1 Difference Source - Difference Object
+Association Quality
+}
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t950]{LVV-T950} 
+        & Draft & Scott Daniel
         \\
             \hdashline
 \tabularnewline
