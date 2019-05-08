@@ -109,6 +109,14 @@ Test Id & Test Name\tabularnewline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T943}{Provenance in Level 1 catalogs} \tabularnewline
     \hyperref[lvv-t950]{LVV-T950} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T950}{DIASource misassociation rate} \tabularnewline
+    \hyperref[lvv-t956]{LVV-T956} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T956}{Ghost area characterization} \tabularnewline
+    \hyperref[lvv-t957]{LVV-T957} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T957}{Ghost effect on photometric repeatability} \tabularnewline
+    \hyperref[lvv-t959]{LVV-T959} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T959}{Inter-band astrometric consistency} \tabularnewline
+    \hyperref[lvv-t960]{LVV-T960} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T960}{Relative astrometric performance} \tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -343,7 +351,7 @@ Demonstration & Keith Bechtol
 \toprule
 Version & Status & Priority & Verification Type & Owner
 \\\midrule
-1 & Draft & Normal &
+1 & Defined & Normal &
 Test & Keith Bechtol
 \\\bottomrule
 \end{longtable}
@@ -381,12 +389,77 @@ Note: Probably measured with respect to Gaia as external reference
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            
+            Take images from region overlapping the Gaia footprint. ~Repeat at
+multiple airmasses.
+
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
             \begin{minipage}[t]{13cm}{\footnotesize
                 No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Set of images
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Perform source detection and astrometric measurement on images from step
+1
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Images from step 1
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Catalog of sources
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Cross-match catalog from step 2 with Gaia catalog
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Catalog of sources from step 2\\
+Catalog of Gaia sources with measured positions
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Cross-matched catalog of sources seen by both LSST and Gaia
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that the median error of the LSST positions (relative to the Gaia
+positions) is 50 arcseconds in RA, Dec independently
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Cross-matched catalog from step 3
+
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
@@ -718,7 +791,7 @@ the histrograms corresponding to each angular scale.
 \toprule
 Version & Status & Priority & Verification Type & Owner
 \\\midrule
-1 & Draft & Normal &
+1 & Defined & Normal &
 Analysis & Imram Hasan
 \\\bottomrule
 \end{longtable}
@@ -5874,6 +5947,706 @@ DIAObjects at a larger than acceptable rate.
         \\ \midrule
     \end{longtable}
 
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T956}{LVV-T956}
+    - Ghost area characterization}\label{lvv-t956}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-785}{LVV-785} - OSS-REQ-0222-V-01: Ghost Image Control
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-9801}{LVV-9801} - LSR-REQ-0093-V-08: Photometric Performance\_8
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-13369}{LVV-13369} - OSS-REQ-0387-V-08: Photometric Performance\_8
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that the area affected by significant ghosts is within specified
+limits.
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Image a field of view with a bright star (magnitude=4 ?) in each of the
+six bands.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                A set of images in each band containing a bright star.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Dither the telescope pointing so that the bright star is far off of the
+field of view (so that we no longer expect it to produce ghosts).
+~Re-image the dithered field in all six bands.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                A set of images in each band overlapping the images from step 1, but
+with the bright star far outside the field of view.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Perform difference imaging on the overlap region between the images in
+step 1 and step 2.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Images from steps 1 and 2
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                A set of difference images
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Search differenced images for ghosts that exceed 1/3 of sky noise on 1
+arcsecond scales. ~Calculate percentage of image area affected by these
+ghosts.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Difference images from step 3.
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                No more than 1\% of the image area is affected by ghosts that exceed 1/3
+of sky noise on 1 arsecond scales.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T957}{LVV-T957}
+    - Ghost effect on photometric repeatability}\label{lvv-t957}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-785}{LVV-785} - OSS-REQ-0222-V-01: Ghost Image Control
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that ghosting does not unduly effect our photometric
+repeatability
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-1
+                {\scriptsize from \hyperref[lvv-t956]
+                {LVV-T956} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Image a field of view with a bright star (magnitude=4 ?) in each of the
+six bands.
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                    \begin{minipage}[t]{13cm}{\scriptsize
+                    A set of images in each band containing a bright star.
+
+                    \vspace{\dp0}
+                    } \end{minipage}
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-2
+                {\scriptsize from \hyperref[lvv-t956]
+                {LVV-T956} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Dither the telescope pointing so that the bright star is far off of the
+field of view (so that we no longer expect it to produce ghosts).
+~Re-image the dithered field in all six bands.
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                    \begin{minipage}[t]{13cm}{\scriptsize
+                    A set of images in each band overlapping the images from step 1, but
+with the bright star far outside the field of view.
+
+                    \vspace{\dp0}
+                    } \end{minipage}
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-3
+                {\scriptsize from \hyperref[lvv-t956]
+                {LVV-T956} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Perform difference imaging on the overlap region between the images in
+step 1 and step 2.
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                    Images from steps 1 and 2
+
+                    \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                    \begin{minipage}[t]{13cm}{\scriptsize
+                    A set of difference images
+
+                    \vspace{\dp0}
+                    } \end{minipage}
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-4
+                {\scriptsize from \hyperref[lvv-t956]
+                {LVV-T956} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Search differenced images for ghosts that exceed 1/3 of sky noise on 1
+arcsecond scales. ~Calculate percentage of image area affected by these
+ghosts.
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                    Difference images from step 3.
+
+                    \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                    \begin{minipage}[t]{13cm}{\scriptsize
+                    No more than 1\% of the image area is affected by ghosts that exceed 1/3
+of sky noise on 1 arsecond scales.
+
+                    \vspace{\dp0}
+                    } \end{minipage}
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Identify regions containing ghosts from the bright star in the first set
+of images, but which hopefully do not contain ghosts in the second set
+of images.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Perform photometric measurement in both the images with and without the
+bright star in the regions affected by ghosts identified in step 2.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Ghost-affected regions identified in step 2
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Photometric measurements of sources in the presence and absence of
+ghosts.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that the repeatability of photometric measurements on theses
+sources has not degraded by more than 10\% due to the presence of
+ghosts.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Photometric measurements from step 3
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T959}{LVV-T959}
+    - Inter-band astrometric consistency}\label{lvv-t959}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-238}{LVV-238} - LSR-REQ-0094-V-01: Astrometric Performance1
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that the separations between objects do not vary significantly
+with band
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Image an average field in all six bands. ~Repeat a different airmasses.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Set of images
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Perform source detection and astrometric measurements on the images from
+step 1
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Images from step 1
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Catalog of sources in images from step 1
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Find separations between all pairs of sources in catalogs from step 2
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Catalogs of sources from step 2
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Measurements of source separations in each band
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For each band, compute the RMS difference in source separations relative
+to the r-band. ~Verify that this values is less than or equal to 10
+milliarcseconds.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Source separations from step 3
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that no more than 10 percent of source separation measurements in
+any band vary by more than 20 milliarcseconds from the r band
+measurements
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Source separations from step 3
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T960}{LVV-T960}
+    - Relative astrometric performance}\label{lvv-t960}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-238}{LVV-238} - LSR-REQ-0094-V-01: Astrometric Performance1
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that relative astrometric separations are as accurate as
+specified
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Image a region that overlaps the Gaia footprint (we will use Gaia as
+astrometric truth). ~Repeat at different airmasses.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Images taken from Gaia region
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run source detection and astrometric measurement on images from step 1
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Images from step 1
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Catalog of sources detected in images from step 1
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Calculate the separation between all sources detected in step 2
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Source catalogs from step 2
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Measurements of source pair separations
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Compare source separations from step 3 to the same source separations as
+measured by Gaia
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Source separations from step 3; cross-matched with Gaia catalog
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Distribution of astrometric errors relative to Gaia
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Examine distribution of source separation errors from step 4 for all
+pairs of sources separated by \textasciitilde{} 5 arcminutes. ~Verify
+that the median error in these measurements is \textless{}= 10
+milliarcseconds
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Source separation errors from step 4
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 6 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that no more than 10\% of the source pairs separated by
+\textasciitilde{} 5 arcminutes have separation errors greater than 20
+milliarcseconds
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Source separation errors from step 4
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 7 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Examine distribution of source separation errors from step 4 for all
+pairs of sources separated by \textasciitilde{} 20 arcminutes. ~Verify
+that the median error in these measurements is \textless{}= 10
+milliarcseconds
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Source separation errors from step 4
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 8 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that no more than 10 percent of source pairs separated by
+\textasciitilde{} 20 arcminutes have source separation errors greater
+than 20 milliarcseconds
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Source separation errors from step 4
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 9 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Examine distribution of source separation errors from step 4 for all
+pairs separated by \textasciitilde{} 200 arcminutes. ~Verify that the
+median error in these measurements is \textless{}= 15 milliarcseconds.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Source separation errors from step 4
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 10 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that no more than 10 percent of sources separated by
+\textasciitilde{} 200 arcminutes have source separation errors greater
+than 30 milliarcseconds.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Source separation errors from step 4
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
 \appendix
 % generated from JIRA project LVV
 % using template at /var/jenkins_home/.local/lib/python3.7/site-packages/docsteady/templates/dm-spec-appendix.latex.jinja2.
@@ -5905,7 +6678,7 @@ DIAObjects at a larger than acceptable rate.
             &&&
         & 
         \hyperref[lvv-t297]{LVV-T297} 
-        & Draft & Keith Bechtol
+        & Defined & Keith Bechtol
         \\
             &&&
         & 
@@ -5966,7 +6739,17 @@ DIAObjects at a larger than acceptable rate.
 & Not Covered & Chuck Claver
         & 
         \hyperref[lvv-t297]{LVV-T297} 
-        & Draft & Keith Bechtol
+        & Defined & Keith Bechtol
+        \\
+            &&&
+        & 
+        \hyperref[lvv-t959]{LVV-T959} 
+        & Defined & Scott Daniel
+        \\
+            &&&
+        & 
+        \hyperref[lvv-t960]{LVV-T960} 
+        & Defined & Scott Daniel
         \\
             \hdashline
 6 &
@@ -6002,7 +6785,7 @@ DIAObjects at a larger than acceptable rate.
 & Not Covered & Imram Hasan
         & 
         \hyperref[lvv-t389]{LVV-T389} 
-        & Draft & Imram Hasan
+        & Defined & Imram Hasan
         \\
             \hdashline
 10 &
@@ -6011,7 +6794,7 @@ DIAObjects at a larger than acceptable rate.
 & Not Covered & Imram Hasan
         & 
         \hyperref[lvv-t389]{LVV-T389} 
-        & Draft & Imram Hasan
+        & Defined & Imram Hasan
         \\
             \hdashline
 11 &
@@ -7133,6 +7916,38 @@ Association Quality
 & Not Covered & Scott Daniel
         & 
         \hyperref[lvv-t950]{LVV-T950} 
+        & Defined & Scott Daniel
+        \\
+            \hdashline
+70 &
+    \href{https://jira.lsstcorp.org/browse/LVV-785}{LVV-785 - OSS-REQ-0222-V-01: Ghost Image Control
+}
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t956]{LVV-T956} 
+        & Defined & Scott Daniel
+        \\
+            &&&
+        & 
+        \hyperref[lvv-t957]{LVV-T957} 
+        & Defined & Scott Daniel
+        \\
+            \hdashline
+71 &
+    \href{https://jira.lsstcorp.org/browse/LVV-9801}{LVV-9801 - LSR-REQ-0093-V-08: Photometric Performance\_8
+}
+& Not Covered & Sam Schmidt
+        & 
+        \hyperref[lvv-t956]{LVV-T956} 
+        & Defined & Scott Daniel
+        \\
+            \hdashline
+72 &
+    \href{https://jira.lsstcorp.org/browse/LVV-13369}{LVV-13369 - OSS-REQ-0387-V-08: Photometric Performance\_8
+}
+& Not Covered & Sam Schmidt
+        & 
+        \hyperref[lvv-t956]{LVV-T956} 
         & Defined & Scott Daniel
         \\
             \hdashline
