@@ -117,6 +117,24 @@ Test Id & Test Name\tabularnewline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T959}{Inter-band astrometric consistency} \tabularnewline
     \hyperref[lvv-t960]{LVV-T960} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T960}{Relative astrometric performance} \tabularnewline
+    \hyperref[lvv-t961]{LVV-T961} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T961}{Bright source measurement} \tabularnewline
+    \hyperref[lvv-t962]{LVV-T962} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T962}{PSF ellipticity correlations} \tabularnewline
+    \hyperref[lvv-t963]{LVV-T963} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T963}{Alert generation reliability} \tabularnewline
+    \hyperref[lvv-t964]{LVV-T964} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T964}{Quick look during outage} \tabularnewline
+    \hyperref[lvv-t965]{LVV-T965} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T965}{Sub-system health during communication outage} \tabularnewline
+    \hyperref[lvv-t966]{LVV-T966} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T966}{Image storing during outage} \tabularnewline
+    \hyperref[lvv-t967]{LVV-T967} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T967}{Scheduler functioning during communication outage} \tabularnewline
+    \hyperref[lvv-t968]{LVV-T968} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T968}{WCS measurement and reporting} \tabularnewline
+    \hyperref[lvv-t969]{LVV-T969} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T969}{Alert completeness} \tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -6647,6 +6665,892 @@ than 30 milliarcseconds.
         \\ \midrule
     \end{longtable}
 
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T961}{LVV-T961}
+    - Bright source measurement}\label{lvv-t961}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-243}{LVV-243} - LSR-REQ-0095-V-01: Bright Sources1
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that we can adjust the exposure time to enable measurements of
+sources brighter than the nominal LSST saturation limit
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For each band, calculate the expected saturation limit for 15 second
+exposures.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                A list of nominal saturation limits.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Identify sources brighter than the saturation limits calculated in step
+1 in external catalogs.\\
+~\\
+This will probably involve fitting the stars to an SED so that we can
+extrapolate their magnitudes in LSST bands as needed.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                External catalog of bright stars (presumably Gaia)
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Catalog of bright sources to be used for this test
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Calculate the exposure time needed to take unsaturated images of the
+bright sources identified in step 2
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Catalog of bright sources from step 2
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                List of exposure times to be used in this test
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            In each band, take images of bright sources 1 magnitude brighter than 15
+second saturation limit in that band, using the exposure time calculated
+in step 3
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Bright source catalog from step 2\\
+Exposure times calculated in step 3
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Images of bright sources in each LSST band
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Perform single image processing on the images from step 4. ~Verify that
+the measured magnitudes of the bright sources agree with the magnitudes
+inferred from the external catalog used in step 2. ~This will indicate
+that we have successfully taken a science-quality image of the bright
+source.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Images from step 4\\
+External catalog used in step 2
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T962}{LVV-T962}
+    - PSF ellipticity correlations}\label{lvv-t962}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-293}{LVV-293} - LSR-REQ-0097-V-01: Ellipticity Correlations1
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that correlations in the ellipticity of the PSF measured on a
+single image are not excessive
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Image patches of sky at a wide variation of galactic latitude (to vary
+the number of sources used for PSF measurement) and airmasses (to vary
+the effects of the atmosphere on the PSF).
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                A set of images.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For each image in step 1, measure the PSF and decompose it into the
+functional form we are going to use to interpolate the PSF onto the
+positions of galaxies.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Images from step 1
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                PSF measurements in the images from step 1
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Use the PSF interpolation function to calculate the theoretically
+expected PSF at the position of stars used to measure the PSF so that we
+can accurately measure the residual between the measured PSF ellipticity
+and the interpolated PSF ellipticity.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                images from step 1\\
+PSF interpolation function from step 2
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Calculated PSF at positions of stars used to measure the PSF
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For each of the stars used to calculate the PSF, calculate the e1 and e2
+parameters specified in equations (10) and (11) of the Science
+Requirements Document.\\
+~\\
+Calculate e1 and e2 for the PSF as calculated from the interpolation
+function.\\
+~\\
+Subtract the measured e1 and e2 from the interpolated e1 and e2 to get
+the residuals delta\_e1, delta\_e2.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                PSF measurements on images from step 1\\
+Interpolated PSFs from step 3
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                distribution of PSF ellipticity residuals across the focal plane
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Calculate the correlation between pairs of sources of the PSF
+ellipticity residuals from step 4 as a function of separation angle
+between sources.\\
+~\\
+Verify that:\\
+~\\
+1) The median PSF ellipticity correlations on 1 arcminute scales is less
+than 2.0e-5 (on both E1 and E2)\\
+~\\
+2) The median PSF ellipticity correlations on 5 arcminutes scales is
+less than 1.0e-7\\
+~\\
+3) No more than 15\% of source pairs at 1 arcminute scales have PSF
+ellipticity correlations that exceed 4.0e-5 (on both E1 and E2)\\
+~\\
+4) No more than 15\% of source pairs at 5 arcminute scales have PSF
+ellipticity correlations greater than 2.0e-7
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                PSF ellipticity residual distributions from step 4
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T963}{LVV-T963}
+    - Alert generation reliability}\label{lvv-t963}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1207}{LVV-1207} - OSS-REQ-0112-V-01: Science Visit Alert Generation Reliability
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that the alert production pipeline does not skip or delay alert
+production on too many images
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Perform a mini-survey using a realistic scheduling algorithm. ~Run the
+images through the full alert-production pipeline.\\
+~\\
+Log all images taken by the camera and all alerts generated.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                A list of images taken and the resulting alerts.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that 99\% of images resulted in alerts being broadcast within 1
+minute of the image being taken.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                List of images and alerts from step 1
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that 99.9\% of images resulted in alerts being broadcast at all.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                List of images and alerts from step 1
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T964}{LVV-T964}
+    - Quick look during outage}\label{lvv-t964}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-994}{LVV-994} - OSS-REQ-0051-V-01: Summit-Base Connectivity Loss
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that the quick look system still functions, even when
+communication between the base and the summit has been lost
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            While the telescope is observing, deactivate all communication channels
+between the base and summit for some reasonable amount of time
+(\textasciitilde{} a few hours?)
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that the quick look system specified in OSS-REQ-0057 (LVV-1024)
+continues to operate, even in the absence of communications.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T965}{LVV-T965}
+    - Sub-system health during communication outage}\label{lvv-t965}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-994}{LVV-994} - OSS-REQ-0051-V-01: Summit-Base Connectivity Loss
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that sub-system health reporting infrastructure continues to
+function, even in the absence of base-to-summit communications
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            While the telescope is observing, deactivate base-to-summit
+communication channels for some reasonable amount of time
+(\textasciitilde{} a few hours?)
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that the sub-system health reporting infrastructure specified in
+OSS-REQ-0065 continues to operate while communication is down.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T966}{LVV-T966}
+    - Image storing during outage}\label{lvv-t966}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-994}{LVV-994} - OSS-REQ-0051-V-01: Summit-Base Connectivity Loss
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that the Data Management system can hold up to 48 hours of images
+in the event that base-to-summit communications are lost
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            While telescope is running, instruct the Data Management pipeline to
+cache data as if it cannot communicate with the base facility. ~Verify
+that the system can run for 48 hours in this mode without filling up the
+cache of images.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T967}{LVV-T967}
+    - Scheduler functioning during communication outage}\label{lvv-t967}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-994}{LVV-994} - OSS-REQ-0051-V-01: Summit-Base Connectivity Loss
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that the scheduler can continue to operate the telescope, even
+when communication between the base and the summit has been lost
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run OpSim with the scheduler in a mode that simulates loss of
+communication between the base and the summit. ~Verify that the
+scheduler can continue to operate for 48 simulated hours of observing in
+this state.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T968}{LVV-T968}
+    - WCS measurement and reporting}\label{lvv-t968}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1360}{LVV-1360} - OSS-REQ-0146-V-01: WCS Reporting
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that the Data Management system can produce and report a WCS
+solution for an image with the required accuracy in the required amount
+of time
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            While telescope is running in a survey-like setting, observe that WCS
+data is being reported within 60 seconds of images being taken.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Identify the reference stars used for astrometric solutions in the
+images from step 1. ~Compare their positions as reported in the
+reference catalog to their positions according to the reported WCS.
+~Verify that the residuals between catalog and WCS position have an RMS
+less than 0.2 arcseconds.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T969}{LVV-T969}
+    - Alert completeness}\label{lvv-t969}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-318}{LVV-318} - LSR-REQ-0101-V-01: Data Processing for Single Visits and Transients1
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-493}{LVV-493} - LSR-REQ-0025-V-01: Transient Filtering1
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that all difference image sources above SNR=5 get broadcast as
+alerts
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run mini-survey over a densely populated field
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Perform difference image analysis and alert production on that
+mini-survey
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Revisit difference images used to produce alerts in step 2. ~Verify by
+hand that 98\% of 5-sigma detections in those difference images resulted
+in alerts. ~(The 98\% figure comes form LSR-REQ-0025)
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Difference images produced in step 2
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that at least one image resulted in at least 10,000 alerts,
+verifying that the Data Management system was able to handle a volume of
+up to 10,000 alerts per image.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Alerts broadcast in step 2
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that all alerts were broadcast within 1 minute of image analysis
+completeness
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Alerts broadcast in step 2
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
 \appendix
 % generated from JIRA project LVV
 % using template at /var/jenkins_home/.local/lib/python3.7/site-packages/docsteady/templates/dm-spec-appendix.latex.jinja2.
@@ -7948,6 +8852,84 @@ Association Quality
 & Not Covered & Sam Schmidt
         & 
         \hyperref[lvv-t956]{LVV-T956} 
+        & Defined & Scott Daniel
+        \\
+            \hdashline
+73 &
+    \href{https://jira.lsstcorp.org/browse/LVV-243}{LVV-243 - LSR-REQ-0095-V-01: Bright Sources1
+}
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t961]{LVV-T961} 
+        & Defined & Scott Daniel
+        \\
+            \hdashline
+74 &
+    \href{https://jira.lsstcorp.org/browse/LVV-293}{LVV-293 - LSR-REQ-0097-V-01: Ellipticity Correlations1
+}
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t962]{LVV-T962} 
+        & Defined & Scott Daniel
+        \\
+            \hdashline
+75 &
+    \href{https://jira.lsstcorp.org/browse/LVV-1207}{LVV-1207 - OSS-REQ-0112-V-01: Science Visit Alert Generation Reliability
+}
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t963]{LVV-T963} 
+        & Defined & Scott Daniel
+        \\
+            \hdashline
+76 &
+    \href{https://jira.lsstcorp.org/browse/LVV-994}{LVV-994 - OSS-REQ-0051-V-01: Summit-Base Connectivity Loss
+}
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t964]{LVV-T964} 
+        & Defined & Scott Daniel
+        \\
+            &&&
+        & 
+        \hyperref[lvv-t965]{LVV-T965} 
+        & Defined & Scott Daniel
+        \\
+            &&&
+        & 
+        \hyperref[lvv-t966]{LVV-T966} 
+        & Defined & Scott Daniel
+        \\
+            &&&
+        & 
+        \hyperref[lvv-t967]{LVV-T967} 
+        & Defined & Scott Daniel
+        \\
+            \hdashline
+77 &
+    \href{https://jira.lsstcorp.org/browse/LVV-1360}{LVV-1360 - OSS-REQ-0146-V-01: WCS Reporting
+}
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t968]{LVV-T968} 
+        & Defined & Scott Daniel
+        \\
+            \hdashline
+78 &
+    \href{https://jira.lsstcorp.org/browse/LVV-318}{LVV-318 - LSR-REQ-0101-V-01: Data Processing for Single Visits and Transients1
+}
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t969]{LVV-T969} 
+        & Defined & Scott Daniel
+        \\
+            \hdashline
+79 &
+    \href{https://jira.lsstcorp.org/browse/LVV-493}{LVV-493 - LSR-REQ-0025-V-01: Transient Filtering1
+}
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t969]{LVV-T969} 
         & Defined & Scott Daniel
         \\
             \hdashline
