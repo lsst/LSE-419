@@ -3320,6 +3320,9 @@ Test & Scott Daniel
 \end{itemize}
 
 \subsubsection{Test Items}
+Verify that the CCD AP pipeline zero point is consistent within
+\textbf{photoZeroPointOffset (50)} millimags of the level 2 pipeline
+
 
 
 \subsubsection{Predecessors}
@@ -3342,13 +3345,15 @@ Test & Scott Daniel
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Image a patch of sky to a specified depth (1yr? 3yr? full LSST?).
+            Extract images from the mini survey~
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
             \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
+                mini-survey 1 data (\textasciitilde{}1 year depth)\\
+mini-survey 2 data (\textasciitilde{}10 year depth)
+
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
