@@ -135,6 +135,22 @@ Test Id & Test Name\tabularnewline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T968}{WCS measurement and reporting} \tabularnewline
     \hyperref[lvv-t969]{LVV-T969} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T969}{Alert completeness} \tabularnewline
+    \hyperref[lvv-t973]{LVV-T973} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T973}{Process LSSTCAM image set -- DRP} \tabularnewline
+    \hyperref[lvv-t974]{LVV-T974} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T974}{Process LSSTCAM images -- AP} \tabularnewline
+    \hyperref[lvv-t975]{LVV-T975} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T975}{Process ComCam images -- DRP} \tabularnewline
+    \hyperref[lvv-t976]{LVV-T976} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T976}{Process ComCam images -- AP} \tabularnewline
+    \hyperref[lvv-t977]{LVV-T977} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T977}{Mini-survey 1 -- template generation} \tabularnewline
+    \hyperref[lvv-t978]{LVV-T978} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T978}{Mini-survey 1 -- alert generation} \tabularnewline
+    \hyperref[lvv-t979]{LVV-T979} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T979}{Mini-survey 2 -- DRP test} \tabularnewline
+    \hyperref[lvv-t986]{LVV-T986} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T986}{MOPS -- orbit association at catalog level} \tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -2498,6 +2514,8 @@ Test & Scott Daniel
 \end{itemize}
 
 \subsubsection{Test Items}
+Measure the astrometric performance requirements using actual data
+
 
 
 \subsubsection{Predecessors}
@@ -2661,6 +2679,9 @@ Test & Scott Daniel
 \end{itemize}
 
 \subsubsection{Test Items}
+Measure the astrometric performance requirements by comparing actual
+data to a reference catalog (e.g. Gaia)
+
 
 
 \subsubsection{Predecessors}
@@ -2824,6 +2845,8 @@ Test & Scott Daniel
 \end{itemize}
 
 \subsubsection{Test Items}
+Test DM contribution to photometric measurement errors with simulations
+
 
 
 \subsubsection{Predecessors}
@@ -2966,6 +2989,8 @@ Test & Scott Daniel
 \end{itemize}
 
 \subsubsection{Test Items}
+Test DM contribution to photometric erros with LSST images
+
 
 
 \subsubsection{Predecessors}
@@ -3157,6 +3182,9 @@ Test & Scott Daniel
 \end{itemize}
 
 \subsubsection{Test Items}
+Test DM contribution to photometric errors by comparing LSST
+measurements to external catalog
+
 
 
 \subsubsection{Predecessors}
@@ -3438,13 +3466,13 @@ Test & Scott Daniel
 
 \subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-3766}{LVV-3766} - OSS-REQ-0159-V-01: Level 1 Moving Object Quality
-
 \item \href{https://jira.lsstcorp.org/browse/LVV-116}{LVV-116} - DMS-REQ-0285-V-01: Level 1 Source Association
 
 \end{itemize}
 
 \subsubsection{Test Items}
+Test completeness of orbit association using simulated data
+
 
 
 \subsubsection{Predecessors}
@@ -3608,6 +3636,9 @@ Test & Scott Daniel
 \end{itemize}
 
 \subsubsection{Test Items}
+Test the effect of individual image WCSes on coadd WCSes using
+simulations.
+
 
 
 \subsubsection{Predecessors}
@@ -3751,6 +3782,9 @@ Test & Scott Daniel
 \end{itemize}
 
 \subsubsection{Test Items}
+Verify that objects within the specified dynamic range of a single image
+are not saturated
+
 
 
 \subsubsection{Predecessors}
@@ -7561,6 +7595,609 @@ completeness
         \\ \midrule
     \end{longtable}
 
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T973}{LVV-T973}
+    - Process LSSTCAM image set -- DRP}\label{lvv-t973}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+    None.
+
+\subsubsection{Test Items}
+Perform level 2 processing on a set of images from LSSTCAM
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run full Level 2 Data Management processing on images taken with LSSTCAM
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T974}{LVV-T974}
+    - Process LSSTCAM images -- AP}\label{lvv-t974}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+    None.
+
+\subsubsection{Test Items}
+Run Level 1 processing on image set taken with LSSTCAM
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run full level 1 Data Management processing on a set of images taken
+with LSSTCAM.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T975}{LVV-T975}
+    - Process ComCam images -- DRP}\label{lvv-t975}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+    None.
+
+\subsubsection{Test Items}
+Run level 2 processing on images taken with ComCam
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run full level 2 Data Management processing on a set of images taken
+with ComCam.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T976}{LVV-T976}
+    - Process ComCam images -- AP}\label{lvv-t976}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+    None.
+
+\subsubsection{Test Items}
+Run level 1 processing on images taken with ComCam
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run full level 1 Data Management processing on image set taken with
+ComCam.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T977}{LVV-T977}
+    - Mini-survey 1 -- template generation}\label{lvv-t977}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+    None.
+
+\subsubsection{Test Items}
+Create alert generation templates from LSSTCAM minisurvey
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Take images over area where we will be testing alert generation.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 2-1
+                {\scriptsize from \hyperref[lvv-t973]
+                {LVV-T973} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Run full Level 2 Data Management processing on images taken with LSSTCAM
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T978}{LVV-T978}
+    - Mini-survey 1 -- alert generation}\label{lvv-t978}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+    None.
+
+\subsubsection{Test Items}
+Test realtime alert generation with LSSTCAM mini-survey
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-1
+                {\scriptsize from \hyperref[lvv-t977]
+                {LVV-T977} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Take images over area where we will be testing alert generation.
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-2
+                {\scriptsize from \hyperref[lvv-t977]
+                {LVV-T977} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Re-image area where we are testing alert generation.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 3-1
+                {\scriptsize from \hyperref[lvv-t974]
+                {LVV-T974} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Run full level 1 Data Management processing on a set of images taken
+with LSSTCAM.
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T979}{LVV-T979}
+    - Mini-survey 2 -- DRP test}\label{lvv-t979}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+    None.
+
+\subsubsection{Test Items}
+Test coadd generation with LSSTCAM minisurvey
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Take images over area where we want to test coadd processing
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 2-1
+                {\scriptsize from \hyperref[lvv-t973]
+                {LVV-T973} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Run full Level 2 Data Management processing on images taken with LSSTCAM
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T986}{LVV-T986}
+    - MOPS -- orbit association at catalog level}\label{lvv-t986}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-3766}{LVV-3766} - OSS-REQ-0159-V-01: Level 1 Moving Object Quality
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Use catalog-level tests to verify that MOPS is correctly associating
+orbits at the correct rate
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Extract catalogs with sequence of observations meeting the requirements
+orbitNightlyObservationInterval = 90{[}minute{]} Interval over which a
+reference test case Solar System object must be observed within a night,
+orbitObservations = 2{[}integer{]} Number of detections within a single
+night required to define the reference test case for Solar System
+objects, orbitObservationInterval = 3{[}day{]}
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Simulate sequence of asteroid positions given these observations
+(pointing and time) using a current Solar System model
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Inject simulated asteroids into LSST catalog
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run MOPS
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Match simulated ~asteroids
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 6 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Plot fraction of recovered asteroids as a function of limiting magnitude
+(possibly for different populations of asteroids)
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
 \appendix
 % generated from JIRA project LVV
 % using template at /var/jenkins_home/.local/lib/python3.7/site-packages/docsteady/templates/dm-spec-appendix.latex.jinja2.
@@ -8560,15 +9197,6 @@ completeness
         \\
             \hdashline
 43 &
-    \href{https://jira.lsstcorp.org/browse/LVV-3766}{LVV-3766 - OSS-REQ-0159-V-01: Level 1 Moving Object Quality
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t550]{LVV-T550} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-44 &
     \href{https://jira.lsstcorp.org/browse/LVV-116}{LVV-116 - DMS-REQ-0285-V-01: Level 1 Source Association
 }
 & Not Covered & Eric Bellm
@@ -8577,7 +9205,7 @@ completeness
         & Defined & Scott Daniel
         \\
             \hdashline
-45 &
+44 &
     \href{https://jira.lsstcorp.org/browse/LVV-1339}{LVV-1339 - OSS-REQ-0153-V-01: World Coordinate System Accuracy
 }
 & Not Covered & Scott Daniel
@@ -8586,7 +9214,7 @@ completeness
         & Defined & Scott Daniel
         \\
             \hdashline
-46 &
+45 &
     \href{https://jira.lsstcorp.org/browse/LVV-1645}{LVV-1645 - OSS-REQ-0268-V-01: Dynamic Range
 }
 & Not Covered & Scott Daniel
@@ -8595,7 +9223,7 @@ completeness
         & Defined & Scott Daniel
         \\
             \hdashline
-47 &
+46 &
     \href{https://jira.lsstcorp.org/browse/LVV-253}{LVV-253 - LSR-REQ-0007-V-01: Delivered Image Quality1
 }
 & Not Covered & Scott Daniel
@@ -8604,7 +9232,7 @@ completeness
         & Defined & Scott Daniel
         \\
             \hdashline
-48 &
+47 &
     \href{https://jira.lsstcorp.org/browse/LVV-254}{LVV-254 - LSR-REQ-0007-V-02: Delivered Image Quality2
 }
 & Not Covered & Scott Daniel
@@ -8613,7 +9241,7 @@ completeness
         & Defined & Scott Daniel
         \\
             \hdashline
-49 &
+48 &
     \href{https://jira.lsstcorp.org/browse/LVV-255}{LVV-255 - LSR-REQ-0007-V-03: Delivered Image Quality3
 }
 & Not Covered & Scott Daniel
@@ -8622,7 +9250,7 @@ completeness
         & Defined & Scott Daniel
         \\
             \hdashline
-50 &
+49 &
     \href{https://jira.lsstcorp.org/browse/LVV-256}{LVV-256 - LSR-REQ-0007-V-04: Delivered Image Quality4
 }
 & Not Covered & Scott Daniel
@@ -8631,7 +9259,7 @@ completeness
         & Defined & Scott Daniel
         \\
             \hdashline
-51 &
+50 &
     \href{https://jira.lsstcorp.org/browse/LVV-257}{LVV-257 - LSR-REQ-0007-V-05: Delivered Image Quality5
 }
 & Not Covered & Scott Daniel
@@ -8640,7 +9268,7 @@ completeness
         & Defined & Scott Daniel
         \\
             \hdashline
-52 &
+51 &
     \href{https://jira.lsstcorp.org/browse/LVV-9804}{LVV-9804 - LSR-REQ-0007-V-06: Delivered Image Quality\_6
 }
 & Not Covered & Scott Daniel
@@ -8649,7 +9277,7 @@ completeness
         & Defined & Scott Daniel
         \\
             \hdashline
-53 &
+52 &
     \href{https://jira.lsstcorp.org/browse/LVV-9805}{LVV-9805 - LSR-REQ-0007-V-07: Delivered Image Quality\_7
 }
 & Not Covered & Scott Daniel
@@ -8658,7 +9286,7 @@ completeness
         & Defined & Scott Daniel
         \\
             \hdashline
-54 &
+53 &
     \href{https://jira.lsstcorp.org/browse/LVV-268}{LVV-268 - LSR-REQ-0087-V-01: Off Zenith Degradation1
 }
 & Not Covered & Scott Daniel
@@ -8667,7 +9295,7 @@ completeness
         & Defined & Scott Daniel
         \\
             \hdashline
-55 &
+54 &
     \href{https://jira.lsstcorp.org/browse/LVV-248}{LVV-248 - LSR-REQ-0092-V-01: Delivered Image Ellipticity1
 }
 & Not Covered & Scott Daniel
@@ -8676,7 +9304,7 @@ completeness
         & Defined & Scott Daniel
         \\
             \hdashline
-56 &
+55 &
     \href{https://jira.lsstcorp.org/browse/LVV-3751}{LVV-3751 - LSR-REQ-0089-V-01: r-band Reference Depth1
 }
 & Not Covered & Scott Daniel
@@ -8685,7 +9313,7 @@ completeness
         & Defined & Scott Daniel
         \\
             \hdashline
-57 &
+56 &
     \href{https://jira.lsstcorp.org/browse/LVV-258}{LVV-258 - LSR-REQ-0109-V-01: Depth Variation Over FOV1
 }
 & Not Covered & Scott Daniel
@@ -8694,7 +9322,7 @@ completeness
         & Defined & Scott Daniel
         \\
             \hdashline
-58 &
+57 &
     \href{https://jira.lsstcorp.org/browse/LVV-1237}{LVV-1237 - OSS-REQ-0123-V-01: Reproducibility
 }
 & Not Covered & Scott Daniel
@@ -8718,7 +9346,7 @@ completeness
         & Defined & Scott Daniel
         \\
             \hdashline
-59 &
+58 &
     \href{https://jira.lsstcorp.org/browse/LVV-165}{LVV-165 - DMS-REQ-0334-V-01: Persisting Data Products
 }
 & Not Covered & Colin Slater
@@ -8727,7 +9355,7 @@ completeness
         & Approved & Jim Bosch
         \\
             \hdashline
-60 &
+59 &
     \href{https://jira.lsstcorp.org/browse/LVV-98}{LVV-98 - DMS-REQ-0267-V-01: Source Catalog
 }
 & Not Covered & Jim Bosch
@@ -8736,7 +9364,7 @@ completeness
         & Approved & Jim Bosch
         \\
             \hdashline
-61 &
+60 &
     \href{https://jira.lsstcorp.org/browse/LVV-99}{LVV-99 - DMS-REQ-0268-V-01: Forced-Source Catalog
 }
 & Not Covered & Jim Bosch
@@ -8745,7 +9373,7 @@ completeness
         & Approved & Jim Bosch
         \\
             \hdashline
-62 &
+61 &
     \href{https://jira.lsstcorp.org/browse/LVV-106}{LVV-106 - DMS-REQ-0275-V-01: Object Catalog
 }
 & Not Covered & Jim Bosch
@@ -8754,7 +9382,7 @@ completeness
         & Approved & Jim Bosch
         \\
             \hdashline
-63 &
+62 &
     \href{https://jira.lsstcorp.org/browse/LVV-110}{LVV-110 - DMS-REQ-0279-V-01: Deep Detection Coadds
 }
 & Not Covered & Jim Bosch
@@ -8763,7 +9391,7 @@ completeness
         & Approved & Jim Bosch
         \\
             \hdashline
-64 &
+63 &
     \href{https://jira.lsstcorp.org/browse/LVV-125}{LVV-125 - DMS-REQ-0294-V-01: Processing of Datasets
 }
 & Not Covered & Robert Lupton
@@ -8772,7 +9400,7 @@ completeness
         & Approved & Jim Bosch
         \\
             \hdashline
-65 &
+64 &
     \href{https://jira.lsstcorp.org/browse/LVV-46}{LVV-46 - DMS-REQ-0106-V-01: Coadded Image Provenance
 }
 & Not Covered & Robert Gruendl
@@ -8781,7 +9409,7 @@ completeness
         & Draft & Jim Bosch
         \\
             \hdashline
-66 &
+65 &
     \href{https://jira.lsstcorp.org/browse/LVV-1234}{LVV-1234 - OSS-REQ-0122-V-01: Provenance
 }
 & Not Covered & Scott Daniel
@@ -8805,7 +9433,7 @@ completeness
         & Defined & Scott Daniel
         \\
             \hdashline
-67 &
+66 &
     \href{https://jira.lsstcorp.org/browse/LVV-8}{LVV-8 - DMS-REQ-0018-V-01: Raw Science Image Data Acquisition
 }
 & Not Covered & Robert Gruendl
@@ -8814,7 +9442,7 @@ completeness
         & Draft & Kian-Tat Lim
         \\
             \hdashline
-68 &
+67 &
     \href{https://jira.lsstcorp.org/browse/LVV-11}{LVV-11 - DMS-REQ-0024-V-01: Raw Image Assembly
 }
 & Not Covered & Gregory Dubois-Felsmann
@@ -8823,7 +9451,7 @@ completeness
         & Draft & Kian-Tat Lim
         \\
             \hdashline
-69 &
+68 &
     \href{https://jira.lsstcorp.org/browse/LVV-28}{LVV-28 - DMS-REQ-0068-V-01: Raw Science Image Metadata
 }
 & Not Covered & Gregory Dubois-Felsmann
@@ -8832,7 +9460,7 @@ completeness
         & Draft & Kian-Tat Lim
         \\
             \hdashline
-70 &
+69 &
     \href{https://jira.lsstcorp.org/browse/LVV-1285}{LVV-1285 - OSS-REQ-0160-V-01: Level 1 Difference Source - Difference Object
 Association Quality
 }
@@ -8842,7 +9470,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-71 &
+70 &
     \href{https://jira.lsstcorp.org/browse/LVV-785}{LVV-785 - OSS-REQ-0222-V-01: Ghost Image Control
 }
 & Not Covered & Scott Daniel
@@ -8856,7 +9484,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-72 &
+71 &
     \href{https://jira.lsstcorp.org/browse/LVV-9801}{LVV-9801 - LSR-REQ-0093-V-08: Photometric Performance\_8
 }
 & Not Covered & Sam Schmidt
@@ -8865,7 +9493,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-73 &
+72 &
     \href{https://jira.lsstcorp.org/browse/LVV-13369}{LVV-13369 - OSS-REQ-0387-V-08: Photometric Performance\_8
 }
 & Not Covered & Sam Schmidt
@@ -8874,7 +9502,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-74 &
+73 &
     \href{https://jira.lsstcorp.org/browse/LVV-243}{LVV-243 - LSR-REQ-0095-V-01: Bright Sources1
 }
 & Not Covered & Scott Daniel
@@ -8883,7 +9511,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-75 &
+74 &
     \href{https://jira.lsstcorp.org/browse/LVV-293}{LVV-293 - LSR-REQ-0097-V-01: Ellipticity Correlations1
 }
 & Not Covered & Scott Daniel
@@ -8892,7 +9520,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-76 &
+75 &
     \href{https://jira.lsstcorp.org/browse/LVV-1207}{LVV-1207 - OSS-REQ-0112-V-01: Science Visit Alert Generation Reliability
 }
 & Not Covered & Scott Daniel
@@ -8901,7 +9529,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-77 &
+76 &
     \href{https://jira.lsstcorp.org/browse/LVV-994}{LVV-994 - OSS-REQ-0051-V-01: Summit-Base Connectivity Loss
 }
 & Not Covered & Scott Daniel
@@ -8925,7 +9553,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-78 &
+77 &
     \href{https://jira.lsstcorp.org/browse/LVV-1360}{LVV-1360 - OSS-REQ-0146-V-01: WCS Reporting
 }
 & Not Covered & Scott Daniel
@@ -8934,7 +9562,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-79 &
+78 &
     \href{https://jira.lsstcorp.org/browse/LVV-318}{LVV-318 - LSR-REQ-0101-V-01: Data Processing for Single Visits and Transients1
 }
 & Not Covered & Scott Daniel
@@ -8943,12 +9571,21 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-80 &
+79 &
     \href{https://jira.lsstcorp.org/browse/LVV-493}{LVV-493 - LSR-REQ-0025-V-01: Transient Filtering1
 }
 & Not Covered & Scott Daniel
         & 
         \hyperref[lvv-t969]{LVV-T969} 
+        & Defined & Scott Daniel
+        \\
+            \hdashline
+80 &
+    \href{https://jira.lsstcorp.org/browse/LVV-3766}{LVV-3766 - OSS-REQ-0159-V-01: Level 1 Moving Object Quality
+}
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t986]{LVV-T986} 
         & Defined & Scott Daniel
         \\
             \hdashline
