@@ -151,6 +151,10 @@ Test Id & Test Name\tabularnewline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T979}{Mini-survey 2 -- DRP test} \tabularnewline
     \hyperref[lvv-t986]{LVV-T986} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T986}{MOPS -- orbit association at catalog level} \tabularnewline
+    \hyperref[lvv-t999]{LVV-T999} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T999}{DM contribution to photometric error (Level 1)} \tabularnewline
+    \hyperref[lvv-t1000]{LVV-T1000} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1000}{Run processCCD on set of images} \tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -395,6 +399,8 @@ Test & Keith Bechtol
 \item \href{https://jira.lsstcorp.org/browse/LVV-238}{LVV-238} - LSR-REQ-0094-V-01: Astrometric Performance1
 
 \item \href{https://jira.lsstcorp.org/browse/LVV-1544}{LVV-1544} - OSS-REQ-0228-V-02: Image Size in Pixels
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-1273}{LVV-1273} - OSS-REQ-0149-V-01: Level 1 Catalog Precision
 
 \end{itemize}
 
@@ -2042,7 +2048,7 @@ obtained after the second iteration.
 \toprule
 Version & Status & Priority & Verification Type & Owner
 \\\midrule
-1 & Draft & Normal &
+1 & Defined & Normal &
 Test & Scott Daniel
 \\\bottomrule
 \end{longtable}
@@ -2054,6 +2060,9 @@ Test & Scott Daniel
 \end{itemize}
 
 \subsubsection{Test Items}
+Verify that spuriousness metric has a threshold value at which
+completeness and purity requirements for MOPS are met
+
 
 
 \subsubsection{Predecessors}
@@ -2357,10 +2366,7 @@ Test & Scott Daniel
 \end{longtable}
 
 \subsubsection{Verification Elements}
-\begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-1273}{LVV-1273} - OSS-REQ-0149-V-01: Level 1 Catalog Precision
-
-\end{itemize}
+    None.
 
 \subsubsection{Test Items}
 Measure the astrometric performance requirements using simulated LSST
@@ -2508,10 +2514,7 @@ Test & Scott Daniel
 \end{longtable}
 
 \subsubsection{Verification Elements}
-\begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-1273}{LVV-1273} - OSS-REQ-0149-V-01: Level 1 Catalog Precision
-
-\end{itemize}
+    None.
 
 \subsubsection{Test Items}
 Measure the astrometric performance requirements using actual data
@@ -2702,29 +2705,33 @@ data to a reference catalog (e.g. Gaia)
     Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
     \endhead
 
-            \multirow{3}{*}{ 1 } & Description &
-            \begin{minipage}[t]{13cm}{\footnotesize
-            Find catalog of sources with well-measured astrometry.
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-1
+                {\scriptsize from \hyperref[lvv-t1000]
+                {LVV-T1000} } } }
 
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Test Data &
-            \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
-                \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Expected Result &
-                \begin{minipage}[t]{13cm}{\footnotesize
-                Catalog of sources to be used as ground truth
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Run processCCD (or the equivalent single-image processing script) on
+images taken as a part of the mini-survey.\\
+~\\
+(We cannot just run the Level 1 pipeline, because the Level 1 pipeline
+is meant to only do photometry on variable/transient sources, and we are
+going to specifically be looking at static sources in the steps below)
 
                 \vspace{\dp0}
-                } \end{minipage}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
         \\ \midrule
 
             \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Image the area of sky overlapping ground truth catalog from step 1 under
-diverse observing conditions (airmass, seeing, etc.).
+            Cross match sources in step 1 with Gaia sources.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -2734,92 +2741,32 @@ diverse observing conditions (airmass, seeing, etc.).
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
-                \begin{minipage}[t]{13cm}{\footnotesize
-                Images overlapping catalog from step 1
-
-                \vspace{\dp0}
-                } \end{minipage}
         \\ \midrule
 
             \multirow{3}{*}{ 3 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Perform Level 1 processing on images taken in step 2.
+            Plot astrometric residual between Gaia positions and LSST positions as a
+function of SNR. ~Use images in all 6 bands.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
             \begin{minipage}[t]{13cm}{\footnotesize
-                Images from step 2\\
-Coadd template constructed therefrom
-
+                No data.
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
-                \begin{minipage}[t]{13cm}{\footnotesize
-                Catalog of DIASources
-
-                \vspace{\dp0}
-                } \end{minipage}
         \\ \midrule
 
             \multirow{3}{*}{ 4 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Construct a model of astrometric errors due only to observing conditions
-of images in step 2.
+            Verify that, at high SNR, residual asymptotes to 0.1 arcsecond.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
             \begin{minipage}[t]{13cm}{\footnotesize
-                Metadata from images taken in step 2
-
-                \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Expected Result &
-                \begin{minipage}[t]{13cm}{\footnotesize
-                Model of astrometric errors expected from observing conditions
-
-                \vspace{\dp0}
-                } \end{minipage}
-        \\ \midrule
-
-            \multirow{3}{*}{ 5 } & Description &
-            \begin{minipage}[t]{13cm}{\footnotesize
-            Compare DIASources in step 3 to catalog from step 1 to find measured
-astrometric errors.
-
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Test Data &
-            \begin{minipage}[t]{13cm}{\footnotesize
-                Truth catalog from step 1\\
-DIASource catalog from step 3\\
-(relies on a signficant portion of the DIASources appearing in the truth
-catalog)
-
-                \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Expected Result &
-                \begin{minipage}[t]{13cm}{\footnotesize
-                Catalog of measured astrometric errors
-
-                \vspace{\dp0}
-                } \end{minipage}
-        \\ \midrule
-
-            \multirow{3}{*}{ 6 } & Description &
-            \begin{minipage}[t]{13cm}{\footnotesize
-            Calculate RMS residual between measured astrometric errors (step 5) and
-astrometric errors expected due only to observing conditions (step 4).
-~Verify that residual is less than specified limit.
-
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Test Data &
-            \begin{minipage}[t]{13cm}{\footnotesize
-                Measured astrometric errors from step 5\\
-Model of astrometric errors from step 4
-
+                No data.
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
@@ -2839,10 +2786,7 @@ Test & Scott Daniel
 \end{longtable}
 
 \subsubsection{Verification Elements}
-\begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-1274}{LVV-1274} - OSS-REQ-0149-V-02: Level 1 Catalog Precision2
-
-\end{itemize}
+    None.
 
 \subsubsection{Test Items}
 Test DM contribution to photometric measurement errors with simulations
@@ -2983,10 +2927,7 @@ Test & Scott Daniel
 \end{longtable}
 
 \subsubsection{Verification Elements}
-\begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-1274}{LVV-1274} - OSS-REQ-0149-V-02: Level 1 Catalog Precision2
-
-\end{itemize}
+    None.
 
 \subsubsection{Test Items}
 Test DM contribution to photometric erros with LSST images
@@ -3176,10 +3117,7 @@ Test & Scott Daniel
 \end{longtable}
 
 \subsubsection{Verification Elements}
-\begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-1274}{LVV-1274} - OSS-REQ-0149-V-02: Level 1 Catalog Precision2
-
-\end{itemize}
+    None.
 
 \subsubsection{Test Items}
 Test DM contribution to photometric errors by comparing LSST
@@ -6360,6 +6298,8 @@ Test & Scott Daniel
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-238}{LVV-238} - LSR-REQ-0094-V-01: Astrometric Performance1
 
+\item \href{https://jira.lsstcorp.org/browse/LVV-1273}{LVV-1273} - OSS-REQ-0149-V-01: Level 1 Catalog Precision
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -6496,6 +6436,8 @@ Test & Scott Daniel
 \subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-238}{LVV-238} - LSR-REQ-0094-V-01: Astrometric Performance1
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-1273}{LVV-1273} - OSS-REQ-0149-V-01: Level 1 Catalog Precision
 
 \end{itemize}
 
@@ -8198,6 +8140,192 @@ objects, orbitObservationInterval = 3{[}day{]}
         \\ \midrule
     \end{longtable}
 
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T999}{LVV-T999}
+    - DM contribution to photometric error (Level 1)}\label{lvv-t999}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1274}{LVV-1274} - OSS-REQ-0149-V-02: Level 1 Catalog Precision2
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that Level 1 DM system is not contributing too much to
+photometric errors; use comparison against Gaia
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Identify sources in Gaia that are static to within 0.006 magnitudes.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Use SED templates to predict ugrizy magnitudes for Gaia sources
+identified in step 2.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Plot residual between LSST-measured photometry and Gaia-predicted
+photometry as a function of SNR for the sources analyzed in step 1. ~Use
+images in all 6 bands.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that, at high SNR, the residual between measured and predicted
+magnitudes asymptotes to no more than 6 millimagnitudes.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 5-1
+                {\scriptsize from \hyperref[lvv-t1000]
+                {LVV-T1000} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Run processCCD (or the equivalent single-image processing script) on
+images taken as a part of the mini-survey.\\
+~\\
+(We cannot just run the Level 1 pipeline, because the Level 1 pipeline
+is meant to only do photometry on variable/transient sources, and we are
+going to specifically be looking at static sources in the steps below)
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1000}{LVV-T1000}
+    - Run processCCD on set of images}\label{lvv-t1000}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+    None.
+
+\subsubsection{Test Items}
+Run single image processing (not full Level 1 pipeline). ~This is for
+cases where we need Level 1 measurements of static sources.
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run processCCD (or the equivalent single-image processing script) on
+images taken as a part of the mini-survey.\\
+~\\
+(We cannot just run the Level 1 pipeline, because the Level 1 pipeline
+is meant to only do photometry on variable/transient sources, and we are
+going to specifically be looking at static sources in the steps below)
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
 \appendix
 % generated from JIRA project LVV
 % using template at /var/jenkins_home/.local/lib/python3.7/site-packages/docsteady/templates/dm-spec-appendix.latex.jinja2.
@@ -8304,6 +8432,30 @@ objects, orbitObservationInterval = 3{[}day{]}
         \\
             \hdashline
 6 &
+    \href{https://jira.lsstcorp.org/browse/LVV-1273}{LVV-1273 - OSS-REQ-0149-V-01: Level 1 Catalog Precision
+}
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t297]{LVV-T297} 
+        & Defined & Keith Bechtol
+        \\
+            &&&
+        & 
+        \hyperref[lvv-t545]{LVV-T545} 
+        & Defined & Scott Daniel
+        \\
+            &&&
+        & 
+        \hyperref[lvv-t959]{LVV-T959} 
+        & Defined & Scott Daniel
+        \\
+            &&&
+        & 
+        \hyperref[lvv-t960]{LVV-T960} 
+        & Defined & Scott Daniel
+        \\
+            \hdashline
+7 &
     \href{https://jira.lsstcorp.org/browse/LVV-1543}{LVV-1543 - OSS-REQ-0228-V-01: Image Quality Off-Zenith Degredation
 }
 & Not Covered & Bo Xin
@@ -8312,7 +8464,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Keith Bechtol
         \\
             \hdashline
-7 &
+8 &
     \href{https://jira.lsstcorp.org/browse/LVV-1546}{LVV-1546 - OSS-REQ-0234-V-01: 10-year Ellipticity Residuals
 }
 & Not Covered & Tony Tyson
@@ -8321,7 +8473,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Keith Bechtol
         \\
             \hdashline
-8 &
+9 &
     \href{https://jira.lsstcorp.org/browse/LVV-1366}{LVV-1366 - OSS-REQ-0390-V-01: Ellipticity Correlations
 }
 & Not Covered & Chuck Claver
@@ -8330,7 +8482,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Keith Bechtol
         \\
             \hdashline
-9 &
+10 &
     \href{https://jira.lsstcorp.org/browse/LVV-273}{LVV-273 - LSR-REQ-0093-V-01: Photometric Performance1
 }
 & Not Covered & Imram Hasan
@@ -8339,7 +8491,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Defined & Imram Hasan
         \\
             \hdashline
-10 &
+11 &
     \href{https://jira.lsstcorp.org/browse/LVV-1372}{LVV-1372 - OSS-REQ-0387-V-01: Photometric Performance\_1
 }
 & Not Covered & Imram Hasan
@@ -8348,7 +8500,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Defined & Imram Hasan
         \\
             \hdashline
-11 &
+12 &
     \href{https://jira.lsstcorp.org/browse/LVV-1555}{LVV-1555 - OSS-REQ-0238-V-01: Filter Response Uniformity u-band blue edge
 }
 & Not Covered & Brian Stalder
@@ -8377,7 +8529,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-12 &
+13 &
     \href{https://jira.lsstcorp.org/browse/LVV-1570}{LVV-1570 - OSS-REQ-0239-V-01: In-band Ripple u-band
 }
 & Not Covered & Brian Stalder
@@ -8406,7 +8558,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-13 &
+14 &
     \href{https://jira.lsstcorp.org/browse/LVV-1582}{LVV-1582 - OSS-REQ-0240-V-01: u-band Response Envelope
 }
 & Not Covered & Brian Stalder
@@ -8435,7 +8587,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-14 &
+15 &
     \href{https://jira.lsstcorp.org/browse/LVV-1579}{LVV-1579 - OSS-REQ-0366-V-01: u-band not-to-exceed envelope
 }
 & Not Covered & Brian Stalder
@@ -8464,7 +8616,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-15 &
+16 &
     \href{https://jira.lsstcorp.org/browse/LVV-1561}{LVV-1561 - OSS-REQ-0241-V-01: g-band Response Envelope
 }
 & Not Covered & Brian Stalder
@@ -8493,7 +8645,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-16 &
+17 &
     \href{https://jira.lsstcorp.org/browse/LVV-1558}{LVV-1558 - OSS-REQ-0367-V-01: g-band not-to-exceed envelope
 }
 & Not Covered & Brian Stalder
@@ -8522,7 +8674,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-17 &
+18 &
     \href{https://jira.lsstcorp.org/browse/LVV-1576}{LVV-1576 - OSS-REQ-0242-V-01: r-band Response Envelope
 }
 & Not Covered & Brian Stalder
@@ -8551,7 +8703,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-18 &
+19 &
     \href{https://jira.lsstcorp.org/browse/LVV-1573}{LVV-1573 - OSS-REQ-0368-V-01: r-band not-to-exceed envelope
 }
 & Not Covered & Brian Stalder
@@ -8580,7 +8732,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-19 &
+20 &
     \href{https://jira.lsstcorp.org/browse/LVV-1567}{LVV-1567 - OSS-REQ-0243-V-01: i-band Response Envelope
 }
 & Not Covered & Brian Stalder
@@ -8609,7 +8761,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-20 &
+21 &
     \href{https://jira.lsstcorp.org/browse/LVV-1564}{LVV-1564 - OSS-REQ-0369-V-01: i-band not-to-exceed envelope
 }
 & Not Covered & Brian Stalder
@@ -8638,7 +8790,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-21 &
+22 &
     \href{https://jira.lsstcorp.org/browse/LVV-1594}{LVV-1594 - OSS-REQ-0244-V-01: z-band Response Envelope
 }
 & Not Covered & Brian Stalder
@@ -8667,7 +8819,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-22 &
+23 &
     \href{https://jira.lsstcorp.org/browse/LVV-1591}{LVV-1591 - OSS-REQ-0370-V-01: z-band not-to-exceed envelope
 }
 & Not Covered & Brian Stalder
@@ -8696,7 +8848,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-23 &
+24 &
     \href{https://jira.lsstcorp.org/browse/LVV-1588}{LVV-1588 - OSS-REQ-0245-V-01: y-band Response Envelope
 }
 & Not Covered & Brian Stalder
@@ -8725,7 +8877,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-24 &
+25 &
     \href{https://jira.lsstcorp.org/browse/LVV-1585}{LVV-1585 - OSS-REQ-0371-V-01: y-band not-to-exceed envelope
 }
 & Not Covered & Brian Stalder
@@ -8754,7 +8906,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-25 &
+26 &
     \href{https://jira.lsstcorp.org/browse/LVV-1556}{LVV-1556 - OSS-REQ-0238-V-02: Filter Response Uniformity u-band red edge
 }
 & Not Covered & Brian Stalder
@@ -8783,7 +8935,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-26 &
+27 &
     \href{https://jira.lsstcorp.org/browse/LVV-1557}{LVV-1557 - OSS-REQ-0238-V-03: Filter Response Uniformity g-band blue edge
 }
 & Not Covered & Brian Stalder
@@ -8812,7 +8964,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-27 &
+28 &
     \href{https://jira.lsstcorp.org/browse/LVV-8678}{LVV-8678 - OSS-REQ-0238-V-04: Filter Response Uniformity g-band red edge
 }
 & Not Covered & Brian Stalder
@@ -8841,7 +8993,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-28 &
+29 &
     \href{https://jira.lsstcorp.org/browse/LVV-8681}{LVV-8681 - OSS-REQ-0238-V-05: Filter Response Uniformity r-band blue edge
 }
 & Not Covered & Brian Stalder
@@ -8870,7 +9022,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-29 &
+30 &
     \href{https://jira.lsstcorp.org/browse/LVV-8683}{LVV-8683 - OSS-REQ-0238-V-06: Filter Response Uniformity r-band red edge
 }
 & Not Covered & Brian Stalder
@@ -8899,7 +9051,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-30 &
+31 &
     \href{https://jira.lsstcorp.org/browse/LVV-8686}{LVV-8686 - OSS-REQ-0238-V-07: Filter Response Uniformity i-band blue edge
 }
 & Not Covered & Brian Stalder
@@ -8928,7 +9080,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-31 &
+32 &
     \href{https://jira.lsstcorp.org/browse/LVV-8689}{LVV-8689 - OSS-REQ-0238-V-08: Filter Response Uniformity i-band red edge
 }
 & Not Covered & Brian Stalder
@@ -8957,7 +9109,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-32 &
+33 &
     \href{https://jira.lsstcorp.org/browse/LVV-8691}{LVV-8691 - OSS-REQ-0238-V-09: Filter Response Uniformity z-band blue edge
 }
 & Not Covered & Brian Stalder
@@ -8986,7 +9138,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-33 &
+34 &
     \href{https://jira.lsstcorp.org/browse/LVV-8694}{LVV-8694 - OSS-REQ-0238-V-10: Filter Response Uniformity z-band red edge
 }
 & Not Covered & Brian Stalder
@@ -9015,7 +9167,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-34 &
+35 &
     \href{https://jira.lsstcorp.org/browse/LVV-8696}{LVV-8696 - OSS-REQ-0238-V-11: Filter Response Uniformity y-band blue edge
 }
 & Not Covered & Brian Stalder
@@ -9044,7 +9196,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-35 &
+36 &
     \href{https://jira.lsstcorp.org/browse/LVV-8698}{LVV-8698 - OSS-REQ-0238-V-12: Filter Response Uniformity y-band red edge
 }
 & Not Covered & Brian Stalder
@@ -9073,7 +9225,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-36 &
+37 &
     \href{https://jira.lsstcorp.org/browse/LVV-1572}{LVV-1572 - OSS-REQ-0239-V-03: In-band Ripple r-band
 }
 & Not Covered & Brian Stalder
@@ -9102,7 +9254,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-37 &
+38 &
     \href{https://jira.lsstcorp.org/browse/LVV-1571}{LVV-1571 - OSS-REQ-0239-V-02: In-band Ripple g-band
 }
 & Not Covered & Brian Stalder
@@ -9131,16 +9283,16 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Brian Stalder
         \\
             \hdashline
-38 &
+39 &
     \href{https://jira.lsstcorp.org/browse/LVV-1261}{LVV-1261 - OSS-REQ-0354-V-01: Difference Source Spuriousness Threshold - MOPS
 }
 & Not Covered & Scott Daniel
         & 
         \hyperref[lvv-t532]{LVV-T532} 
-        & Draft & Scott Daniel
+        & Defined & Scott Daniel
         \\
             \hdashline
-39 &
+40 &
     \href{https://jira.lsstcorp.org/browse/LVV-1262}{LVV-1262 - OSS-REQ-0354-V-02: Difference Source Spuriousness Threshold - MOPS2
 }
 & Not Covered & Scott Daniel
@@ -9149,45 +9301,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Scott Daniel
         \\
             \hdashline
-40 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1273}{LVV-1273 - OSS-REQ-0149-V-01: Level 1 Catalog Precision
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t543]{LVV-T543} 
-        & Defined & Scott Daniel
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t544]{LVV-T544} 
-        & Defined & Scott Daniel
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t545]{LVV-T545} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
 41 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1274}{LVV-1274 - OSS-REQ-0149-V-02: Level 1 Catalog Precision2
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t546]{LVV-T546} 
-        & Defined & Scott Daniel
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t547]{LVV-T547} 
-        & Defined & Scott Daniel
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t548]{LVV-T548} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-42 &
     \href{https://jira.lsstcorp.org/browse/LVV-1291}{LVV-1291 - OSS-REQ-0152-V-01: Level 1 Photometric Zero Point Error
 }
 & Not Covered & Scott Daniel
@@ -9196,7 +9310,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Defined & Scott Daniel
         \\
             \hdashline
-43 &
+42 &
     \href{https://jira.lsstcorp.org/browse/LVV-116}{LVV-116 - DMS-REQ-0285-V-01: Level 1 Source Association
 }
 & Not Covered & Eric Bellm
@@ -9205,7 +9319,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Defined & Scott Daniel
         \\
             \hdashline
-44 &
+43 &
     \href{https://jira.lsstcorp.org/browse/LVV-1339}{LVV-1339 - OSS-REQ-0153-V-01: World Coordinate System Accuracy
 }
 & Not Covered & Scott Daniel
@@ -9214,7 +9328,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Defined & Scott Daniel
         \\
             \hdashline
-45 &
+44 &
     \href{https://jira.lsstcorp.org/browse/LVV-1645}{LVV-1645 - OSS-REQ-0268-V-01: Dynamic Range
 }
 & Not Covered & Scott Daniel
@@ -9223,7 +9337,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Defined & Scott Daniel
         \\
             \hdashline
-46 &
+45 &
     \href{https://jira.lsstcorp.org/browse/LVV-253}{LVV-253 - LSR-REQ-0007-V-01: Delivered Image Quality1
 }
 & Not Covered & Scott Daniel
@@ -9232,7 +9346,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Defined & Scott Daniel
         \\
             \hdashline
-47 &
+46 &
     \href{https://jira.lsstcorp.org/browse/LVV-254}{LVV-254 - LSR-REQ-0007-V-02: Delivered Image Quality2
 }
 & Not Covered & Scott Daniel
@@ -9241,7 +9355,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Defined & Scott Daniel
         \\
             \hdashline
-48 &
+47 &
     \href{https://jira.lsstcorp.org/browse/LVV-255}{LVV-255 - LSR-REQ-0007-V-03: Delivered Image Quality3
 }
 & Not Covered & Scott Daniel
@@ -9250,7 +9364,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Defined & Scott Daniel
         \\
             \hdashline
-49 &
+48 &
     \href{https://jira.lsstcorp.org/browse/LVV-256}{LVV-256 - LSR-REQ-0007-V-04: Delivered Image Quality4
 }
 & Not Covered & Scott Daniel
@@ -9259,7 +9373,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Defined & Scott Daniel
         \\
             \hdashline
-50 &
+49 &
     \href{https://jira.lsstcorp.org/browse/LVV-257}{LVV-257 - LSR-REQ-0007-V-05: Delivered Image Quality5
 }
 & Not Covered & Scott Daniel
@@ -9268,7 +9382,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Defined & Scott Daniel
         \\
             \hdashline
-51 &
+50 &
     \href{https://jira.lsstcorp.org/browse/LVV-9804}{LVV-9804 - LSR-REQ-0007-V-06: Delivered Image Quality\_6
 }
 & Not Covered & Scott Daniel
@@ -9277,7 +9391,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Defined & Scott Daniel
         \\
             \hdashline
-52 &
+51 &
     \href{https://jira.lsstcorp.org/browse/LVV-9805}{LVV-9805 - LSR-REQ-0007-V-07: Delivered Image Quality\_7
 }
 & Not Covered & Scott Daniel
@@ -9286,7 +9400,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Defined & Scott Daniel
         \\
             \hdashline
-53 &
+52 &
     \href{https://jira.lsstcorp.org/browse/LVV-268}{LVV-268 - LSR-REQ-0087-V-01: Off Zenith Degradation1
 }
 & Not Covered & Scott Daniel
@@ -9295,7 +9409,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Defined & Scott Daniel
         \\
             \hdashline
-54 &
+53 &
     \href{https://jira.lsstcorp.org/browse/LVV-248}{LVV-248 - LSR-REQ-0092-V-01: Delivered Image Ellipticity1
 }
 & Not Covered & Scott Daniel
@@ -9304,7 +9418,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Defined & Scott Daniel
         \\
             \hdashline
-55 &
+54 &
     \href{https://jira.lsstcorp.org/browse/LVV-3751}{LVV-3751 - LSR-REQ-0089-V-01: r-band Reference Depth1
 }
 & Not Covered & Scott Daniel
@@ -9313,7 +9427,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Defined & Scott Daniel
         \\
             \hdashline
-56 &
+55 &
     \href{https://jira.lsstcorp.org/browse/LVV-258}{LVV-258 - LSR-REQ-0109-V-01: Depth Variation Over FOV1
 }
 & Not Covered & Scott Daniel
@@ -9322,7 +9436,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Defined & Scott Daniel
         \\
             \hdashline
-57 &
+56 &
     \href{https://jira.lsstcorp.org/browse/LVV-1237}{LVV-1237 - OSS-REQ-0123-V-01: Reproducibility
 }
 & Not Covered & Scott Daniel
@@ -9346,7 +9460,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Defined & Scott Daniel
         \\
             \hdashline
-58 &
+57 &
     \href{https://jira.lsstcorp.org/browse/LVV-165}{LVV-165 - DMS-REQ-0334-V-01: Persisting Data Products
 }
 & Not Covered & Colin Slater
@@ -9355,7 +9469,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Approved & Jim Bosch
         \\
             \hdashline
-59 &
+58 &
     \href{https://jira.lsstcorp.org/browse/LVV-98}{LVV-98 - DMS-REQ-0267-V-01: Source Catalog
 }
 & Not Covered & Jim Bosch
@@ -9364,7 +9478,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Approved & Jim Bosch
         \\
             \hdashline
-60 &
+59 &
     \href{https://jira.lsstcorp.org/browse/LVV-99}{LVV-99 - DMS-REQ-0268-V-01: Forced-Source Catalog
 }
 & Not Covered & Jim Bosch
@@ -9373,7 +9487,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Approved & Jim Bosch
         \\
             \hdashline
-61 &
+60 &
     \href{https://jira.lsstcorp.org/browse/LVV-106}{LVV-106 - DMS-REQ-0275-V-01: Object Catalog
 }
 & Not Covered & Jim Bosch
@@ -9382,7 +9496,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Approved & Jim Bosch
         \\
             \hdashline
-62 &
+61 &
     \href{https://jira.lsstcorp.org/browse/LVV-110}{LVV-110 - DMS-REQ-0279-V-01: Deep Detection Coadds
 }
 & Not Covered & Jim Bosch
@@ -9391,7 +9505,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Approved & Jim Bosch
         \\
             \hdashline
-63 &
+62 &
     \href{https://jira.lsstcorp.org/browse/LVV-125}{LVV-125 - DMS-REQ-0294-V-01: Processing of Datasets
 }
 & Not Covered & Robert Lupton
@@ -9400,7 +9514,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Approved & Jim Bosch
         \\
             \hdashline
-64 &
+63 &
     \href{https://jira.lsstcorp.org/browse/LVV-46}{LVV-46 - DMS-REQ-0106-V-01: Coadded Image Provenance
 }
 & Not Covered & Robert Gruendl
@@ -9409,7 +9523,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Jim Bosch
         \\
             \hdashline
-65 &
+64 &
     \href{https://jira.lsstcorp.org/browse/LVV-1234}{LVV-1234 - OSS-REQ-0122-V-01: Provenance
 }
 & Not Covered & Scott Daniel
@@ -9433,7 +9547,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Defined & Scott Daniel
         \\
             \hdashline
-66 &
+65 &
     \href{https://jira.lsstcorp.org/browse/LVV-8}{LVV-8 - DMS-REQ-0018-V-01: Raw Science Image Data Acquisition
 }
 & Not Covered & Robert Gruendl
@@ -9442,7 +9556,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Kian-Tat Lim
         \\
             \hdashline
-67 &
+66 &
     \href{https://jira.lsstcorp.org/browse/LVV-11}{LVV-11 - DMS-REQ-0024-V-01: Raw Image Assembly
 }
 & Not Covered & Gregory Dubois-Felsmann
@@ -9451,7 +9565,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Kian-Tat Lim
         \\
             \hdashline
-68 &
+67 &
     \href{https://jira.lsstcorp.org/browse/LVV-28}{LVV-28 - DMS-REQ-0068-V-01: Raw Science Image Metadata
 }
 & Not Covered & Gregory Dubois-Felsmann
@@ -9460,7 +9574,7 @@ objects, orbitObservationInterval = 3{[}day{]}
         & Draft & Kian-Tat Lim
         \\
             \hdashline
-69 &
+68 &
     \href{https://jira.lsstcorp.org/browse/LVV-1285}{LVV-1285 - OSS-REQ-0160-V-01: Level 1 Difference Source - Difference Object
 Association Quality
 }
@@ -9470,7 +9584,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-70 &
+69 &
     \href{https://jira.lsstcorp.org/browse/LVV-785}{LVV-785 - OSS-REQ-0222-V-01: Ghost Image Control
 }
 & Not Covered & Scott Daniel
@@ -9484,7 +9598,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-71 &
+70 &
     \href{https://jira.lsstcorp.org/browse/LVV-9801}{LVV-9801 - LSR-REQ-0093-V-08: Photometric Performance\_8
 }
 & Not Covered & Sam Schmidt
@@ -9493,7 +9607,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-72 &
+71 &
     \href{https://jira.lsstcorp.org/browse/LVV-13369}{LVV-13369 - OSS-REQ-0387-V-08: Photometric Performance\_8
 }
 & Not Covered & Sam Schmidt
@@ -9502,7 +9616,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-73 &
+72 &
     \href{https://jira.lsstcorp.org/browse/LVV-243}{LVV-243 - LSR-REQ-0095-V-01: Bright Sources1
 }
 & Not Covered & Scott Daniel
@@ -9511,7 +9625,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-74 &
+73 &
     \href{https://jira.lsstcorp.org/browse/LVV-293}{LVV-293 - LSR-REQ-0097-V-01: Ellipticity Correlations1
 }
 & Not Covered & Scott Daniel
@@ -9520,7 +9634,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-75 &
+74 &
     \href{https://jira.lsstcorp.org/browse/LVV-1207}{LVV-1207 - OSS-REQ-0112-V-01: Science Visit Alert Generation Reliability
 }
 & Not Covered & Scott Daniel
@@ -9529,7 +9643,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-76 &
+75 &
     \href{https://jira.lsstcorp.org/browse/LVV-994}{LVV-994 - OSS-REQ-0051-V-01: Summit-Base Connectivity Loss
 }
 & Not Covered & Scott Daniel
@@ -9553,7 +9667,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-77 &
+76 &
     \href{https://jira.lsstcorp.org/browse/LVV-1360}{LVV-1360 - OSS-REQ-0146-V-01: WCS Reporting
 }
 & Not Covered & Scott Daniel
@@ -9562,7 +9676,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-78 &
+77 &
     \href{https://jira.lsstcorp.org/browse/LVV-318}{LVV-318 - LSR-REQ-0101-V-01: Data Processing for Single Visits and Transients1
 }
 & Not Covered & Scott Daniel
@@ -9571,7 +9685,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-79 &
+78 &
     \href{https://jira.lsstcorp.org/browse/LVV-493}{LVV-493 - LSR-REQ-0025-V-01: Transient Filtering1
 }
 & Not Covered & Scott Daniel
@@ -9580,12 +9694,21 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-80 &
+79 &
     \href{https://jira.lsstcorp.org/browse/LVV-3766}{LVV-3766 - OSS-REQ-0159-V-01: Level 1 Moving Object Quality
 }
 & Not Covered & Scott Daniel
         & 
         \hyperref[lvv-t986]{LVV-T986} 
+        & Defined & Scott Daniel
+        \\
+            \hdashline
+80 &
+    \href{https://jira.lsstcorp.org/browse/LVV-1274}{LVV-1274 - OSS-REQ-0149-V-02: Level 1 Catalog Precision2
+}
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t999]{LVV-T999} 
         & Defined & Scott Daniel
         \\
             \hdashline
