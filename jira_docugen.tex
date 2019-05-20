@@ -155,6 +155,10 @@ Test Id & Test Name\tabularnewline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T999}{DM contribution to photometric error (Level 1)} \tabularnewline
     \hyperref[lvv-t1000]{LVV-T1000} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1000}{Run processCCD on set of images} \tabularnewline
+    \hyperref[lvv-t1001]{LVV-T1001} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1001}{WCS accuracy -- on-sky data} \tabularnewline
+    \hyperref[lvv-t1002]{LVV-T1002} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1002}{Contribution of templates to difference image noise} \tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -3568,10 +3572,7 @@ Test & Scott Daniel
 \end{longtable}
 
 \subsubsection{Verification Elements}
-\begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-1339}{LVV-1339} - OSS-REQ-0153-V-01: World Coordinate System Accuracy
-
-\end{itemize}
+    None.
 
 \subsubsection{Test Items}
 Test the effect of individual image WCSes on coadd WCSes using
@@ -7016,28 +7017,6 @@ production on too many images
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Perform a mini-survey using a realistic scheduling algorithm. ~Run the
-images through the full alert-production pipeline.\\
-~\\
-Log all images taken by the camera and all alerts generated.
-
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Test Data &
-            \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
-                \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Expected Result &
-                \begin{minipage}[t]{13cm}{\footnotesize
-                A list of images taken and the resulting alerts.
-
-                \vspace{\dp0}
-                } \end{minipage}
-        \\ \midrule
-
-            \multirow{3}{*}{ 2 } & Description &
-            \begin{minipage}[t]{13cm}{\footnotesize
             Verify that 99\% of images resulted in alerts being broadcast within 1
 minute of the image being taken.
 
@@ -7052,7 +7031,7 @@ minute of the image being taken.
             & Expected Result &
         \\ \midrule
 
-            \multirow{3}{*}{ 3 } & Description &
+            \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Verify that 99.9\% of images resulted in alerts being broadcast at all.
 
@@ -7065,6 +7044,57 @@ minute of the image being taken.
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
+        \\ \midrule
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 3-1
+                {\scriptsize from \hyperref[lvv-t978]
+                {LVV-T978} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 3-2
+                {\scriptsize from \hyperref[lvv-t978]
+                {LVV-T978} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Re-image area where we are testing alert generation.
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 3-3
+                {\scriptsize from \hyperref[lvv-t978]
+                {LVV-T978} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
         \\ \midrule
     \end{longtable}
 
@@ -8326,6 +8356,310 @@ going to specifically be looking at static sources in the steps below)
         \\ \midrule
     \end{longtable}
 
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1001}{LVV-T1001}
+    - WCS accuracy -- on-sky data}\label{lvv-t1001}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1339}{LVV-1339} - OSS-REQ-0153-V-01: World Coordinate System Accuracy
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify accuracy of WCS using real data
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-1
+                {\scriptsize from \hyperref[lvv-t973]
+                {LVV-T973} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Run full Level 2 Data Management processing on images taken with LSSTCAM
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Cross reference sources detected in step 1 against Gaia.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Fit the PSF of Gaia cross referenced sources in the individual images
+used to produce DRP coadds.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Fit the PSF of Gaia cross referenced sources in the final DRP coadds.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Compute the theoretical expectation for the coadd PSF FWHM given the
+individual image PSF FWHM for each Gaia cross referenced source.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 6 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Plot the residual between the theoretical coadd PSF FWHM and the actual
+coadd PSF FWHM against the RMS of the residuals between Gaia positions
+and single-image LSST positions for each Gaia cross referenced source.\\
+~\\
+Examine the range of this plot. ~The difference between the asymptote at
+zero astrometric offset and the value at high astrometric offset should
+represent the effect of WCS errors on coadd PSF FWHM. ~This amount
+should be less than 0.1 milliarcsecond.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1002}{LVV-T1002}
+    - Contribution of templates to difference image noise}\label{lvv-t1002}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1321}{LVV-1321} - OSS-REQ-0158-V-01: Coaddition for Templates for Subtraction
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Assess how difference imaging noise scales with depth of template coadds
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-1
+                {\scriptsize from \hyperref[lvv-t977]
+                {LVV-T977} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Take images over area where we will be testing alert generation.
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-2
+                {\scriptsize from \hyperref[lvv-t977]
+                {LVV-T977} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Create sets of templates consisting of different numbers of input
+images, representing different depths (1 year, 2 year, 3 year, etc.) in
+the history of the survey.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run difference imaging on the mini-survey using the templates at each
+test depth.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Plot how noise in the difference images scales with the number of images
+used for the template coadd. ~Assume that the difference image with the
+deepest coadd is systematics limited. ~Verify that the difference images
+with the 1 year coadd have noise no greater than 1.66 times these
+systematics-limited difference images (in which case, the difference
+between the two noises would be 0.4 of the total noise). ~Verify that
+the difference images with the 2 year coadds have noise no greater than
+1.25 times the noise in the systematics limited coadds.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that the scheduler will place enough observations in each field
+after 1 year (2 years) to meet this noise threshold across the whole
+footprint of the survey*\\
+~\\
+*unless we adopt a rolling cadence, in which case we just need to make
+sure that enough images are placed in the footprint that is going to be
+subject to difference images.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 6 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that the variance values of the difference images does not exceed
+1.4 times the variance values of the single images being differenced.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
 \appendix
 % generated from JIRA project LVV
 % using template at /var/jenkins_home/.local/lib/python3.7/site-packages/docsteady/templates/dm-spec-appendix.latex.jinja2.
@@ -9320,15 +9654,6 @@ going to specifically be looking at static sources in the steps below)
         \\
             \hdashline
 43 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1339}{LVV-1339 - OSS-REQ-0153-V-01: World Coordinate System Accuracy
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t551]{LVV-T551} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-44 &
     \href{https://jira.lsstcorp.org/browse/LVV-1645}{LVV-1645 - OSS-REQ-0268-V-01: Dynamic Range
 }
 & Not Covered & Scott Daniel
@@ -9337,7 +9662,7 @@ going to specifically be looking at static sources in the steps below)
         & Defined & Scott Daniel
         \\
             \hdashline
-45 &
+44 &
     \href{https://jira.lsstcorp.org/browse/LVV-253}{LVV-253 - LSR-REQ-0007-V-01: Delivered Image Quality1
 }
 & Not Covered & Scott Daniel
@@ -9346,7 +9671,7 @@ going to specifically be looking at static sources in the steps below)
         & Defined & Scott Daniel
         \\
             \hdashline
-46 &
+45 &
     \href{https://jira.lsstcorp.org/browse/LVV-254}{LVV-254 - LSR-REQ-0007-V-02: Delivered Image Quality2
 }
 & Not Covered & Scott Daniel
@@ -9355,7 +9680,7 @@ going to specifically be looking at static sources in the steps below)
         & Defined & Scott Daniel
         \\
             \hdashline
-47 &
+46 &
     \href{https://jira.lsstcorp.org/browse/LVV-255}{LVV-255 - LSR-REQ-0007-V-03: Delivered Image Quality3
 }
 & Not Covered & Scott Daniel
@@ -9364,7 +9689,7 @@ going to specifically be looking at static sources in the steps below)
         & Defined & Scott Daniel
         \\
             \hdashline
-48 &
+47 &
     \href{https://jira.lsstcorp.org/browse/LVV-256}{LVV-256 - LSR-REQ-0007-V-04: Delivered Image Quality4
 }
 & Not Covered & Scott Daniel
@@ -9373,7 +9698,7 @@ going to specifically be looking at static sources in the steps below)
         & Defined & Scott Daniel
         \\
             \hdashline
-49 &
+48 &
     \href{https://jira.lsstcorp.org/browse/LVV-257}{LVV-257 - LSR-REQ-0007-V-05: Delivered Image Quality5
 }
 & Not Covered & Scott Daniel
@@ -9382,7 +9707,7 @@ going to specifically be looking at static sources in the steps below)
         & Defined & Scott Daniel
         \\
             \hdashline
-50 &
+49 &
     \href{https://jira.lsstcorp.org/browse/LVV-9804}{LVV-9804 - LSR-REQ-0007-V-06: Delivered Image Quality\_6
 }
 & Not Covered & Scott Daniel
@@ -9391,7 +9716,7 @@ going to specifically be looking at static sources in the steps below)
         & Defined & Scott Daniel
         \\
             \hdashline
-51 &
+50 &
     \href{https://jira.lsstcorp.org/browse/LVV-9805}{LVV-9805 - LSR-REQ-0007-V-07: Delivered Image Quality\_7
 }
 & Not Covered & Scott Daniel
@@ -9400,7 +9725,7 @@ going to specifically be looking at static sources in the steps below)
         & Defined & Scott Daniel
         \\
             \hdashline
-52 &
+51 &
     \href{https://jira.lsstcorp.org/browse/LVV-268}{LVV-268 - LSR-REQ-0087-V-01: Off Zenith Degradation1
 }
 & Not Covered & Scott Daniel
@@ -9409,7 +9734,7 @@ going to specifically be looking at static sources in the steps below)
         & Defined & Scott Daniel
         \\
             \hdashline
-53 &
+52 &
     \href{https://jira.lsstcorp.org/browse/LVV-248}{LVV-248 - LSR-REQ-0092-V-01: Delivered Image Ellipticity1
 }
 & Not Covered & Scott Daniel
@@ -9418,7 +9743,7 @@ going to specifically be looking at static sources in the steps below)
         & Defined & Scott Daniel
         \\
             \hdashline
-54 &
+53 &
     \href{https://jira.lsstcorp.org/browse/LVV-3751}{LVV-3751 - LSR-REQ-0089-V-01: r-band Reference Depth1
 }
 & Not Covered & Scott Daniel
@@ -9427,7 +9752,7 @@ going to specifically be looking at static sources in the steps below)
         & Defined & Scott Daniel
         \\
             \hdashline
-55 &
+54 &
     \href{https://jira.lsstcorp.org/browse/LVV-258}{LVV-258 - LSR-REQ-0109-V-01: Depth Variation Over FOV1
 }
 & Not Covered & Scott Daniel
@@ -9436,7 +9761,7 @@ going to specifically be looking at static sources in the steps below)
         & Defined & Scott Daniel
         \\
             \hdashline
-56 &
+55 &
     \href{https://jira.lsstcorp.org/browse/LVV-1237}{LVV-1237 - OSS-REQ-0123-V-01: Reproducibility
 }
 & Not Covered & Scott Daniel
@@ -9460,7 +9785,7 @@ going to specifically be looking at static sources in the steps below)
         & Defined & Scott Daniel
         \\
             \hdashline
-57 &
+56 &
     \href{https://jira.lsstcorp.org/browse/LVV-165}{LVV-165 - DMS-REQ-0334-V-01: Persisting Data Products
 }
 & Not Covered & Colin Slater
@@ -9469,7 +9794,7 @@ going to specifically be looking at static sources in the steps below)
         & Approved & Jim Bosch
         \\
             \hdashline
-58 &
+57 &
     \href{https://jira.lsstcorp.org/browse/LVV-98}{LVV-98 - DMS-REQ-0267-V-01: Source Catalog
 }
 & Not Covered & Jim Bosch
@@ -9478,7 +9803,7 @@ going to specifically be looking at static sources in the steps below)
         & Approved & Jim Bosch
         \\
             \hdashline
-59 &
+58 &
     \href{https://jira.lsstcorp.org/browse/LVV-99}{LVV-99 - DMS-REQ-0268-V-01: Forced-Source Catalog
 }
 & Not Covered & Jim Bosch
@@ -9487,7 +9812,7 @@ going to specifically be looking at static sources in the steps below)
         & Approved & Jim Bosch
         \\
             \hdashline
-60 &
+59 &
     \href{https://jira.lsstcorp.org/browse/LVV-106}{LVV-106 - DMS-REQ-0275-V-01: Object Catalog
 }
 & Not Covered & Jim Bosch
@@ -9496,7 +9821,7 @@ going to specifically be looking at static sources in the steps below)
         & Approved & Jim Bosch
         \\
             \hdashline
-61 &
+60 &
     \href{https://jira.lsstcorp.org/browse/LVV-110}{LVV-110 - DMS-REQ-0279-V-01: Deep Detection Coadds
 }
 & Not Covered & Jim Bosch
@@ -9505,7 +9830,7 @@ going to specifically be looking at static sources in the steps below)
         & Approved & Jim Bosch
         \\
             \hdashline
-62 &
+61 &
     \href{https://jira.lsstcorp.org/browse/LVV-125}{LVV-125 - DMS-REQ-0294-V-01: Processing of Datasets
 }
 & Not Covered & Robert Lupton
@@ -9514,7 +9839,7 @@ going to specifically be looking at static sources in the steps below)
         & Approved & Jim Bosch
         \\
             \hdashline
-63 &
+62 &
     \href{https://jira.lsstcorp.org/browse/LVV-46}{LVV-46 - DMS-REQ-0106-V-01: Coadded Image Provenance
 }
 & Not Covered & Robert Gruendl
@@ -9523,7 +9848,7 @@ going to specifically be looking at static sources in the steps below)
         & Draft & Jim Bosch
         \\
             \hdashline
-64 &
+63 &
     \href{https://jira.lsstcorp.org/browse/LVV-1234}{LVV-1234 - OSS-REQ-0122-V-01: Provenance
 }
 & Not Covered & Scott Daniel
@@ -9547,7 +9872,7 @@ going to specifically be looking at static sources in the steps below)
         & Defined & Scott Daniel
         \\
             \hdashline
-65 &
+64 &
     \href{https://jira.lsstcorp.org/browse/LVV-8}{LVV-8 - DMS-REQ-0018-V-01: Raw Science Image Data Acquisition
 }
 & Not Covered & Robert Gruendl
@@ -9556,7 +9881,7 @@ going to specifically be looking at static sources in the steps below)
         & Draft & Kian-Tat Lim
         \\
             \hdashline
-66 &
+65 &
     \href{https://jira.lsstcorp.org/browse/LVV-11}{LVV-11 - DMS-REQ-0024-V-01: Raw Image Assembly
 }
 & Not Covered & Gregory Dubois-Felsmann
@@ -9565,7 +9890,7 @@ going to specifically be looking at static sources in the steps below)
         & Draft & Kian-Tat Lim
         \\
             \hdashline
-67 &
+66 &
     \href{https://jira.lsstcorp.org/browse/LVV-28}{LVV-28 - DMS-REQ-0068-V-01: Raw Science Image Metadata
 }
 & Not Covered & Gregory Dubois-Felsmann
@@ -9574,7 +9899,7 @@ going to specifically be looking at static sources in the steps below)
         & Draft & Kian-Tat Lim
         \\
             \hdashline
-68 &
+67 &
     \href{https://jira.lsstcorp.org/browse/LVV-1285}{LVV-1285 - OSS-REQ-0160-V-01: Level 1 Difference Source - Difference Object
 Association Quality
 }
@@ -9584,7 +9909,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-69 &
+68 &
     \href{https://jira.lsstcorp.org/browse/LVV-785}{LVV-785 - OSS-REQ-0222-V-01: Ghost Image Control
 }
 & Not Covered & Scott Daniel
@@ -9598,7 +9923,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-70 &
+69 &
     \href{https://jira.lsstcorp.org/browse/LVV-9801}{LVV-9801 - LSR-REQ-0093-V-08: Photometric Performance\_8
 }
 & Not Covered & Sam Schmidt
@@ -9607,7 +9932,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-71 &
+70 &
     \href{https://jira.lsstcorp.org/browse/LVV-13369}{LVV-13369 - OSS-REQ-0387-V-08: Photometric Performance\_8
 }
 & Not Covered & Sam Schmidt
@@ -9616,7 +9941,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-72 &
+71 &
     \href{https://jira.lsstcorp.org/browse/LVV-243}{LVV-243 - LSR-REQ-0095-V-01: Bright Sources1
 }
 & Not Covered & Scott Daniel
@@ -9625,7 +9950,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-73 &
+72 &
     \href{https://jira.lsstcorp.org/browse/LVV-293}{LVV-293 - LSR-REQ-0097-V-01: Ellipticity Correlations1
 }
 & Not Covered & Scott Daniel
@@ -9634,7 +9959,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-74 &
+73 &
     \href{https://jira.lsstcorp.org/browse/LVV-1207}{LVV-1207 - OSS-REQ-0112-V-01: Science Visit Alert Generation Reliability
 }
 & Not Covered & Scott Daniel
@@ -9643,7 +9968,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-75 &
+74 &
     \href{https://jira.lsstcorp.org/browse/LVV-994}{LVV-994 - OSS-REQ-0051-V-01: Summit-Base Connectivity Loss
 }
 & Not Covered & Scott Daniel
@@ -9667,7 +9992,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-76 &
+75 &
     \href{https://jira.lsstcorp.org/browse/LVV-1360}{LVV-1360 - OSS-REQ-0146-V-01: WCS Reporting
 }
 & Not Covered & Scott Daniel
@@ -9676,7 +10001,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-77 &
+76 &
     \href{https://jira.lsstcorp.org/browse/LVV-318}{LVV-318 - LSR-REQ-0101-V-01: Data Processing for Single Visits and Transients1
 }
 & Not Covered & Scott Daniel
@@ -9685,7 +10010,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-78 &
+77 &
     \href{https://jira.lsstcorp.org/browse/LVV-493}{LVV-493 - LSR-REQ-0025-V-01: Transient Filtering1
 }
 & Not Covered & Scott Daniel
@@ -9694,7 +10019,7 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-79 &
+78 &
     \href{https://jira.lsstcorp.org/browse/LVV-3766}{LVV-3766 - OSS-REQ-0159-V-01: Level 1 Moving Object Quality
 }
 & Not Covered & Scott Daniel
@@ -9703,12 +10028,30 @@ Association Quality
         & Defined & Scott Daniel
         \\
             \hdashline
-80 &
+79 &
     \href{https://jira.lsstcorp.org/browse/LVV-1274}{LVV-1274 - OSS-REQ-0149-V-02: Level 1 Catalog Precision2
 }
 & Not Covered & Scott Daniel
         & 
         \hyperref[lvv-t999]{LVV-T999} 
+        & Defined & Scott Daniel
+        \\
+            \hdashline
+80 &
+    \href{https://jira.lsstcorp.org/browse/LVV-1339}{LVV-1339 - OSS-REQ-0153-V-01: World Coordinate System Accuracy
+}
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t1001]{LVV-T1001} 
+        & Defined & Scott Daniel
+        \\
+            \hdashline
+81 &
+    \href{https://jira.lsstcorp.org/browse/LVV-1321}{LVV-1321 - OSS-REQ-0158-V-01: Coaddition for Templates for Subtraction
+}
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t1002]{LVV-T1002} 
         & Defined & Scott Daniel
         \\
             \hdashline
