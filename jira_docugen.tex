@@ -159,6 +159,14 @@ Test Id & Test Name\tabularnewline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1001}{WCS accuracy -- on-sky data} \tabularnewline
     \hyperref[lvv-t1002]{LVV-T1002} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1002}{Contribution of templates to difference image noise} \tabularnewline
+    \hyperref[lvv-t1004]{LVV-T1004} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1004}{System seeing degradation} \tabularnewline
+    \hyperref[lvv-t1006]{LVV-T1006} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1006}{Transient completeness calculation} \tabularnewline
+    \hyperref[lvv-t1007]{LVV-T1007} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1007}{Transient purity calculation} \tabularnewline
+    \hyperref[lvv-t1008]{LVV-T1008} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1008}{Completeness and purity for transient sources} \tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -849,10 +857,8 @@ Analysis & Imram Hasan
 \end{itemize}
 
 \subsubsection{Test Items}
-The rm sof the unresolved source magnitude distribution around the mean
-value (repeatability) will not exceed PA1 millimag. No more than PF1 \%
-of the measurements will deviate by more than PA2 millimag from the
-mean.~
+Verify that the RMS of magnitudes in all filters and outlier rate of
+magnitudes is within specification
 
 
 
@@ -865,6 +871,10 @@ mean.~
 \paragraph{Hardware}
 
 \subsubsection{Input Specification}
+Multi epoch observations of bright, isolated, unresolved, un-saturated
+stars, observed at varying photometric conditions, air mass, and water
+vapor.
+
 
 \subsubsection{Output Specification}
 
@@ -904,9 +914,9 @@ This roughly corresponds to \textasciitilde{}100 ComCam pointing.~
 
             \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            For each star, measure the RMS in each filter. This yields a
+            For each star, measure the RMS magnitude in each filter. This yields a
 distribution of RMS values in each filter. Calculate the median of the
-distributions.
+distributions for each filter.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -921,9 +931,9 @@ distributions.
             \multirow{3}{*}{ 3 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             For each star, calculate the mean magnitude. Calculate the number of
-observations which deviate by more than PA2gri (15) millimags for
-magnitudes in the g, r, and i bands and PA2uzy (22.5) millimags ~for
-magnitudes in the u, z, and y bands.
+observations which deviate by more than PA2gri (15) millimags from their
+means for magnitudes in the g, r, and i bands and PA2uzy (22.5)
+millimags ~for magnitudes in the u, z, and y bands.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -2143,7 +2153,7 @@ completeness and purity requirements for MOPS are met
 
             \multirow{3}{*}{ 4 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Rate DIASources according to spuriousness metric
+            Score DIASources according to spuriousness metric
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -2184,7 +2194,7 @@ completeness mopsCompletenessMin
 
             \multirow{3}{*}{ 6 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Compare to analysis of purity as a function of spuriousness metric
+            Compare to analysis of purity as a function of spuriousness metric~
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -8660,6 +8670,563 @@ subject to difference images.
         \\ \midrule
     \end{longtable}
 
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1004}{LVV-T1004}
+    - System seeing degradation}\label{lvv-t1004}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1540}{LVV-1540} - OSS-REQ-0230-V-01: Off Zenith Image Degradation
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Measure the rate at which seeing due to the LSST system degrades as a
+function of zenith distance
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-1
+                {\scriptsize from \hyperref[lvv-t977]
+                {LVV-T977} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Take images over area where we will be testing alert generation.
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-2
+                {\scriptsize from \hyperref[lvv-t977]
+                {LVV-T977} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Cross match observations in step 1 with data taken from DIMM. ~Use DIMM
+to find atmospheric seeing in corss matched images.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Subtract measured atmospheric seeing measured with DIMM from measured
+seeing in the images to find the seeing contribution due to the LSST
+System.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Plot system seeing as a function of airmass (X). ~Verify that system
+seeing evolves as X**0.6
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1006}{LVV-T1006}
+    - Transient completeness calculation}\label{lvv-t1006}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Andrew Connolly
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1264}{LVV-1264} - OSS-REQ-0353-V-01: Difference Source Spuriousness Threshold - Transients
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Calculate the transient completeness for a given spurious threshold
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Generate catalog of simulated variable/transient sources
+
+\begin{itemize}
+\tightlist
+\item
+  Sources should have the ~distribution of brightnesses expected for the
+  LSST to 1 magnitude below the single visit detection limit
+\item
+  Sources will be assumed as point sources
+\item
+  Sources will include their light curve in all LSST passbands
+\end{itemize}
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Inject simulated variables/transients into single visit images (after
+ISR) images. Images will be selected to be \textgreater{}30 degrees from
+the Ecliptic to avoid moving source contamination
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run difference imaging on images with injected variables/transients.
+Including output from spuriousness classification algorithm
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Match the input catalog and the DIASource lists~
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Calculate completeness as a function of spuriousness threshold (to the~
+
+\textbf{transSampleSNR~}signal-to-noise limit)
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1007}{LVV-T1007}
+    - Transient purity calculation}\label{lvv-t1007}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Andrew Connolly
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1264}{LVV-1264} - OSS-REQ-0353-V-01: Difference Source Spuriousness Threshold - Transients
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Calculate the transient purity for a given spurious threshold
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Select catalogs from mini-survey 1 (image differencing test) covering a
+broad time span
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Cross match coincident DIASources from the series of observations.~
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Assume singletons (only one detection) are spurious sources and
+calculate the fraction of spurious sources as a function of spuriousness
+threshold
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1008}{LVV-T1008}
+    - Completeness and purity for transient sources}\label{lvv-t1008}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Andrew Connolly
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1264}{LVV-1264} - OSS-REQ-0353-V-01: Difference Source Spuriousness Threshold - Transients
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Calculate the completeness and purity as a function of spuriousness
+threshold
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-1
+                {\scriptsize from \hyperref[lvv-t1006]
+                {LVV-T1006} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Generate catalog of simulated variable/transient sources
+
+\begin{itemize}
+\tightlist
+\item
+  Sources should have the ~distribution of brightnesses expected for the
+  LSST to 1 magnitude below the single visit detection limit
+\item
+  Sources will be assumed as point sources
+\item
+  Sources will include their light curve in all LSST passbands
+\end{itemize}
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-2
+                {\scriptsize from \hyperref[lvv-t1006]
+                {LVV-T1006} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Inject simulated variables/transients into single visit images (after
+ISR) images. Images will be selected to be \textgreater{}30 degrees from
+the Ecliptic to avoid moving source contamination
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-3
+                {\scriptsize from \hyperref[lvv-t1006]
+                {LVV-T1006} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Run difference imaging on images with injected variables/transients.
+Including output from spuriousness classification algorithm
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-4
+                {\scriptsize from \hyperref[lvv-t1006]
+                {LVV-T1006} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Match the input catalog and the DIASource lists~
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-5
+                {\scriptsize from \hyperref[lvv-t1006]
+                {LVV-T1006} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Calculate completeness as a function of spuriousness threshold (to the~
+
+\textbf{transSampleSNR~}signal-to-noise limit)
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 2-1
+                {\scriptsize from \hyperref[lvv-t1007]
+                {LVV-T1007} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Select catalogs from mini-survey 1 (image differencing test) covering a
+broad time span
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 2-2
+                {\scriptsize from \hyperref[lvv-t1007]
+                {LVV-T1007} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Cross match coincident DIASources from the series of observations.~
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 2-3
+                {\scriptsize from \hyperref[lvv-t1007]
+                {LVV-T1007} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Assume singletons (only one detection) are spurious sources and
+calculate the fraction of spurious sources as a function of spuriousness
+threshold
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Create ROC curve for the completeness and purity as a function of
+spuriousness metric (to the limit of the LSST single image depth) within
+each band
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
 \appendix
 % generated from JIRA project LVV
 % using template at /var/jenkins_home/.local/lib/python3.7/site-packages/docsteady/templates/dm-spec-appendix.latex.jinja2.
@@ -10053,6 +10620,34 @@ Association Quality
         & 
         \hyperref[lvv-t1002]{LVV-T1002} 
         & Defined & Scott Daniel
+        \\
+            \hdashline
+82 &
+    \href{https://jira.lsstcorp.org/browse/LVV-1540}{LVV-1540 - OSS-REQ-0230-V-01: Off Zenith Image Degradation
+}
+& Not Covered & Scott Daniel
+        & 
+        \hyperref[lvv-t1004]{LVV-T1004} 
+        & Defined & Scott Daniel
+        \\
+            \hdashline
+83 &
+    \href{https://jira.lsstcorp.org/browse/LVV-1264}{LVV-1264 - OSS-REQ-0353-V-01: Difference Source Spuriousness Threshold - Transients
+}
+& Not Covered & Andrew Connolly
+        & 
+        \hyperref[lvv-t1006]{LVV-T1006} 
+        & Draft & Andrew Connolly
+        \\
+            &&&
+        & 
+        \hyperref[lvv-t1007]{LVV-T1007} 
+        & Draft & Andrew Connolly
+        \\
+            &&&
+        & 
+        \hyperref[lvv-t1008]{LVV-T1008} 
+        & Draft & Andrew Connolly
         \\
             \hdashline
 \tabularnewline
