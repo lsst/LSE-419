@@ -1,7 +1,7 @@
 % generated from JIRA project LVV
-% using template at /var/jenkins_home/.local/lib/python3.7/site-packages/docsteady/templates/dm-spec.latex.jinja2.
-% Collecting ATM data from folder: "/Project Systems Engineering/Commissioning Science Verification"
-% using docsteady version 1.2rc1
+% using template at /Users/GComoretto/anaconda3/envs/docsteady/lib/python3.7/site-packages/docsteady/templates/dm-spec.latex.jinja2.
+% Collecting ATM data from folder: "/Project Systems Engineering/Commissioning Science Verification|LSE-419"
+% using docsteady version 1.2rc2
 % Please do not edit -- update information in Jira instead
 
 \section{Test Cases Summary}\label{test-cases-summary}
@@ -167,6 +167,40 @@ Test Id & Test Name\tabularnewline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1007}{Transient purity calculation} \tabularnewline
     \hyperref[lvv-t1008]{LVV-T1008} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1008}{Completeness and purity for transient sources} \tabularnewline
+    \hyperref[lvv-t1011]{LVV-T1011} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1011}{Observatory operations during communications blackout -- 48 hours} \tabularnewline
+    \hyperref[lvv-t1012]{LVV-T1012} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1012}{Level 2 astrometric accuracy} \tabularnewline
+    \hyperref[lvv-t1030]{LVV-T1030} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1030}{Zeropoint uniformity due to DM} \tabularnewline
+    \hyperref[lvv-t1031]{LVV-T1031} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1031}{Photometric repeatability due to DM pipeline} \tabularnewline
+    \hyperref[lvv-t1032]{LVV-T1032} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1032}{Photometric repeatability due to field of view variation} \tabularnewline
+    \hyperref[lvv-t1033]{LVV-T1033} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1033}{Generate grid of sources with CBP} \tabularnewline
+    \hyperref[lvv-t1034]{LVV-T1034} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1034}{Effect of gain on photometric repeatability -- 12 hours} \tabularnewline
+    \hyperref[lvv-t1035]{LVV-T1035} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1035}{Effect of gain variations on photometric repeatability -- 1 hr} \tabularnewline
+    \hyperref[lvv-t1037]{LVV-T1037} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1037}{Gain variation -- 1 hr} \tabularnewline
+    \hyperref[lvv-t1038]{LVV-T1038} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1038}{Attenuation of large scale gain variation errors} \tabularnewline
+    \hyperref[lvv-t1039]{LVV-T1039} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1039}{Attenuation of small scale gain variation over short time scales} \tabularnewline
+    \hyperref[lvv-t1040]{LVV-T1040} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1040}{Attenuation of gain variation of an hour} \tabularnewline
+    \hyperref[lvv-t1041]{LVV-T1041} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1041}{Stray light within 45 degrees of the moon} \tabularnewline
+    \hyperref[lvv-t1043]{LVV-T1043} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1043}{Flat fielding errors -- effect on photometric repeatability} \tabularnewline
+    \hyperref[lvv-t1044]{LVV-T1044} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1044}{Flat fielding -- raw effect on photometric repeatability} \tabularnewline
+    \hyperref[lvv-t1046]{LVV-T1046} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1046}{Crosstalk functionality exists} \tabularnewline
+    \hyperref[lvv-t1048]{LVV-T1048} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1048}{Crosstalk coefficient measurement capability} \tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -193,6 +227,28 @@ Demonstration & Keith Bechtol
 \end{itemize}
 
 \subsubsection{Test Items}
+Perform repeated observations of a set of 20 to 30 fields to evaluate
+single-visit science performance metrics such as system throughput,
+image quality, and astrometric and photometric repeatability. The fields
+should be selected to span a range of object densities (e.g., by
+sampling different Galactic latitudes) and should be observed under a
+range of environmental conditions, including a range of airmass and sky
+brightness. (WHAT RANGE?) The target fields should include
+spectrophotometric standards such as DA white dwarfs to be used to
+evaluate the absolute photometric calibration (HOW MANY?)\\
+~\\
+The ~pointings in each field will be dithered to allow tests of
+delivered image quality, throughput, calibration, and astrometry across
+the full field of view. Photometric conditions are required.\\
+~\\
+Sub-percent Photometry: Faint DA White Dwarf Spectrophotometric
+Standards for Astrophysical Observatories\\
+\url{https://arxiv.org/abs/1811.12534}~\\
+~\\
+\textbf{Example observations:}\\
+20 fields x 5 visits x 6 filters x 5 epochs = 20 fields x 25 visits x 6
+filters.
+
 
 
 \subsubsection{Predecessors}
@@ -250,6 +306,21 @@ Demonstration & Keith Bechtol
 \end{itemize}
 
 \subsubsection{Test Items}
+Repeated observations of a smaller number of fields reaching cumulative
+exposures equivalent to the 10-year stack in the wide-fast-deep survey,
+specifically, 200 visits in both the r and i band. These ~observations
+are designed to measure residual PSF ellipticities, ~and to test
+transient, variable, and moving object detection over a range of
+timescales. Three fields should be chosen along the ecliptic that
+together span a range of source densities. Each field should be observed
+in multiple epochsdistributed over at least 3 consecutive nights and
+cover a range of airmasses. Dithered pointings will be used to
+approximate the coverage pattern expected in the wide-fast-deep
+survey.\\
+~\\
+Estimated ~observing time = 34 seconds * 200 visits * 2 filters * 3
+(dither pattern) * 3 fields = \textasciitilde{}36hrs.
+
 
 
 \subsubsection{Predecessors}
@@ -2726,7 +2797,7 @@ data to a reference catalog (e.g. Gaia)
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 Run processCCD (or the equivalent single-image processing script) on
-images taken as a part of the mini-survey.\\
+images.\\
 ~\\
 (We cannot just run the Level 1 pipeline, because the Level 1 pipeline
 is meant to only do photometry on variable/transient sources, and we are
@@ -7121,10 +7192,7 @@ Test & Scott Daniel
 \end{longtable}
 
 \subsubsection{Verification Elements}
-\begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-994}{LVV-994} - OSS-REQ-0051-V-01: Summit-Base Connectivity Loss
-
-\end{itemize}
+    None.
 
 \subsubsection{Test Items}
 Verify that the quick look system still functions, even when
@@ -7195,10 +7263,7 @@ Test & Scott Daniel
 \end{longtable}
 
 \subsubsection{Verification Elements}
-\begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-994}{LVV-994} - OSS-REQ-0051-V-01: Summit-Base Connectivity Loss
-
-\end{itemize}
+    None.
 
 \subsubsection{Test Items}
 Verify that sub-system health reporting infrastructure continues to
@@ -7269,10 +7334,7 @@ Test & Scott Daniel
 \end{longtable}
 
 \subsubsection{Verification Elements}
-\begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-994}{LVV-994} - OSS-REQ-0051-V-01: Summit-Base Connectivity Loss
-
-\end{itemize}
+    None.
 
 \subsubsection{Test Items}
 Verify that the Data Management system can hold up to 48 hours of images
@@ -7329,10 +7391,7 @@ Test & Scott Daniel
 \end{longtable}
 
 \subsubsection{Verification Elements}
-\begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-994}{LVV-994} - OSS-REQ-0051-V-01: Summit-Base Connectivity Loss
-
-\end{itemize}
+    None.
 
 \subsubsection{Test Items}
 Verify that the scheduler can continue to operate the telescope, even
@@ -8289,7 +8348,7 @@ magnitudes asymptotes to no more than 6 millimagnitudes.
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 Run processCCD (or the equivalent single-image processing script) on
-images taken as a part of the mini-survey.\\
+images.\\
 ~\\
 (We cannot just run the Level 1 pipeline, because the Level 1 pipeline
 is meant to only do photometry on variable/transient sources, and we are
@@ -8349,7 +8408,7 @@ cases where we need Level 1 measurements of static sources.
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Run processCCD (or the equivalent single-image processing script) on
-images taken as a part of the mini-survey.\\
+images.\\
 ~\\
 (We cannot just run the Level 1 pipeline, because the Level 1 pipeline
 is meant to only do photometry on variable/transient sources, and we are
@@ -8801,7 +8860,7 @@ seeing evolves as X**0.6
 \toprule
 Version & Status & Priority & Verification Type & Owner
 \\\midrule
-1 & Draft & Normal &
+1 & Defined & Normal &
 Test & Andrew Connolly
 \\\bottomrule
 \end{longtable}
@@ -8929,7 +8988,7 @@ Including output from spuriousness classification algorithm
 \toprule
 Version & Status & Priority & Verification Type & Owner
 \\\midrule
-1 & Draft & Normal &
+1 & Defined & Normal &
 Test & Andrew Connolly
 \\\bottomrule
 \end{longtable}
@@ -9016,7 +9075,7 @@ threshold
 \toprule
 Version & Status & Priority & Verification Type & Owner
 \\\midrule
-1 & Draft & Normal &
+1 & Defined & Normal &
 Test & Andrew Connolly
 \\\bottomrule
 \end{longtable}
@@ -9227,1429 +9286,2831 @@ each band
         \\ \midrule
     \end{longtable}
 
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1011}{LVV-T1011}
+    - Observatory operations during communications blackout -- 48 hours}\label{lvv-t1011}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-994}{LVV-994} - OSS-REQ-0051-V-01: Summit-Base Connectivity Loss
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that the observatory can continue to function, even if
+base-to-summit communications are lost
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Physically deactivate base-to-summit communications.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that subsystem health reporting and quick look software can still
+function.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Keep communications off for 48 hours. ~Verify that the telescope
+continues to take observations and perform daytime calibration
+activities.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that all images taken during communications blackout are stored
+in the catch-up cache.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Restore base-to-summit communications.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 6 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that all images cached during communications blackout are
+processed by DM catch-up functionality.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1012}{LVV-T1012}
+    - Level 2 astrometric accuracy}\label{lvv-t1012}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1327}{LVV-1327} - OSS-REQ-0162-V-01: Level 2 Catalog Accuracy
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that DM contribution of level 2 astrometric errors
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-1
+                {\scriptsize from \hyperref[lvv-t979]
+                {LVV-T979} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Take images over area where we want to test coadd processing
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-2
+                {\scriptsize from \hyperref[lvv-t979]
+                {LVV-T979} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Select a subset of stars as test data.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Generate multiple reference catalogs, each containing a different set of
+stars that does not include the test sources from step 2.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Re-run astrometric solution for each reference catalog generated in 3
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For each star in the test set selected in step 2, find the RMS of the
+astrometric scatter across all astrometric solutions from step 4.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 6 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that the distribution of RMS astrometric scatters for the test
+stars cluster around 0.05 arcseconds, or less. ~This should represent an
+approximation of the error introduced by the DM processing pipeline.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1030}{LVV-T1030}
+    - Zeropoint uniformity due to DM}\label{lvv-t1030}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1711}{LVV-1711} - OSS-REQ-0275-V-01: Calibration Processing Performance Allocations
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify effect of DM pipelines on uniformity of photometric zeropoint
+across the sky
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-1
+                {\scriptsize from \hyperref[lvv-t973]
+                {LVV-T973} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Run full Level 2 Data Management processing on images taken with LSSTCAM
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For each image, select a subset of bright, isolated sources that are not
+in the reference catalog.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Jointcal on the images from step 1 using different reference catalogs
+that do not include the sources selected in step 2.\\
+~\\
+By running the processing with different reference catalogs, we should
+be able to isolate the effects of the DM pipelines.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Find the median zeropoint of the sources in step 2 in each of the
+reprocessings done ins step 3. ~Calculate (ZP-medianZP) within each
+reprocessing from step 3. ~Plot the distribution of this quantity across
+all of the reprocessings. ~Verify that the RMS scatter of this
+distribution is less than 0.007 AB magnitudes.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1031}{LVV-T1031}
+    - Photometric repeatability due to DM pipeline}\label{lvv-t1031}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1711}{LVV-1711} - OSS-REQ-0275-V-01: Calibration Processing Performance Allocations
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify the effect of DM pipelines on photometric repeatability
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-1
+                {\scriptsize from \hyperref[lvv-t973]
+                {LVV-T973} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Run full Level 2 Data Management processing on images taken with LSSTCAM
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Select a set of isolated bright point sources to be the test data set.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run jointcal on the images from step 1 several times, each time using a
+different reference catalog that does not include the sources from step
+2.\\
+~\\
+By re-running jointcal with different reference catalogs, we hope to
+isolate the effect of the DM pipelines on photometric repeatability.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For each source in 2, find the RMS scatter in the measured magnitude.
+~Plot the distribution of these scatters. ~Verify that they do not
+exceed 0.003 AB magnitudes.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1032}{LVV-T1032}
+    - Photometric repeatability due to field of view variation}\label{lvv-t1032}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1678}{LVV-1678} - OSS-REQ-0331-V-01: Filter Variation Allocations
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Test the contribution of filter placement errors/variation over the
+field of view to photometric repeatability.
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-1
+                {\scriptsize from \hyperref[lvv-t973]
+                {LVV-T973} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Run full Level 2 Data Management processing on images taken with LSSTCAM
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Process individual images with processCCD
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Cross-match against Gaia to find bright point sources that are static to
+within 0.0001 magnitudes.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For each source identified in 3, assume its final coadd magnitude from 1
+is the source's true magnitude. ~Subtract this from each individual
+measurement of the source.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For each band, plot the distribution in 4 (individual image magnitudes
+minus final coadd magnitude) as a function of distance from the center
+of the focal plane and as a function of rotation angle. ~These
+distributions should be horizontal lines centered on zero with RMS
+scatter less than 0.5 millimagnitudes.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1033}{LVV-T1033}
+    - Generate grid of sources with CBP}\label{lvv-t1033}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+    None.
+
+\subsubsection{Test Items}
+Generate a grid of sources (multiple per CCD) using the collimated beam
+procjector
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Set mask on CBP to generate a grid of sources with at least two sources
+per amplifier.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Take an image of the CBP spots produced in step 1
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1034}{LVV-T1034}
+    - Effect of gain on photometric repeatability -- 12 hours}\label{lvv-t1034}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1681}{LVV-1681} - OSS-REQ-0332-V-01: FPA Gain Allocations
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify effect of uncorrected gain variations on photometric
+repeatability on 12 hour time scales
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-1
+                {\scriptsize from \hyperref[lvv-t1033]
+                {LVV-T1033} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Set mask on CBP to generate a grid of sources with at least two sources
+per amplifier.
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-2
+                {\scriptsize from \hyperref[lvv-t1033]
+                {LVV-T1033} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Take an image of the CBP spots produced in step 1
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 2-1
+                {\scriptsize from \hyperref[lvv-t1000]
+                {LVV-T1000} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Run processCCD (or the equivalent single-image processing script) on
+images.\\
+~\\
+(We cannot just run the Level 1 pipeline, because the Level 1 pipeline
+is meant to only do photometry on variable/transient sources, and we are
+going to specifically be looking at static sources in the steps below)
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Wait 12 hours, presumably carrying out a normal observing program during
+this time.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 4-1
+                {\scriptsize from \hyperref[lvv-t1033]
+                {LVV-T1033} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Set mask on CBP to generate a grid of sources with at least two sources
+per amplifier.
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 4-2
+                {\scriptsize from \hyperref[lvv-t1033]
+                {LVV-T1033} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Take an image of the CBP spots produced in step 1
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 5-1
+                {\scriptsize from \hyperref[lvv-t1000]
+                {LVV-T1000} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Run processCCD (or the equivalent single-image processing script) on
+images.\\
+~\\
+(We cannot just run the Level 1 pipeline, because the Level 1 pipeline
+is meant to only do photometry on variable/transient sources, and we are
+going to specifically be looking at static sources in the steps below)
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 6 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that the measurements in step 5 agree with the measurements in
+step 2 to within 0.01 magnitude.\\
+~\\
+(This does not account for the "on spatial scales equal to a single
+output amplifier" part of the requirement; I'm not sure what that means
+in the context of photometric repeatability)
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1035}{LVV-T1035}
+    - Effect of gain variations on photometric repeatability -- 1 hr}\label{lvv-t1035}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1681}{LVV-1681} - OSS-REQ-0332-V-01: FPA Gain Allocations
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify the effect of gain variations on photometric repeatability over 1
+hour time scales
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-1
+                {\scriptsize from \hyperref[lvv-t1033]
+                {LVV-T1033} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Set mask on CBP to generate a grid of sources with at least two sources
+per amplifier.
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-2
+                {\scriptsize from \hyperref[lvv-t1033]
+                {LVV-T1033} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Take an image of the CBP spots produced in step 1
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 2-1
+                {\scriptsize from \hyperref[lvv-t1000]
+                {LVV-T1000} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Run processCCD (or the equivalent single-image processing script) on
+images.\\
+~\\
+(We cannot just run the Level 1 pipeline, because the Level 1 pipeline
+is meant to only do photometry on variable/transient sources, and we are
+going to specifically be looking at static sources in the steps below)
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Wait an hour, carrying out a normal observing program during that time
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 4-1
+                {\scriptsize from \hyperref[lvv-t1033]
+                {LVV-T1033} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Set mask on CBP to generate a grid of sources with at least two sources
+per amplifier.
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 4-2
+                {\scriptsize from \hyperref[lvv-t1033]
+                {LVV-T1033} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Take an image of the CBP spots produced in step 1
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 5-1
+                {\scriptsize from \hyperref[lvv-t1000]
+                {LVV-T1000} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Run processCCD (or the equivalent single-image processing script) on
+images.\\
+~\\
+(We cannot just run the Level 1 pipeline, because the Level 1 pipeline
+is meant to only do photometry on variable/transient sources, and we are
+going to specifically be looking at static sources in the steps below)
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 6 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that the measurements in step 5 agree with the measurements in
+step 2 to within 0.01 magnitudes
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1037}{LVV-T1037}
+    - Gain variation -- 1 hr}\label{lvv-t1037}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1681}{LVV-1681} - OSS-REQ-0332-V-01: FPA Gain Allocations
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify amount of gain variation in one hour
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Use calibration pipeline to measure the gain across the LSST focal
+plane.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Wait an hour, performing a normal observing program in that time
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Use calibration pipeline to measure the gain across the LSST focal
+plane.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For each CCD in the LSST focal plane, generate a map of (gain-average
+gain) for the measurements in steps 1 and 3. ~Make sure that those maps
+do not evolve by more than a factor of 1.001 between steps 1 and 3.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1038}{LVV-T1038}
+    - Attenuation of large scale gain variation errors}\label{lvv-t1038}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1681}{LVV-1681} - OSS-REQ-0332-V-01: FPA Gain Allocations
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify the attenuation of errors due to gain variation
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-1
+                {\scriptsize from \hyperref[lvv-t1033]
+                {LVV-T1033} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Set mask on CBP to generate a grid of sources with at least two sources
+per amplifier.
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-2
+                {\scriptsize from \hyperref[lvv-t1033]
+                {LVV-T1033} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Take an image of the CBP spots produced in step 1
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 2-1
+                {\scriptsize from \hyperref[lvv-t1000]
+                {LVV-T1000} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Run processCCD (or the equivalent single-image processing script) on
+images.\\
+~\\
+(We cannot just run the Level 1 pipeline, because the Level 1 pipeline
+is meant to only do photometry on variable/transient sources, and we are
+going to specifically be looking at static sources in the steps below)
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Reprocess images from step (1) setting the gain for each amplifier equal
+to the average gain for that CCD.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Compare the residual between the measured magnitude and the known
+magnitude of the CBP sources as measured in step 3 to that same residual
+as measured in step 1. ~Verify that the residuals in step 1 are a factor
+of 10**5 (!) lower than the residuals in step 3.\\
+~\\
+That factor of 10**5 seems extreme, but that is the amplitude equivalent
+of 100 decibels of attenuation.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1039}{LVV-T1039}
+    - Attenuation of small scale gain variation over short time scales}\label{lvv-t1039}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1681}{LVV-1681} - OSS-REQ-0332-V-01: FPA Gain Allocations
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify the attenuation of errors due to gain variation over short time
+scales
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            ​​​​​​​​Use calibration pipeline to measure gain across LSST focal
+plane.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            ​​​​​Wait half an hour, performing a normal observing programing in that
+time.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            ​​​​Use calibration pipeline to measure gain across LSST focal plane
+again.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 4-1
+                {\scriptsize from \hyperref[lvv-t1033]
+                {LVV-T1033} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Set mask on CBP to generate a grid of sources with at least two sources
+per amplifier.
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 4-2
+                {\scriptsize from \hyperref[lvv-t1033]
+                {LVV-T1033} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Take an image of the CBP spots produced in step 1
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run single visit pipeline on images from step 4 using the gains
+calculated in step 1.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 6 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run single visit pipeline on images from step 4 using the gains
+calculated in step 3.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 7 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Find the residual between the magnitudes measured in steps 5 and 6 from
+the known true magnitudes of the CBP sources. ~Verify that the residuals
+from the measurements in step 6 are a factor of 1.25 better than the
+residuals from the measurements in step 5 (this will correspond to 1
+decibel of attenuation).
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1040}{LVV-T1040}
+    - Attenuation of gain variation of an hour}\label{lvv-t1040}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1681}{LVV-1681} - OSS-REQ-0332-V-01: FPA Gain Allocations
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify the attenuation of errors due to gain variation over one hour
+time scales
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            ​​​​Use calibration pipeline to measure gain across LSST focal plane.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Wait an hour, performing a normal observing programing in that time.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            ​​​​Use calibration pipeline to measure gain across LSST focal plane
+again.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 4-1
+                {\scriptsize from \hyperref[lvv-t1033]
+                {LVV-T1033} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Set mask on CBP to generate a grid of sources with at least two sources
+per amplifier.
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 4-2
+                {\scriptsize from \hyperref[lvv-t1033]
+                {LVV-T1033} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Take an image of the CBP spots produced in step 1
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run single visit pipeline on images from step 4 using the gains
+calculated in step 1.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 6 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run single visit pipeline on images from step 4 using the gains
+calculated in step 3.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 7 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Find the residual between the magnitudes measured in steps 5 and 6 from
+the known true magnitudes of the CBP sources. ~Verify that the residuals
+from the measurements in step 6 are a factor of 10 better than the
+residuals from the measurements in step 5 (this will correspond to 10
+decibel of attenuation).
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1041}{LVV-T1041}
+    - Stray light within 45 degrees of the moon}\label{lvv-t1041}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1522}{LVV-1522} - OSS-REQ-0225-V-01: Lunar Stray Light
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that we have mitigated all significant sources of stray light
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Calculate expected natural sky background for lunar positions within 45
+degrees of the telescope's optical axis.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Take a series of images with the CBP, using the CBP to project a single
+spot representing the moon. ~Scan the CBP across multiple positions
+within 45 degrees of the telescope's optical axis, taking a new image at
+each position.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Examine the images in step 2 for any stray or scattered light that would
+be brighter than 10\% of the expected natural background calculated in
+step 1.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1043}{LVV-T1043}
+    - Flat fielding errors -- effect on photometric repeatability}\label{lvv-t1043}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-800}{LVV-800} - OSS-REQ-0334-V-01: Flat Fielding Allocations
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify the effect of flat fielding errors on photometric repeatability
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Use calibration pipeline to generate flat fields.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Take a series of on-sky images over a period of time over which we do
+not expect the flat field properties of the observatory to evolve.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Use calibration pipeline to take a large set of flat fields.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Process the images from step 2 with the flat fields from steps 1 and 3
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For each point source in step 4, plot the scatter in magnitude across
+the reprocessings as a function of signal to noise. ~Verify that, for
+bright sources, the photometric repeatability is within 0.6
+millimagnitudes.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1044}{LVV-T1044}
+    - Flat fielding -- raw effect on photometric repeatability}\label{lvv-t1044}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-800}{LVV-800} - OSS-REQ-0334-V-01: Flat Fielding Allocations
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that the effect of not performing flat fielding is within
+required tolerance
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Take a series of images on the sky
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Generate flat fields with calibration pipeline
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Process the images from step 1 with and without flat fielding
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For all of the point sources in the image, plot the difference in
+magnitude between the processing with and without flat fields as a
+function of signal to noise. ~Verify that the absolute magnitude of the
+residual remains within 250 millimagnitudes for bright sources.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1046}{LVV-T1046}
+    - Crosstalk functionality exists}\label{lvv-t1046}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1621}{LVV-1621} - OSS-REQ-0348-V-01: Alert Production Crosstalk Correction
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that the crosstalk functionality exists in the alert production
+pipeline
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-1
+                {\scriptsize from \hyperref[lvv-t1033]
+                {LVV-T1033} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Set mask on CBP to generate a grid of sources with at least two sources
+per amplifier.
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 1-2
+                {\scriptsize from \hyperref[lvv-t1033]
+                {LVV-T1033} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Take an image of the CBP spots produced in step 1
+
+                \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Analyze image from step 1 with all crosstalk coefficients set to zero.\\
+~\\
+(Do we need to specify that we are using the same algorithms as the
+alert production pipeline?)
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that there are spurious sources in the image due to crosstalk.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Re-analyze image with correct crosstalk coefficients.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that only expected CBP sources appear in re-analyzed image (i.e.
+that corsstalk effects were corrected away in all detectors).
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1048}{LVV-T1048}
+    - Crosstalk coefficient measurement capability}\label{lvv-t1048}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Scott Daniel
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1639}{LVV-1639} - OSS-REQ-0374-V-01: Crosstalk Measurement Capability
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that the LSST system is able to measure crosstalk coefficients
+during downtime
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            During the day, use the Collimated Beam Projector to create a series of
+spot images.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Use the calibration products pipeline to measure the crosstalk
+coefficients from the images in 1.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that the crosstalk coefficients from 2 are stored in a way that
+the DM pipelines can ingest and use them.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
 \appendix
 % generated from JIRA project LVV
-% using template at /var/jenkins_home/.local/lib/python3.7/site-packages/docsteady/templates/dm-spec-appendix.latex.jinja2.
-% Collecting ATM data from folder: "/Project Systems Engineering/Commissioning Science Verification"
-% using dosteady version 1.2rc1
+% using template at /Users/GComoretto/anaconda3/envs/docsteady/lib/python3.7/site-packages/docsteady/templates/dm-spec-appendix.latex.jinja2.
+% Collecting ATM data from folder: "/Project Systems Engineering/Commissioning Science Verification|LSE-419"
+% using dosteady version 1.2rc2
 % Please do not edit -- update information in Jira instead
 
 \section{Traceability}
 \scriptsize{
-\begin{longtable}[]{rp{6cm}p{2cm}p{2cm}p{1.5cm}p{1.5cm}p{1.5cm}}
+\begin{longtable}[]{p{13cm}p{3cm}}
 \toprule
-& Verification Elements & VE Status & VE Assignee &Test Cases & TC Status & TC Owner \tabularnewline
+Verification Elements & Test Cases\tabularnewline
 \midrule
 \endhead
 
-1 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1544}{LVV-1544 - OSS-REQ-0228-V-02: Image Size in Pixels
-}
-& Not Covered & Bo Xin
-        & 
-        \hyperref[lvv-t293]{LVV-T293} 
-        & Draft & Keith Bechtol
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t295]{LVV-T295} 
-        & Draft & Keith Bechtol
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t297]{LVV-T297} 
-        & Defined & Keith Bechtol
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t298]{LVV-T298} 
-        & Draft & Keith Bechtol
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t299]{LVV-T299} 
-        & Draft & Keith Bechtol
-        \\
-            \hdashline
-2 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1545}{LVV-1545 - OSS-REQ-0228-V-03: Image Quality vs Field
-}
-& Not Covered & Bo Xin
-        & 
-        \hyperref[lvv-t294]{LVV-T294} 
-        & Draft & Keith Bechtol
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t296]{LVV-T296} 
-        & Draft & Keith Bechtol
-        \\
-            \hdashline
-3 &
-    \href{https://jira.lsstcorp.org/browse/LVV-7213}{LVV-7213 - OSS-REQ-0228-V-04: Image Quality in Encircled Energy
-}
-& Not Covered & Bo Xin
-        & 
-        \hyperref[lvv-t294]{LVV-T294} 
-        & Draft & Keith Bechtol
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t296]{LVV-T296} 
-        & Draft & Keith Bechtol
-        \\
-            \hdashline
-4 &
-    \href{https://jira.lsstcorp.org/browse/LVV-7214}{LVV-7214 - OSS-REQ-0228-V-05: System Contribution to Image Quality
-}
-& Not Covered & Bo Xin
-        & 
-        \hyperref[lvv-t294]{LVV-T294} 
-        & Draft & Keith Bechtol
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t296]{LVV-T296} 
-        & Draft & Keith Bechtol
-        \\
-            \hdashline
-5 &
-    \href{https://jira.lsstcorp.org/browse/LVV-238}{LVV-238 - LSR-REQ-0094-V-01: Astrometric Performance1
-}
-& Not Covered & Chuck Claver
-        & 
-        \hyperref[lvv-t297]{LVV-T297} 
-        & Defined & Keith Bechtol
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t959]{LVV-T959} 
-        & Defined & Scott Daniel
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t960]{LVV-T960} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-6 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1273}{LVV-1273 - OSS-REQ-0149-V-01: Level 1 Catalog Precision
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t297]{LVV-T297} 
-        & Defined & Keith Bechtol
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t545]{LVV-T545} 
-        & Defined & Scott Daniel
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t959]{LVV-T959} 
-        & Defined & Scott Daniel
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t960]{LVV-T960} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-7 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1543}{LVV-1543 - OSS-REQ-0228-V-01: Image Quality Off-Zenith Degredation
-}
-& Not Covered & Bo Xin
-        & 
-        \hyperref[lvv-t360]{LVV-T360} 
-        & Draft & Keith Bechtol
-        \\
-            \hdashline
-8 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1546}{LVV-1546 - OSS-REQ-0234-V-01: 10-year Ellipticity Residuals
-}
-& Not Covered & Tony Tyson
-        & 
-        \hyperref[lvv-t361]{LVV-T361} 
-        & Draft & Keith Bechtol
-        \\
-            \hdashline
-9 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1366}{LVV-1366 - OSS-REQ-0390-V-01: Ellipticity Correlations
-}
-& Not Covered & Chuck Claver
-        & 
-        \hyperref[lvv-t361]{LVV-T361} 
-        & Draft & Keith Bechtol
-        \\
-            \hdashline
-10 &
-    \href{https://jira.lsstcorp.org/browse/LVV-273}{LVV-273 - LSR-REQ-0093-V-01: Photometric Performance1
-}
-& Not Covered & Imram Hasan
-        & 
-        \hyperref[lvv-t389]{LVV-T389} 
-        & Defined & Imram Hasan
-        \\
-            \hdashline
-11 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1372}{LVV-1372 - OSS-REQ-0387-V-01: Photometric Performance\_1
-}
-& Not Covered & Imram Hasan
-        & 
-        \hyperref[lvv-t389]{LVV-T389} 
-        & Defined & Imram Hasan
-        \\
-            \hdashline
-12 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1555}{LVV-1555 - OSS-REQ-0238-V-01: Filter Response Uniformity u-band blue edge
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t448]{LVV-T448} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-13 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1570}{LVV-1570 - OSS-REQ-0239-V-01: In-band Ripple u-band
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t452]{LVV-T452} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-14 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1582}{LVV-1582 - OSS-REQ-0240-V-01: u-band Response Envelope
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t453]{LVV-T453} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-15 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1579}{LVV-1579 - OSS-REQ-0366-V-01: u-band not-to-exceed envelope
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t453]{LVV-T453} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-16 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1561}{LVV-1561 - OSS-REQ-0241-V-01: g-band Response Envelope
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t453]{LVV-T453} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-17 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1558}{LVV-1558 - OSS-REQ-0367-V-01: g-band not-to-exceed envelope
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t453]{LVV-T453} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-18 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1576}{LVV-1576 - OSS-REQ-0242-V-01: r-band Response Envelope
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t453]{LVV-T453} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-19 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1573}{LVV-1573 - OSS-REQ-0368-V-01: r-band not-to-exceed envelope
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t453]{LVV-T453} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-20 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1567}{LVV-1567 - OSS-REQ-0243-V-01: i-band Response Envelope
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t453]{LVV-T453} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-21 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1564}{LVV-1564 - OSS-REQ-0369-V-01: i-band not-to-exceed envelope
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t453]{LVV-T453} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-22 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1594}{LVV-1594 - OSS-REQ-0244-V-01: z-band Response Envelope
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t453]{LVV-T453} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-23 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1591}{LVV-1591 - OSS-REQ-0370-V-01: z-band not-to-exceed envelope
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t453]{LVV-T453} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-24 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1588}{LVV-1588 - OSS-REQ-0245-V-01: y-band Response Envelope
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t453]{LVV-T453} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-25 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1585}{LVV-1585 - OSS-REQ-0371-V-01: y-band not-to-exceed envelope
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t453]{LVV-T453} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-26 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1556}{LVV-1556 - OSS-REQ-0238-V-02: Filter Response Uniformity u-band red edge
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t448]{LVV-T448} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-27 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1557}{LVV-1557 - OSS-REQ-0238-V-03: Filter Response Uniformity g-band blue edge
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t448]{LVV-T448} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-28 &
-    \href{https://jira.lsstcorp.org/browse/LVV-8678}{LVV-8678 - OSS-REQ-0238-V-04: Filter Response Uniformity g-band red edge
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t448]{LVV-T448} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-29 &
-    \href{https://jira.lsstcorp.org/browse/LVV-8681}{LVV-8681 - OSS-REQ-0238-V-05: Filter Response Uniformity r-band blue edge
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t448]{LVV-T448} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-30 &
-    \href{https://jira.lsstcorp.org/browse/LVV-8683}{LVV-8683 - OSS-REQ-0238-V-06: Filter Response Uniformity r-band red edge
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t448]{LVV-T448} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-31 &
-    \href{https://jira.lsstcorp.org/browse/LVV-8686}{LVV-8686 - OSS-REQ-0238-V-07: Filter Response Uniformity i-band blue edge
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t448]{LVV-T448} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-32 &
-    \href{https://jira.lsstcorp.org/browse/LVV-8689}{LVV-8689 - OSS-REQ-0238-V-08: Filter Response Uniformity i-band red edge
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t448]{LVV-T448} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-33 &
-    \href{https://jira.lsstcorp.org/browse/LVV-8691}{LVV-8691 - OSS-REQ-0238-V-09: Filter Response Uniformity z-band blue edge
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t448]{LVV-T448} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-34 &
-    \href{https://jira.lsstcorp.org/browse/LVV-8694}{LVV-8694 - OSS-REQ-0238-V-10: Filter Response Uniformity z-band red edge
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t448]{LVV-T448} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-35 &
-    \href{https://jira.lsstcorp.org/browse/LVV-8696}{LVV-8696 - OSS-REQ-0238-V-11: Filter Response Uniformity y-band blue edge
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t448]{LVV-T448} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-36 &
-    \href{https://jira.lsstcorp.org/browse/LVV-8698}{LVV-8698 - OSS-REQ-0238-V-12: Filter Response Uniformity y-band red edge
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t448]{LVV-T448} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-37 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1572}{LVV-1572 - OSS-REQ-0239-V-03: In-band Ripple r-band
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t452]{LVV-T452} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-38 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1571}{LVV-1571 - OSS-REQ-0239-V-02: In-band Ripple g-band
-}
-& Not Covered & Brian Stalder
-        & 
-        \hyperref[lvv-t434]{LVV-T434} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t445]{LVV-T445} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t446]{LVV-T446} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t447]{LVV-T447} 
-        & Draft & Brian Stalder
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t452]{LVV-T452} 
-        & Draft & Brian Stalder
-        \\
-            \hdashline
-39 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1261}{LVV-1261 - OSS-REQ-0354-V-01: Difference Source Spuriousness Threshold - MOPS
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t532]{LVV-T532} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-40 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1262}{LVV-1262 - OSS-REQ-0354-V-02: Difference Source Spuriousness Threshold - MOPS2
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t533]{LVV-T533} 
-        & Draft & Scott Daniel
-        \\
-            \hdashline
-41 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1291}{LVV-1291 - OSS-REQ-0152-V-01: Level 1 Photometric Zero Point Error
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t549]{LVV-T549} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-42 &
-    \href{https://jira.lsstcorp.org/browse/LVV-116}{LVV-116 - DMS-REQ-0285-V-01: Level 1 Source Association
-}
-& Not Covered & Eric Bellm
-        & 
-        \hyperref[lvv-t550]{LVV-T550} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-43 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1645}{LVV-1645 - OSS-REQ-0268-V-01: Dynamic Range
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t554]{LVV-T554} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-44 &
-    \href{https://jira.lsstcorp.org/browse/LVV-253}{LVV-253 - LSR-REQ-0007-V-01: Delivered Image Quality1
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t587]{LVV-T587} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-45 &
-    \href{https://jira.lsstcorp.org/browse/LVV-254}{LVV-254 - LSR-REQ-0007-V-02: Delivered Image Quality2
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t588]{LVV-T588} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-46 &
-    \href{https://jira.lsstcorp.org/browse/LVV-255}{LVV-255 - LSR-REQ-0007-V-03: Delivered Image Quality3
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t589]{LVV-T589} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-47 &
-    \href{https://jira.lsstcorp.org/browse/LVV-256}{LVV-256 - LSR-REQ-0007-V-04: Delivered Image Quality4
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t590]{LVV-T590} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-48 &
-    \href{https://jira.lsstcorp.org/browse/LVV-257}{LVV-257 - LSR-REQ-0007-V-05: Delivered Image Quality5
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t591]{LVV-T591} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-49 &
-    \href{https://jira.lsstcorp.org/browse/LVV-9804}{LVV-9804 - LSR-REQ-0007-V-06: Delivered Image Quality\_6
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t592]{LVV-T592} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-50 &
-    \href{https://jira.lsstcorp.org/browse/LVV-9805}{LVV-9805 - LSR-REQ-0007-V-07: Delivered Image Quality\_7
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t593]{LVV-T593} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-51 &
-    \href{https://jira.lsstcorp.org/browse/LVV-268}{LVV-268 - LSR-REQ-0087-V-01: Off Zenith Degradation1
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t594]{LVV-T594} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-52 &
-    \href{https://jira.lsstcorp.org/browse/LVV-248}{LVV-248 - LSR-REQ-0092-V-01: Delivered Image Ellipticity1
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t595]{LVV-T595} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-53 &
-    \href{https://jira.lsstcorp.org/browse/LVV-3751}{LVV-3751 - LSR-REQ-0089-V-01: r-band Reference Depth1
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t596]{LVV-T596} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-54 &
-    \href{https://jira.lsstcorp.org/browse/LVV-258}{LVV-258 - LSR-REQ-0109-V-01: Depth Variation Over FOV1
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t597]{LVV-T597} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-55 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1237}{LVV-1237 - OSS-REQ-0123-V-01: Reproducibility
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t938]{LVV-T938} 
-        & Defined & Scott Daniel
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t939]{LVV-T939} 
-        & Defined & Scott Daniel
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t940]{LVV-T940} 
-        & Defined & Scott Daniel
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t941]{LVV-T941} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-56 &
-    \href{https://jira.lsstcorp.org/browse/LVV-165}{LVV-165 - DMS-REQ-0334-V-01: Persisting Data Products
-}
-& Not Covered & Colin Slater
-        & 
-        \hyperref[lvv-t12]{LVV-T12} 
-        & Approved & Jim Bosch
-        \\
-            \hdashline
-57 &
-    \href{https://jira.lsstcorp.org/browse/LVV-98}{LVV-98 - DMS-REQ-0267-V-01: Source Catalog
-}
-& Not Covered & Jim Bosch
-        & 
-        \hyperref[lvv-t12]{LVV-T12} 
-        & Approved & Jim Bosch
-        \\
-            \hdashline
-58 &
-    \href{https://jira.lsstcorp.org/browse/LVV-99}{LVV-99 - DMS-REQ-0268-V-01: Forced-Source Catalog
-}
-& Not Covered & Jim Bosch
-        & 
-        \hyperref[lvv-t12]{LVV-T12} 
-        & Approved & Jim Bosch
-        \\
-            \hdashline
-59 &
-    \href{https://jira.lsstcorp.org/browse/LVV-106}{LVV-106 - DMS-REQ-0275-V-01: Object Catalog
-}
-& Not Covered & Jim Bosch
-        & 
-        \hyperref[lvv-t12]{LVV-T12} 
-        & Approved & Jim Bosch
-        \\
-            \hdashline
-60 &
-    \href{https://jira.lsstcorp.org/browse/LVV-110}{LVV-110 - DMS-REQ-0279-V-01: Deep Detection Coadds
-}
-& Not Covered & Jim Bosch
-        & 
-        \hyperref[lvv-t12]{LVV-T12} 
-        & Approved & Jim Bosch
-        \\
-            \hdashline
-61 &
-    \href{https://jira.lsstcorp.org/browse/LVV-125}{LVV-125 - DMS-REQ-0294-V-01: Processing of Datasets
-}
-& Not Covered & Robert Lupton
-        & 
-        \hyperref[lvv-t12]{LVV-T12} 
-        & Approved & Jim Bosch
-        \\
-            \hdashline
-62 &
-    \href{https://jira.lsstcorp.org/browse/LVV-46}{LVV-46 - DMS-REQ-0106-V-01: Coadded Image Provenance
-}
-& Not Covered & Robert Gruendl
-        & 
-        \hyperref[lvv-t64]{LVV-T64} 
-        & Draft & Jim Bosch
-        \\
-            \hdashline
-63 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1234}{LVV-1234 - OSS-REQ-0122-V-01: Provenance
-}
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t64]{LVV-T64} 
-        & Draft & Jim Bosch
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t942]{LVV-T942} 
-        & Defined & Scott Daniel
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t33]{LVV-T33} 
-        & Draft & Kian-Tat Lim
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t943]{LVV-T943} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-64 &
-    \href{https://jira.lsstcorp.org/browse/LVV-8}{LVV-8 - DMS-REQ-0018-V-01: Raw Science Image Data Acquisition
-}
-& Not Covered & Robert Gruendl
-        & 
-        \hyperref[lvv-t29]{LVV-T29} 
-        & Draft & Kian-Tat Lim
-        \\
-            \hdashline
-65 &
-    \href{https://jira.lsstcorp.org/browse/LVV-11}{LVV-11 - DMS-REQ-0024-V-01: Raw Image Assembly
-}
-& Not Covered & Gregory Dubois-Felsmann
-        & 
-        \hyperref[lvv-t32]{LVV-T32} 
-        & Draft & Kian-Tat Lim
-        \\
-            \hdashline
-66 &
-    \href{https://jira.lsstcorp.org/browse/LVV-28}{LVV-28 - DMS-REQ-0068-V-01: Raw Science Image Metadata
-}
-& Not Covered & Gregory Dubois-Felsmann
-        & 
-        \hyperref[lvv-t33]{LVV-T33} 
-        & Draft & Kian-Tat Lim
-        \\
-            \hdashline
-67 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1285}{LVV-1285 - OSS-REQ-0160-V-01: Level 1 Difference Source - Difference Object
+\href{https://jira.lsstcorp.org/browse/LVV-1544}{LVV-1544 - OSS-REQ-0228-V-02: Image Size in Pixels
+}
+& {
+\hyperref[lvv-t293]{LVV-T293}
+\hyperref[lvv-t295]{LVV-T295}
+\hyperref[lvv-t297]{LVV-T297}
+\hyperref[lvv-t298]{LVV-T298}
+\hyperref[lvv-t299]{LVV-T299}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1545}{LVV-1545 - OSS-REQ-0228-V-03: Image Quality vs Field
+}
+& {
+\hyperref[lvv-t294]{LVV-T294}
+\hyperref[lvv-t296]{LVV-T296}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-7213}{LVV-7213 - OSS-REQ-0228-V-04: Image Quality in Encircled Energy
+}
+& {
+\hyperref[lvv-t294]{LVV-T294}
+\hyperref[lvv-t296]{LVV-T296}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-7214}{LVV-7214 - OSS-REQ-0228-V-05: System Contribution to Image Quality
+}
+& {
+\hyperref[lvv-t294]{LVV-T294}
+\hyperref[lvv-t296]{LVV-T296}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-238}{LVV-238 - LSR-REQ-0094-V-01: Astrometric Performance1
+}
+& {
+\hyperref[lvv-t297]{LVV-T297}
+\hyperref[lvv-t959]{LVV-T959}
+\hyperref[lvv-t960]{LVV-T960}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1273}{LVV-1273 - OSS-REQ-0149-V-01: Level 1 Catalog Precision
+}
+& {
+\hyperref[lvv-t297]{LVV-T297}
+\hyperref[lvv-t545]{LVV-T545}
+\hyperref[lvv-t959]{LVV-T959}
+\hyperref[lvv-t960]{LVV-T960}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1543}{LVV-1543 - OSS-REQ-0228-V-01: Image Quality Off-Zenith Degredation
+}
+& {
+\hyperref[lvv-t360]{LVV-T360}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1546}{LVV-1546 - OSS-REQ-0234-V-01: 10-year Ellipticity Residuals
+}
+& {
+\hyperref[lvv-t361]{LVV-T361}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1366}{LVV-1366 - OSS-REQ-0390-V-01: Ellipticity Correlations
+}
+& {
+\hyperref[lvv-t361]{LVV-T361}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-273}{LVV-273 - LSR-REQ-0093-V-01: Photometric Performance1
+}
+& {
+\hyperref[lvv-t389]{LVV-T389}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1372}{LVV-1372 - OSS-REQ-0387-V-01: Photometric Performance\_1
+}
+& {
+\hyperref[lvv-t389]{LVV-T389}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1555}{LVV-1555 - OSS-REQ-0238-V-01: Filter Response Uniformity u-band blue edge
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t448]{LVV-T448}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1570}{LVV-1570 - OSS-REQ-0239-V-01: In-band Ripple u-band
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t452]{LVV-T452}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1582}{LVV-1582 - OSS-REQ-0240-V-01: u-band Response Envelope
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t453]{LVV-T453}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1579}{LVV-1579 - OSS-REQ-0366-V-01: u-band not-to-exceed envelope
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t453]{LVV-T453}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1561}{LVV-1561 - OSS-REQ-0241-V-01: g-band Response Envelope
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t453]{LVV-T453}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1558}{LVV-1558 - OSS-REQ-0367-V-01: g-band not-to-exceed envelope
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t453]{LVV-T453}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1576}{LVV-1576 - OSS-REQ-0242-V-01: r-band Response Envelope
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t453]{LVV-T453}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1573}{LVV-1573 - OSS-REQ-0368-V-01: r-band not-to-exceed envelope
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t453]{LVV-T453}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1567}{LVV-1567 - OSS-REQ-0243-V-01: i-band Response Envelope
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t453]{LVV-T453}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1564}{LVV-1564 - OSS-REQ-0369-V-01: i-band not-to-exceed envelope
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t453]{LVV-T453}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1594}{LVV-1594 - OSS-REQ-0244-V-01: z-band Response Envelope
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t453]{LVV-T453}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1591}{LVV-1591 - OSS-REQ-0370-V-01: z-band not-to-exceed envelope
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t453]{LVV-T453}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1588}{LVV-1588 - OSS-REQ-0245-V-01: y-band Response Envelope
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t453]{LVV-T453}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1585}{LVV-1585 - OSS-REQ-0371-V-01: y-band not-to-exceed envelope
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t453]{LVV-T453}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1556}{LVV-1556 - OSS-REQ-0238-V-02: Filter Response Uniformity u-band red edge
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t448]{LVV-T448}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1557}{LVV-1557 - OSS-REQ-0238-V-03: Filter Response Uniformity g-band blue edge
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t448]{LVV-T448}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-8678}{LVV-8678 - OSS-REQ-0238-V-04: Filter Response Uniformity g-band red edge
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t448]{LVV-T448}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-8681}{LVV-8681 - OSS-REQ-0238-V-05: Filter Response Uniformity r-band blue edge
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t448]{LVV-T448}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-8683}{LVV-8683 - OSS-REQ-0238-V-06: Filter Response Uniformity r-band red edge
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t448]{LVV-T448}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-8686}{LVV-8686 - OSS-REQ-0238-V-07: Filter Response Uniformity i-band blue edge
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t448]{LVV-T448}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-8689}{LVV-8689 - OSS-REQ-0238-V-08: Filter Response Uniformity i-band red edge
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t448]{LVV-T448}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-8691}{LVV-8691 - OSS-REQ-0238-V-09: Filter Response Uniformity z-band blue edge
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t448]{LVV-T448}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-8694}{LVV-8694 - OSS-REQ-0238-V-10: Filter Response Uniformity z-band red edge
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t448]{LVV-T448}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-8696}{LVV-8696 - OSS-REQ-0238-V-11: Filter Response Uniformity y-band blue edge
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t448]{LVV-T448}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-8698}{LVV-8698 - OSS-REQ-0238-V-12: Filter Response Uniformity y-band red edge
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t448]{LVV-T448}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1572}{LVV-1572 - OSS-REQ-0239-V-03: In-band Ripple r-band
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t452]{LVV-T452}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1571}{LVV-1571 - OSS-REQ-0239-V-02: In-band Ripple g-band
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+\hyperref[lvv-t452]{LVV-T452}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1261}{LVV-1261 - OSS-REQ-0354-V-01: Difference Source Spuriousness Threshold - MOPS
+}
+& {
+\hyperref[lvv-t532]{LVV-T532}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1262}{LVV-1262 - OSS-REQ-0354-V-02: Difference Source Spuriousness Threshold - MOPS2
+}
+& {
+\hyperref[lvv-t533]{LVV-T533}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1291}{LVV-1291 - OSS-REQ-0152-V-01: Level 1 Photometric Zero Point Error
+}
+& {
+\hyperref[lvv-t549]{LVV-T549}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-116}{LVV-116 - DMS-REQ-0285-V-01: Level 1 Source Association
+}
+& {
+\hyperref[lvv-t550]{LVV-T550}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1645}{LVV-1645 - OSS-REQ-0268-V-01: Dynamic Range
+}
+& {
+\hyperref[lvv-t554]{LVV-T554}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-253}{LVV-253 - LSR-REQ-0007-V-01: Delivered Image Quality1
+}
+& {
+\hyperref[lvv-t587]{LVV-T587}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-254}{LVV-254 - LSR-REQ-0007-V-02: Delivered Image Quality2
+}
+& {
+\hyperref[lvv-t588]{LVV-T588}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-255}{LVV-255 - LSR-REQ-0007-V-03: Delivered Image Quality3
+}
+& {
+\hyperref[lvv-t589]{LVV-T589}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-256}{LVV-256 - LSR-REQ-0007-V-04: Delivered Image Quality4
+}
+& {
+\hyperref[lvv-t590]{LVV-T590}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-257}{LVV-257 - LSR-REQ-0007-V-05: Delivered Image Quality5
+}
+& {
+\hyperref[lvv-t591]{LVV-T591}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-9804}{LVV-9804 - LSR-REQ-0007-V-06: Delivered Image Quality\_6
+}
+& {
+\hyperref[lvv-t592]{LVV-T592}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-9805}{LVV-9805 - LSR-REQ-0007-V-07: Delivered Image Quality\_7
+}
+& {
+\hyperref[lvv-t593]{LVV-T593}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-268}{LVV-268 - LSR-REQ-0087-V-01: Off Zenith Degradation1
+}
+& {
+\hyperref[lvv-t594]{LVV-T594}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-248}{LVV-248 - LSR-REQ-0092-V-01: Delivered Image Ellipticity1
+}
+& {
+\hyperref[lvv-t595]{LVV-T595}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-3751}{LVV-3751 - LSR-REQ-0089-V-01: r-band Reference Depth1
+}
+& {
+\hyperref[lvv-t596]{LVV-T596}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-258}{LVV-258 - LSR-REQ-0109-V-01: Depth Variation Over FOV1
+}
+& {
+\hyperref[lvv-t597]{LVV-T597}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1237}{LVV-1237 - OSS-REQ-0123-V-01: Reproducibility
+}
+& {
+\hyperref[lvv-t938]{LVV-T938}
+\hyperref[lvv-t939]{LVV-T939}
+\hyperref[lvv-t940]{LVV-T940}
+\hyperref[lvv-t941]{LVV-T941}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-165}{LVV-165 - DMS-REQ-0334-V-01: Persisting Data Products
+}
+& {
+\hyperref[lvv-t12]{LVV-T12}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-98}{LVV-98 - DMS-REQ-0267-V-01: Source Catalog
+}
+& {
+\hyperref[lvv-t12]{LVV-T12}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-99}{LVV-99 - DMS-REQ-0268-V-01: Forced-Source Catalog
+}
+& {
+\hyperref[lvv-t12]{LVV-T12}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-106}{LVV-106 - DMS-REQ-0275-V-01: Object Catalog
+}
+& {
+\hyperref[lvv-t12]{LVV-T12}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-110}{LVV-110 - DMS-REQ-0279-V-01: Deep Detection Coadds
+}
+& {
+\hyperref[lvv-t12]{LVV-T12}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-125}{LVV-125 - DMS-REQ-0294-V-01: Processing of Datasets
+}
+& {
+\hyperref[lvv-t12]{LVV-T12}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-46}{LVV-46 - DMS-REQ-0106-V-01: Coadded Image Provenance
+}
+& {
+\hyperref[lvv-t64]{LVV-T64}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1234}{LVV-1234 - OSS-REQ-0122-V-01: Provenance
+}
+& {
+\hyperref[lvv-t64]{LVV-T64}
+\hyperref[lvv-t942]{LVV-T942}
+\hyperref[lvv-t33]{LVV-T33}
+\hyperref[lvv-t943]{LVV-T943}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-8}{LVV-8 - DMS-REQ-0018-V-01: Raw Science Image Data Acquisition
+}
+& {
+\hyperref[lvv-t29]{LVV-T29}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-11}{LVV-11 - DMS-REQ-0024-V-01: Raw Image Assembly
+}
+& {
+\hyperref[lvv-t32]{LVV-T32}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-28}{LVV-28 - DMS-REQ-0068-V-01: Raw Science Image Metadata
+}
+& {
+\hyperref[lvv-t33]{LVV-T33}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1285}{LVV-1285 - OSS-REQ-0160-V-01: Level 1 Difference Source - Difference Object
 Association Quality
 }
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t950]{LVV-T950} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-68 &
-    \href{https://jira.lsstcorp.org/browse/LVV-785}{LVV-785 - OSS-REQ-0222-V-01: Ghost Image Control
+& {
+\hyperref[lvv-t950]{LVV-T950}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-785}{LVV-785 - OSS-REQ-0222-V-01: Ghost Image Control
 }
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t956]{LVV-T956} 
-        & Defined & Scott Daniel
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t957]{LVV-T957} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-69 &
-    \href{https://jira.lsstcorp.org/browse/LVV-9801}{LVV-9801 - LSR-REQ-0093-V-08: Photometric Performance\_8
+& {
+\hyperref[lvv-t956]{LVV-T956}
+\hyperref[lvv-t956]{LVV-T956}
+\hyperref[lvv-t957]{LVV-T957}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-9801}{LVV-9801 - LSR-REQ-0093-V-08: Photometric Performance\_8
 }
-& Not Covered & Sam Schmidt
-        & 
-        \hyperref[lvv-t956]{LVV-T956} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-70 &
-    \href{https://jira.lsstcorp.org/browse/LVV-13369}{LVV-13369 - OSS-REQ-0387-V-08: Photometric Performance\_8
+& {
+\hyperref[lvv-t956]{LVV-T956}
+\hyperref[lvv-t956]{LVV-T956}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-13369}{LVV-13369 - OSS-REQ-0387-V-08: Photometric Performance\_8
 }
-& Not Covered & Sam Schmidt
-        & 
-        \hyperref[lvv-t956]{LVV-T956} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-71 &
-    \href{https://jira.lsstcorp.org/browse/LVV-243}{LVV-243 - LSR-REQ-0095-V-01: Bright Sources1
+& {
+\hyperref[lvv-t956]{LVV-T956}
+\hyperref[lvv-t956]{LVV-T956}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-243}{LVV-243 - LSR-REQ-0095-V-01: Bright Sources1
 }
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t961]{LVV-T961} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-72 &
-    \href{https://jira.lsstcorp.org/browse/LVV-293}{LVV-293 - LSR-REQ-0097-V-01: Ellipticity Correlations1
+& {
+\hyperref[lvv-t961]{LVV-T961}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-293}{LVV-293 - LSR-REQ-0097-V-01: Ellipticity Correlations1
 }
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t962]{LVV-T962} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-73 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1207}{LVV-1207 - OSS-REQ-0112-V-01: Science Visit Alert Generation Reliability
+& {
+\hyperref[lvv-t962]{LVV-T962}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1207}{LVV-1207 - OSS-REQ-0112-V-01: Science Visit Alert Generation Reliability
 }
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t963]{LVV-T963} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-74 &
-    \href{https://jira.lsstcorp.org/browse/LVV-994}{LVV-994 - OSS-REQ-0051-V-01: Summit-Base Connectivity Loss
+& {
+\hyperref[lvv-t963]{LVV-T963}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1360}{LVV-1360 - OSS-REQ-0146-V-01: WCS Reporting
 }
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t964]{LVV-T964} 
-        & Defined & Scott Daniel
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t965]{LVV-T965} 
-        & Defined & Scott Daniel
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t966]{LVV-T966} 
-        & Defined & Scott Daniel
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t967]{LVV-T967} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-75 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1360}{LVV-1360 - OSS-REQ-0146-V-01: WCS Reporting
+& {
+\hyperref[lvv-t968]{LVV-T968}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-318}{LVV-318 - LSR-REQ-0101-V-01: Data Processing for Single Visits and Transients1
 }
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t968]{LVV-T968} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-76 &
-    \href{https://jira.lsstcorp.org/browse/LVV-318}{LVV-318 - LSR-REQ-0101-V-01: Data Processing for Single Visits and Transients1
+& {
+\hyperref[lvv-t969]{LVV-T969}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-493}{LVV-493 - LSR-REQ-0025-V-01: Transient Filtering1
 }
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t969]{LVV-T969} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-77 &
-    \href{https://jira.lsstcorp.org/browse/LVV-493}{LVV-493 - LSR-REQ-0025-V-01: Transient Filtering1
+& {
+\hyperref[lvv-t969]{LVV-T969}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-3766}{LVV-3766 - OSS-REQ-0159-V-01: Level 1 Moving Object Quality
 }
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t969]{LVV-T969} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-78 &
-    \href{https://jira.lsstcorp.org/browse/LVV-3766}{LVV-3766 - OSS-REQ-0159-V-01: Level 1 Moving Object Quality
+& {
+\hyperref[lvv-t986]{LVV-T986}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1274}{LVV-1274 - OSS-REQ-0149-V-02: Level 1 Catalog Precision2
 }
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t986]{LVV-T986} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-79 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1274}{LVV-1274 - OSS-REQ-0149-V-02: Level 1 Catalog Precision2
+& {
+\hyperref[lvv-t999]{LVV-T999}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1339}{LVV-1339 - OSS-REQ-0153-V-01: World Coordinate System Accuracy
 }
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t999]{LVV-T999} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-80 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1339}{LVV-1339 - OSS-REQ-0153-V-01: World Coordinate System Accuracy
+& {
+\hyperref[lvv-t1001]{LVV-T1001}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1321}{LVV-1321 - OSS-REQ-0158-V-01: Coaddition for Templates for Subtraction
 }
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t1001]{LVV-T1001} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-81 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1321}{LVV-1321 - OSS-REQ-0158-V-01: Coaddition for Templates for Subtraction
+& {
+\hyperref[lvv-t1002]{LVV-T1002}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1540}{LVV-1540 - OSS-REQ-0230-V-01: Off Zenith Image Degradation
 }
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t1002]{LVV-T1002} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-82 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1540}{LVV-1540 - OSS-REQ-0230-V-01: Off Zenith Image Degradation
+& {
+\hyperref[lvv-t1004]{LVV-T1004}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1264}{LVV-1264 - OSS-REQ-0353-V-01: Difference Source Spuriousness Threshold - Transients
 }
-& Not Covered & Scott Daniel
-        & 
-        \hyperref[lvv-t1004]{LVV-T1004} 
-        & Defined & Scott Daniel
-        \\
-            \hdashline
-83 &
-    \href{https://jira.lsstcorp.org/browse/LVV-1264}{LVV-1264 - OSS-REQ-0353-V-01: Difference Source Spuriousness Threshold - Transients
+& {
+\hyperref[lvv-t1006]{LVV-T1006}
+\hyperref[lvv-t1007]{LVV-T1007}
+\hyperref[lvv-t1006]{LVV-T1006}
+\hyperref[lvv-t1007]{LVV-T1007}
+\hyperref[lvv-t1008]{LVV-T1008}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-994}{LVV-994 - OSS-REQ-0051-V-01: Summit-Base Connectivity Loss
 }
-& Not Covered & Andrew Connolly
-        & 
-        \hyperref[lvv-t1006]{LVV-T1006} 
-        & Draft & Andrew Connolly
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t1007]{LVV-T1007} 
-        & Draft & Andrew Connolly
-        \\
-            &&&
-        & 
-        \hyperref[lvv-t1008]{LVV-T1008} 
-        & Draft & Andrew Connolly
-        \\
-            \hdashline
+& {
+\hyperref[lvv-t1011]{LVV-T1011}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1327}{LVV-1327 - OSS-REQ-0162-V-01: Level 2 Catalog Accuracy
+}
+& {
+\hyperref[lvv-t1012]{LVV-T1012}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1711}{LVV-1711 - OSS-REQ-0275-V-01: Calibration Processing Performance Allocations
+}
+& {
+\hyperref[lvv-t1030]{LVV-T1030}
+\hyperref[lvv-t1031]{LVV-T1031}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1678}{LVV-1678 - OSS-REQ-0331-V-01: Filter Variation Allocations
+}
+& {
+\hyperref[lvv-t1032]{LVV-T1032}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1681}{LVV-1681 - OSS-REQ-0332-V-01: FPA Gain Allocations
+}
+& {
+\hyperref[lvv-t1034]{LVV-T1034}
+\hyperref[lvv-t1035]{LVV-T1035}
+\hyperref[lvv-t1037]{LVV-T1037}
+\hyperref[lvv-t1038]{LVV-T1038}
+\hyperref[lvv-t1039]{LVV-T1039}
+\hyperref[lvv-t1040]{LVV-T1040}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1522}{LVV-1522 - OSS-REQ-0225-V-01: Lunar Stray Light
+}
+& {
+\hyperref[lvv-t1041]{LVV-T1041}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-800}{LVV-800 - OSS-REQ-0334-V-01: Flat Fielding Allocations
+}
+& {
+\hyperref[lvv-t1043]{LVV-T1043}
+\hyperref[lvv-t1044]{LVV-T1044}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1621}{LVV-1621 - OSS-REQ-0348-V-01: Alert Production Crosstalk Correction
+}
+& {
+\hyperref[lvv-t1046]{LVV-T1046}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1639}{LVV-1639 - OSS-REQ-0374-V-01: Crosstalk Measurement Capability
+}
+& {
+\hyperref[lvv-t1048]{LVV-T1048}
+} \\
 \tabularnewline
 \bottomrule
 \end{longtable}
