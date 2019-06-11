@@ -38,9 +38,9 @@ Test Id & Test Name\tabularnewline
     \hyperref[lvv-t445]{LVV-T445} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T445}{Acquire Filter Response Verification Data (with CBP)} \tabularnewline
     \hyperref[lvv-t446]{LVV-T446} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T446}{Process Filter Response Verification Data (with flat field screen)} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T446}{Data Processing Campaign: Process Filter Response Verification Data (with flat field screen)} \tabularnewline
     \hyperref[lvv-t447]{LVV-T447} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T447}{Process Filter Response Verification Data (with CBP)} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T447}{Data Processing Campaign: Process Filter Response Verification Data (with CBP)} \tabularnewline
     \hyperref[lvv-t448]{LVV-T448} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T448}{Analyze Filter Response Uniformity} \tabularnewline
     \hyperref[lvv-t452]{LVV-T452} &
@@ -158,7 +158,7 @@ Test Id & Test Name\tabularnewline
     \hyperref[lvv-t1001]{LVV-T1001} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1001}{WCS accuracy -- on-sky data} \tabularnewline
     \hyperref[lvv-t1002]{LVV-T1002} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1002}{Contribution of templates to difference image noise} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1002}{Contribution of templates to difference image noise (Mini Survey Verification)} \tabularnewline
     \hyperref[lvv-t1004]{LVV-T1004} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1004}{System seeing degradation} \tabularnewline
     \hyperref[lvv-t1006]{LVV-T1006} &
@@ -201,6 +201,16 @@ Test Id & Test Name\tabularnewline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1046}{Crosstalk functionality exists} \tabularnewline
     \hyperref[lvv-t1048]{LVV-T1048} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1048}{Crosstalk coefficient measurement capability} \tabularnewline
+    \hyperref[lvv-t1068]{LVV-T1068} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1068}{Identification of deep image artifacts via comparison with external data sets.} \tabularnewline
+    \hyperref[lvv-t1070]{LVV-T1070} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1070}{On-sky Observations: 10-year Depth SV Survey} \tabularnewline
+    \hyperref[lvv-t1071]{LVV-T1071} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1071}{On-sky Observations: 20-year Depth Test} \tabularnewline
+    \hyperref[lvv-t1072]{LVV-T1072} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1072}{Data Processing Campaign: Data Release Processing} \tabularnewline
+    \hyperref[lvv-t1073]{LVV-T1073} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1073}{On-sky Observations: Wide-area SV Survey} \tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -485,10 +495,12 @@ Test & Keith Bechtol
 
 \item \href{https://jira.lsstcorp.org/browse/LVV-1273}{LVV-1273} - OSS-REQ-0149-V-01: Level 1 Catalog Precision
 
+\item \href{https://jira.lsstcorp.org/browse/LVV-1363}{LVV-1363} - OSS-REQ-0388-V-01: Astrometric Performance
+
 \end{itemize}
 
 \subsubsection{Test Items}
-Note: Probably measured with respect to Gaia as external reference
+Measure astrometric performance using Gaia as an external reference.
 
 
 
@@ -1398,7 +1410,7 @@ position and angle. ~Start with no filter. ~For each wavelength
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T446}{LVV-T446}
-    - Process Filter Response Verification Data (with flat field screen)}\label{lvv-t446}
+    - Data Processing Campaign: Process Filter Response Verification Data (with flat field screen)}\label{lvv-t446}
 
 \begin{longtable}[]{llllll}
 \toprule
@@ -1506,7 +1518,7 @@ each wavelength. ~
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T447}{LVV-T447}
-    - Process Filter Response Verification Data (with CBP)}\label{lvv-t447}
+    - Data Processing Campaign: Process Filter Response Verification Data (with CBP)}\label{lvv-t447}
 
 \begin{longtable}[]{llllll}
 \toprule
@@ -5951,7 +5963,7 @@ large a rate
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Collect images from a minisurvey
+            Collect catalogs from a minisurvey
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -5962,7 +5974,7 @@ large a rate
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
                 \begin{minipage}[t]{13cm}{\footnotesize
-                Images and calibration products from a minisurvey
+                Catalogs from a minisurvey
 
                 \vspace{\dp0}
                 } \end{minipage}
@@ -5970,21 +5982,23 @@ large a rate
 
             \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Use synpipe (or some other tool) to inject variable sources with
-different degrees of variability and different signal-to-noise ratios
-into the images from step 1
+            Inject (into data from step 1) variable sources with variability,
+astrometric errors and proper motions consistent with simulated stellar
+populations. They should trace the number-magnitude ratios and
+velocities consistent with Galactic models (this test might need to be
+run over a range of galactic latitudes)~
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
             \begin{minipage}[t]{13cm}{\footnotesize
-                Images from step 1
+                Data from step 1
 
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
                 \begin{minipage}[t]{13cm}{\footnotesize
-                Images with an artificial population of variable sources
+                Catalogs with an artificial population of variable sources
 
                 \vspace{\dp0}
                 } \end{minipage}
@@ -5992,14 +6006,14 @@ into the images from step 1
 
             \multirow{3}{*}{ 3 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Perform level 1 processing on the images with artificial variable
-sources in them
+            Run Source Association on catalogs with artificial variable sources in
+them
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
             \begin{minipage}[t]{13cm}{\footnotesize
-                Images with artificial variable sources from step 2
+                Catalogs with artificial variable sources from step 2
 
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -6013,9 +6027,9 @@ sources in them
 
             \multirow{3}{*}{ 4 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Consider only the artificial variables injected in step 2 (for which we
-know the ground truth). ~Verify that they are not misassociated with
-DIAObjects at a larger than acceptable rate.
+            Extract the simulated sources after association. ~Verify that they are
+not misassociated with the incorrect DIAObjects at a larger than
+~\textbf{sourceMisassociation} (0.1{[}percent{]} ) rate.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -6382,6 +6396,8 @@ Test & Scott Daniel
 
 \item \href{https://jira.lsstcorp.org/browse/LVV-1273}{LVV-1273} - OSS-REQ-0149-V-01: Level 1 Catalog Precision
 
+\item \href{https://jira.lsstcorp.org/browse/LVV-1363}{LVV-1363} - OSS-REQ-0388-V-01: Astrometric Performance
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -6520,6 +6536,8 @@ Test & Scott Daniel
 \item \href{https://jira.lsstcorp.org/browse/LVV-238}{LVV-238} - LSR-REQ-0094-V-01: Astrometric Performance1
 
 \item \href{https://jira.lsstcorp.org/browse/LVV-1273}{LVV-1273} - OSS-REQ-0149-V-01: Level 1 Catalog Precision
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-1363}{LVV-1363} - OSS-REQ-0388-V-01: Astrometric Performance
 
 \end{itemize}
 
@@ -7098,14 +7116,21 @@ production on too many images
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Verify that 99\% of images resulted in alerts being broadcast within 1
-minute of the image being taken.
+            On a visit-by-visit basis, for each CCD calculate the time at which 98\%
+of alerts are distributed. For each visit the maximum time for any CCD
+in a visit will be be defined as the \textbf{visitAlertDelay}
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
             \begin{minipage}[t]{13cm}{\footnotesize
-                List of images and alerts from step 1
+                \begin{itemize}
+\tightlist
+\item
+  List of images and alerts from step 1
+\item
+  Full list of DIA Objects in images from step 1
+\end{itemize}
 
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -7114,7 +7139,11 @@ minute of the image being taken.
 
             \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Verify that 99.9\% of images resulted in alerts being broadcast at all.
+            Count CCDs that produced no alerts by the time the AP processing is
+shutdown (within 24 hours of the observation)\\
+~\\
+Define a \textbf{failed visit} as one where no alerts are generated on
+any CCD in that visit by shutdown of processing.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -7176,6 +7205,41 @@ minute of the image being taken.
                 \\ \hdashline
 
 
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Plot the distribution of \textbf{visitAlertDelay} for all visits and
+calculate if at least 99\% of images (\textbf{sciVisitAlertDelay})
+resulted in alerts being broadcast within 1 minute (\textbf{OTT1}) of
+the image being taken.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                List of \textbf{visitAlertDelay} values from Step 2
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Calculate the fraction of visits with no alerts ~and verify that 99.9\%
+of images (\textbf{sciVisitAlertFailure}) resulted in alerts being
+broadcast at all.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                List of \textbf{failed visits} from Step 3
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
         \\ \midrule
     \end{longtable}
 
@@ -8189,7 +8253,14 @@ objects, orbitObservationInterval = 3{[}day{]}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
             \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
+                \begin{itemize}
+\tightlist
+\item
+  Data from Step 1
+\item
+  Simulation Data from Step 2
+\end{itemize}
+
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
@@ -8203,7 +8274,12 @@ objects, orbitObservationInterval = 3{[}day{]}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
             \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
+                \begin{itemize}
+\tightlist
+\item
+  Images with injected asteroids from Step 3
+\end{itemize}
+
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
@@ -8217,7 +8293,14 @@ objects, orbitObservationInterval = 3{[}day{]}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
             \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
+                \begin{itemize}
+\tightlist
+\item
+  Simulated Data from Step 2
+\item
+  Data from Step 4
+\end{itemize}
+
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
@@ -8225,14 +8308,38 @@ objects, orbitObservationInterval = 3{[}day{]}
 
             \multirow{3}{*}{ 6 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Plot fraction of recovered asteroids as a function of limiting magnitude
-(possibly for different populations of asteroids)
+            Plot fraction of recovered asteroids as a function of minimum
+signal-to-noise ratio in observations (possibly for different
+populations of asteroids)
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
             \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
+                \begin{itemize}
+\tightlist
+\item
+  Simulated Data from Step 2
+\item
+  Data from Step 5
+\end{itemize}
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 7 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that at orbitObservationThreshold = 5{[}sigma{]} the
+orbitCompleteness = 95{[}percent{]}.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Data from Step 6
+
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
@@ -8566,13 +8673,13 @@ should be less than 0.1 milliarcsecond.
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1002}{LVV-T1002}
-    - Contribution of templates to difference image noise}\label{lvv-t1002}
+    - Contribution of templates to difference image noise (Mini Survey Verification)}\label{lvv-t1002}
 
 \begin{longtable}[]{llllll}
 \toprule
 Version & Status & Priority & Verification Type & Owner
 \\\midrule
-1 & Defined & Normal &
+1 & Draft & Normal &
 Test & Scott Daniel
 \\\bottomrule
 \end{longtable}
@@ -8585,6 +8692,7 @@ Test & Scott Daniel
 
 \subsubsection{Test Items}
 Assess how difference imaging noise scales with depth of template coadds
+using mini survey data
 
 
 
@@ -8643,15 +8751,14 @@ Assess how difference imaging noise scales with depth of template coadds
 
             \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Create sets of templates consisting of different numbers of input
-images, representing different depths (1 year, 2 year, 3 year, etc.) in
-the history of the survey.
+            Scale the number of observation to be equivalent to 1 year depth
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
             \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
+                Images from Step 1
+
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
@@ -8659,14 +8766,20 @@ the history of the survey.
 
             \multirow{3}{*}{ 3 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Run difference imaging on the mini-survey using the templates at each
-test depth.
+            Create templates from mini-survey 1
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
             \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
+                \begin{itemize}
+\tightlist
+\item
+  Images from Step 1
+\item
+  List of observations for 1 year depth from Step 2
+\end{itemize}
+
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
@@ -8674,20 +8787,21 @@ test depth.
 
             \multirow{3}{*}{ 4 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Plot how noise in the difference images scales with the number of images
-used for the template coadd. ~Assume that the difference image with the
-deepest coadd is systematics limited. ~Verify that the difference images
-with the 1 year coadd have noise no greater than 1.66 times these
-systematics-limited difference images (in which case, the difference
-between the two noises would be 0.4 of the total noise). ~Verify that
-the difference images with the 2 year coadds have noise no greater than
-1.25 times the noise in the systematics limited coadds.
+            Measure median noise from the background for each CCD projected onto an
+LSST patch (using the variance plane excluding sources)
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
             \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
+                \begin{itemize}
+\tightlist
+\item
+  Images from Step 1
+\item
+  List of observations for 1 year depth from Step 2
+\end{itemize}
+
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
@@ -8695,19 +8809,15 @@ the difference images with the 2 year coadds have noise no greater than
 
             \multirow{3}{*}{ 5 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Verify that the scheduler will place enough observations in each field
-after 1 year (2 years) to meet this noise threshold across the whole
-footprint of the survey*\\
-~\\
-*unless we adopt a rolling cadence, in which case we just need to make
-sure that enough images are placed in the footprint that is going to be
-subject to difference images.
+            Measure the median noise from the background for the mini-survey
+template onto an LSST patch (using the variance plane excluding sources)
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
             \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
+                Templates from Step 3
+
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
@@ -8715,14 +8825,29 @@ subject to difference images.
 
             \multirow{3}{*}{ 6 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Verify that the variance values of the difference images does not exceed
-1.4 times the variance values of the single images being differenced.
+            Plot the distribution of ratios of noise on a patch by patch basis
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
             \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
+                Data from Steps 4 \& 5
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 7 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that ~templateNoiseLevelY1 \textless{} 40\% is met
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Data from Step 6
+
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
@@ -11499,6 +11624,342 @@ the DM pipelines can ingest and use them.
         \\ \midrule
     \end{longtable}
 
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1068}{LVV-T1068}
+    - Identification of deep image artifacts via comparison with external data sets.}\label{lvv-t1068}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Analysis & Chris Walter
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1318}{LVV-1318} - OSS-REQ-0157-V-01: Coaddition for Deep Detection
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Characterize the fraction of objects in the deep co-addition catalog
+which are actually unremoved artifacts caused by moving\\
+objects, transient objects, and other instrumental artifacts (e.g.
+glints).
+
+
+
+\subsubsection{Predecessors}
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1070}{LVV-T1070}
+or
+​\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1071}{LVV-T1071}​​​
+
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Point the butler to appropriate overlapping data sets.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Point the butler to the appropriate deep LSST catalog.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Select appropriate magnitude range of LSST objects to compare against
+the external reference data sets.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For LSST objects in the appropriate magnitude range. ~For each object
+check if there is a corresponding external "truth" object. ~\\
+~\\
+The matching should likely only be done via position as variable, yet
+persistent objects may present different brightness.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Count the fraction of LSST objects which had no corresponding object in
+the external data set.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Less than 0.1\% of the objects identified by LSST should be artifacts.
+An example of this analysis is seen in Fig 12 of
+the~\href{https://arxiv.org/pdf/1801.03181.pdf}{DES DR1
+paper}:\href{https://jira.lsstcorp.org/browse/LVV-1318?jql=text\%20~\%20\%22OSS-REQ-0157\%22\#}{}\\
+\includegraphics{../rest/tests/1.0/attachment/image/404}
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1070}{LVV-T1070}
+    - On-sky Observations: 10-year Depth SV Survey}\label{lvv-t1070}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Demonstration & Keith Bechtol
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+    None.
+
+\subsubsection{Test Items}
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1071}{LVV-T1071}
+    - On-sky Observations: 20-year Depth Test}\label{lvv-t1071}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Demonstration & Keith Bechtol
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+    None.
+
+\subsubsection{Test Items}
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1072}{LVV-T1072}
+    - Data Processing Campaign: Data Release Processing}\label{lvv-t1072}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Demonstration & Keith Bechtol
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+    None.
+
+\subsubsection{Test Items}
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1073}{LVV-T1073}
+    - On-sky Observations: Wide-area SV Survey}\label{lvv-t1073}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Demonstration & Keith Bechtol
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+    None.
+
+\subsubsection{Test Items}
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
 \appendix
 % generated from JIRA project LVV
 % using template at /var/jenkins_home/.local/lib/python3.7/site-packages/docsteady/templates/dm-spec-appendix.latex.jinja2.
@@ -11553,6 +12014,13 @@ Verification Elements & Test Cases\tabularnewline
 & {
 \hyperref[lvv-t297]{LVV-T297}
 \hyperref[lvv-t545]{LVV-T545}
+\hyperref[lvv-t959]{LVV-T959}
+\hyperref[lvv-t960]{LVV-T960}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1363}{LVV-1363 - OSS-REQ-0388-V-01: Astrometric Performance
+}
+& {
+\hyperref[lvv-t297]{LVV-T297}
 \hyperref[lvv-t959]{LVV-T959}
 \hyperref[lvv-t960]{LVV-T960}
 } \\
@@ -12110,6 +12578,11 @@ Association Quality
 }
 & {
 \hyperref[lvv-t1048]{LVV-T1048}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1318}{LVV-1318 - OSS-REQ-0157-V-01: Coaddition for Deep Detection
+}
+& {
+\hyperref[lvv-t1068]{LVV-T1068}
 } \\
 \tabularnewline
 \bottomrule
