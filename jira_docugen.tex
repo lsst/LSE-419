@@ -201,6 +201,8 @@ Test Id & Test Name\tabularnewline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1046}{Crosstalk functionality exists} \tabularnewline
     \hyperref[lvv-t1048]{LVV-T1048} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1048}{Crosstalk coefficient measurement capability} \tabularnewline
+    \hyperref[lvv-t1052]{LVV-T1052} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1052}{Galaxy shape verification on recalculated deep coadds} \tabularnewline
     \hyperref[lvv-t1068]{LVV-T1068} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1068}{Identification of deep image artifacts via comparison with external data sets.} \tabularnewline
     \hyperref[lvv-t1070]{LVV-T1070} &
@@ -211,6 +213,12 @@ Test Id & Test Name\tabularnewline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1072}{Data Processing Campaign: Data Release Processing} \tabularnewline
     \hyperref[lvv-t1073]{LVV-T1073} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1073}{On-sky Observations: Wide-area SV Survey} \tabularnewline
+    \hyperref[lvv-t1078]{LVV-T1078} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1078}{Generate matched DIASource catalog} \tabularnewline
+    \hyperref[lvv-t1081]{LVV-T1081} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1081}{Completeness vs. magnitude via external catalogs} \tabularnewline
+    \hyperref[lvv-t1082]{LVV-T1082} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1082}{Completeness vs. magnitude via injected sources} \tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -806,10 +814,8 @@ recycle some parts of analysis code.
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Partition the sky into many smaller regions. We are estimating that
-these might be \textasciitilde{}1 deg\^{}2 in solid angle. We need these
-to be large enough that we have enough stars to compute an ellipticity
-correlation with meaningful statistics in each region.
+            Point the butler to the deep coadd repo, to extract the CoaddPsf, and
+deep coadd catalogs.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -822,23 +828,6 @@ correlation with meaningful statistics in each region.
         \\ \midrule
 
             \multirow{3}{*}{ 2 } & Description &
-            \begin{minipage}[t]{13cm}{\footnotesize
-            For each region, extract the good quality bright, isolated, point
-sources from the database. Columns needed include position, measured
-ellipticity e1 and e2 values, PSF model ellipticity e1 and e2 values,
-and flag for whether the star was used for PSF modeling.
-
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Test Data &
-            \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
-                \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Expected Result &
-        \\ \midrule
-
-            \multirow{3}{*}{ 3 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Consider separately stars that were included in PSF modeling and stars
 that were not included in PSF modeling. The fiduciual result for this
@@ -856,11 +845,30 @@ diagnostic purposes.
             & Expected Result &
         \\ \midrule
 
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For each stellar sample, compute all Rho statistics over angular scales
+ranging from less than 1 arcmin to greater than 5 arcmin.\\
+~\\
+This will require the CoaddPsf model for calculating residuals. To
+calculate residuals, obtain the CoaddPsf model evaluated at the
+positions of stars of interest, and find the difference in the measured
+ellipticity of stars, and the model ellipticity.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
             \multirow{3}{*}{ 4 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            For each stellar sample in each region, compute the correlation function
-of ellipticity residuals over angular scales ranging from less than 1
-arcmin to greater than 5 arcmin.
+            Extract the amplitudes of the rho statistics at angular scales of 1
+arcmin and less, and 5 arcmin and larger
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -874,8 +882,8 @@ arcmin to greater than 5 arcmin.
 
             \multirow{3}{*}{ 5 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Extract the amplitude of the residual ellipticity correlation at angular
-scale of 1 arcmin and 5 arcmin in each region.
+            For each angular scale (\textless{}1 arcmin and \textgreater{}5 arcmin),
+for each Rho statistic, collect the amplitudes of the Rho statistics.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -889,9 +897,8 @@ scale of 1 arcmin and 5 arcmin in each region.
 
             \multirow{3}{*}{ 6 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            For each angular scale (1 arcmin and 5 arcmin), produce a histogram of
-the distribution of residual ellipticity correlation function
-amplitudes.
+            Calculate the medians from the amplitudes corresponding to each angular
+scale, for each Rho statistic.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -905,8 +912,37 @@ amplitudes.
 
             \multirow{3}{*}{ 7 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Extract the requirement parameters (median and outlier fraction) from
-the histrograms corresponding to each angular scale.
+            Obtain deep ~catalogs whose deep coadds of a contiguous representative
+piece on scale necessary to satisfy the residual correlations we will
+examine for this test.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 8 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Confirm that the medians are within the specifications
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 9 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Confirm that the Rho statistics are smooth through 1 arcmin to 5 arcmin
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -1142,6 +1178,8 @@ Test & Brian Stalder
 
 \item \href{https://jira.lsstcorp.org/browse/LVV-1571}{LVV-1571} - OSS-REQ-0239-V-02: In-band Ripple g-band
 
+\item \href{https://jira.lsstcorp.org/browse/LVV-790}{LVV-790} - OSS-REQ-0237-V-01: Filter Out of Band Constraints
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -1327,6 +1365,8 @@ Test & Brian Stalder
 
 \item \href{https://jira.lsstcorp.org/browse/LVV-1585}{LVV-1585} - OSS-REQ-0371-V-01: y-band not-to-exceed envelope
 
+\item \href{https://jira.lsstcorp.org/browse/LVV-790}{LVV-790} - OSS-REQ-0237-V-01: Filter Out of Band Constraints
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -1477,6 +1517,8 @@ Test & Brian Stalder
 
 \item \href{https://jira.lsstcorp.org/browse/LVV-1585}{LVV-1585} - OSS-REQ-0371-V-01: y-band not-to-exceed envelope
 
+\item \href{https://jira.lsstcorp.org/browse/LVV-790}{LVV-790} - OSS-REQ-0237-V-01: Filter Out of Band Constraints
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -1585,6 +1627,8 @@ Test & Brian Stalder
 
 \item \href{https://jira.lsstcorp.org/browse/LVV-1585}{LVV-1585} - OSS-REQ-0371-V-01: y-band not-to-exceed envelope
 
+\item \href{https://jira.lsstcorp.org/browse/LVV-790}{LVV-790} - OSS-REQ-0237-V-01: Filter Out of Band Constraints
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -1688,10 +1732,8 @@ Test & Brian Stalder
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Measure the wavelength of 50\% maximum throughput edge for each position
-sampled. ~This wavelength shall not deviate from spatially-weighted mean
-by more than \textbf{filtUniformity\_u} for u-band (blue and red edges)
-and \textbf{filtUniformity\_grizy} for all other filters.
+            Measure the wavelength of 50\% maximum throughput edges for each
+position sampled. ~
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -1701,6 +1743,14 @@ and \textbf{filtUniformity\_grizy} for all other filters.
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                This wavelength shall not deviate from spatially-weighted mean by more
+than \textbf{filtUniformity\_u=2.5\%} for u-band (blue and red edges)
+and \textbf{filtUniformity\_grizy=1.5\% (blue and red edges)~} for all
+other filters.
+
+                \vspace{\dp0}
+                } \end{minipage}
         \\ \midrule
 
             \multirow{3}{*}{ 2 } & Description &
@@ -2182,7 +2232,9 @@ completeness and purity requirements for MOPS are met
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Generate catalog of simulated variable/transient sources
+            Calculate completeness as a function of spuriousness threshold (to the~
+
+\textbf{orbitObservationThreshold~}signal-to-noise limit)
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -2194,99 +2246,94 @@ completeness and purity requirements for MOPS are met
             & Expected Result &
         \\ \midrule
 
-            \multirow{3}{*}{ 2 } & Description &
-            \begin{minipage}[t]{13cm}{\footnotesize
-            Inject simulated variables/transients into actual images
+                \multirow{3}{*}{\parbox{1.3cm}{ 2-1
+                {\scriptsize from \hyperref[lvv-t1078]
+                {LVV-T1078} } } }
 
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Test Data &
-            \begin{minipage}[t]{13cm}{\footnotesize
-                Catalog of simulated objects from step 1
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Generate catalog of simulated variable/transient sources
 
-                \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Expected Result &
-                \begin{minipage}[t]{13cm}{\footnotesize
-                Set of images with simulated variables/transients
-
-                \vspace{\dp0}
-                } \end{minipage}
-        \\ \midrule
-
-            \multirow{3}{*}{ 3 } & Description &
-            \begin{minipage}[t]{13cm}{\footnotesize
-            Run difference imaging on images with injected variables/transients
-
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Test Data &
-            \begin{minipage}[t]{13cm}{\footnotesize
-                Images from step 2
+\begin{itemize}
+\tightlist
+\item
+  Sources should have the ~distribution of brightnesses expected for the
+  LSST to 1 magnitude below the single visit detection limit
+\item
+  Sources will be assumed as point sources
+\item
+  Sources will include their light curve in all LSST passbands
+\end{itemize}
 
                 \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Expected Result &
-                \begin{minipage}[t]{13cm}{\footnotesize
-                Catalog of detected DIASources
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 2-2
+                {\scriptsize from \hyperref[lvv-t1078]
+                {LVV-T1078} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Inject simulated variables/transients into single visit images (after
+ISR) images. Images will be selected to be \textgreater{}30 degrees from
+the Ecliptic to avoid moving source contamination
 
                 \vspace{\dp0}
-                } \end{minipage}
-        \\ \midrule
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                    Real Images
 
-            \multirow{3}{*}{ 4 } & Description &
-            \begin{minipage}[t]{13cm}{\footnotesize
-            Score DIASources according to spuriousness metric
+                    \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
 
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Test Data &
-            \begin{minipage}[t]{13cm}{\footnotesize
-                DIASources from step 3
 
-                \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Expected Result &
-                \begin{minipage}[t]{13cm}{\footnotesize
-                Catalog of DIASources with assigned spuriousness values
+                \multirow{3}{*}{\parbox{1.3cm}{ 2-3
+                {\scriptsize from \hyperref[lvv-t1078]
+                {LVV-T1078} } } }
 
-                \vspace{\dp0}
-                } \end{minipage}
-        \\ \midrule
-
-            \multirow{3}{*}{ 5 } & Description &
-            \begin{minipage}[t]{13cm}{\footnotesize
-            Find value of spuriousness threshold that preserves injected sources at
-completeness mopsCompletenessMin
-
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Test Data &
-            \begin{minipage}[t]{13cm}{\footnotesize
-                DIASources and spuriousness metric
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Run difference imaging on images with injected variables/transients.
+Including output from spuriousness classification algorithm
 
                 \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Expected Result &
-                \begin{minipage}[t]{13cm}{\footnotesize
-                Threshold in spuriousness metric
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                    Images from Step 2
+
+                    \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 2-4
+                {\scriptsize from \hyperref[lvv-t1078]
+                {LVV-T1078} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Match the input catalog and the DIASource lists
 
                 \vspace{\dp0}
-                } \end{minipage}
-        \\ \midrule
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
 
-            \multirow{3}{*}{ 6 } & Description &
-            \begin{minipage}[t]{13cm}{\footnotesize
-            Compare to analysis of purity as a function of spuriousness metric~
 
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Test Data &
-            \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
-                \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Expected Result &
         \\ \midrule
     \end{longtable}
 
@@ -3471,9 +3518,9 @@ calibration algorithm
 
             \multirow{3}{*}{ 4 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            For each calibrated image produced in step 3, verify that the
-photometric zeropoint agrees with the final zeropoint determine din step
-2 to the specified tolerance.
+            For each calibrated image produced in step 3, verify that the per-CCD
+photometric zeropoints agrees with the final zeropoint determined in
+step 2 to the specified tolerance.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -8185,6 +8232,8 @@ Test & Scott Daniel
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-3766}{LVV-3766} - OSS-REQ-0159-V-01: Level 1 Moving Object Quality
 
+\item \href{https://jira.lsstcorp.org/browse/LVV-1330}{LVV-1330} - OSS-REQ-0340-V-01: Level 2 Moving Object Quality
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -8224,7 +8273,8 @@ objects, orbitObservationInterval = 3{[}day{]}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
             \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
+                Use the DRP processing or AP processing as needed
+
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
@@ -9021,7 +9071,28 @@ Calculate the transient completeness for a given spurious threshold
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Generate catalog of simulated variable/transient sources
+            Calculate completeness as a function of spuriousness threshold (to the~
+
+\textbf{transSampleSNR~}signal-to-noise limit)
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Matched Catalog from Step 1
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 2-1
+                {\scriptsize from \hyperref[lvv-t1078]
+                {LVV-T1078} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Generate catalog of simulated variable/transient sources
 
 \begin{itemize}
 \tightlist
@@ -9034,75 +9105,75 @@ Calculate the transient completeness for a given spurious threshold
   Sources will include their light curve in all LSST passbands
 \end{itemize}
 
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Test Data &
-            \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
                 \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Expected Result &
-        \\ \midrule
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
 
-            \multirow{3}{*}{ 2 } & Description &
-            \begin{minipage}[t]{13cm}{\footnotesize
-            Inject simulated variables/transients into single visit images (after
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 2-2
+                {\scriptsize from \hyperref[lvv-t1078]
+                {LVV-T1078} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Inject simulated variables/transients into single visit images (after
 ISR) images. Images will be selected to be \textgreater{}30 degrees from
 the Ecliptic to avoid moving source contamination
 
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Test Data &
-            \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
                 \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Expected Result &
-        \\ \midrule
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                    Real Images
 
-            \multirow{3}{*}{ 3 } & Description &
-            \begin{minipage}[t]{13cm}{\footnotesize
-            Run difference imaging on images with injected variables/transients.
+                    \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
+
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 2-3
+                {\scriptsize from \hyperref[lvv-t1078]
+                {LVV-T1078} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Run difference imaging on images with injected variables/transients.
 Including output from spuriousness classification algorithm
 
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Test Data &
-            \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
                 \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Expected Result &
-        \\ \midrule
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                    Images from Step 2
 
-            \multirow{3}{*}{ 4 } & Description &
-            \begin{minipage}[t]{13cm}{\footnotesize
-            Match the input catalog and the DIASource lists~
+                    \vspace{\dp0}
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
 
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Test Data &
-            \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
+
+                \multirow{3}{*}{\parbox{1.3cm}{ 2-4
+                {\scriptsize from \hyperref[lvv-t1078]
+                {LVV-T1078} } } }
+
+                & {\small Description} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                Match the input catalog and the DIASource lists
+
                 \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Expected Result &
-        \\ \midrule
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Test Data} &
+                \begin{minipage}[t]{13cm}{\scriptsize
+                } \end{minipage} \\ \cdashline{2-3}
+                & {\small Expected Result} &
+                \\ \hdashline
 
-            \multirow{3}{*}{ 5 } & Description &
-            \begin{minipage}[t]{13cm}{\footnotesize
-            Calculate completeness as a function of spuriousness threshold (to the~
 
-\textbf{transSampleSNR~}signal-to-noise limit)
-
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Test Data &
-            \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
-                \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Expected Result &
         \\ \midrule
     \end{longtable}
 
@@ -9164,7 +9235,8 @@ broad time span
 
             \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Cross match coincident DIASources from the series of observations.~
+            Cross match coincident DIASources from the series of observations down
+to \textbf{transSampleSNR} limit.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -9241,23 +9313,17 @@ threshold
 
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
-                Generate catalog of simulated variable/transient sources
+                Calculate completeness as a function of spuriousness threshold (to the~
 
-\begin{itemize}
-\tightlist
-\item
-  Sources should have the ~distribution of brightnesses expected for the
-  LSST to 1 magnitude below the single visit detection limit
-\item
-  Sources will be assumed as point sources
-\item
-  Sources will include their light curve in all LSST passbands
-\end{itemize}
+\textbf{transSampleSNR~}signal-to-noise limit)
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
                 & {\small Test Data} &
                 \begin{minipage}[t]{13cm}{\scriptsize
+                    Matched Catalog from Step 1
+
+                    \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
                 & {\small Expected Result} &
                 \\ \hdashline
@@ -9269,64 +9335,7 @@ threshold
 
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
-                Inject simulated variables/transients into single visit images (after
-ISR) images. Images will be selected to be \textgreater{}30 degrees from
-the Ecliptic to avoid moving source contamination
-
-                \vspace{\dp0}
-                } \end{minipage} \\ \cdashline{2-3}
-                & {\small Test Data} &
-                \begin{minipage}[t]{13cm}{\scriptsize
-                } \end{minipage} \\ \cdashline{2-3}
-                & {\small Expected Result} &
-                \\ \hdashline
-
-
-                \multirow{3}{*}{\parbox{1.3cm}{ 1-3
-                {\scriptsize from \hyperref[lvv-t1006]
-                {LVV-T1006} } } }
-
-                & {\small Description} &
-                \begin{minipage}[t]{13cm}{\scriptsize
-                Run difference imaging on images with injected variables/transients.
-Including output from spuriousness classification algorithm
-
-                \vspace{\dp0}
-                } \end{minipage} \\ \cdashline{2-3}
-                & {\small Test Data} &
-                \begin{minipage}[t]{13cm}{\scriptsize
-                } \end{minipage} \\ \cdashline{2-3}
-                & {\small Expected Result} &
-                \\ \hdashline
-
-
-                \multirow{3}{*}{\parbox{1.3cm}{ 1-4
-                {\scriptsize from \hyperref[lvv-t1006]
-                {LVV-T1006} } } }
-
-                & {\small Description} &
-                \begin{minipage}[t]{13cm}{\scriptsize
-                Match the input catalog and the DIASource lists~
-
-                \vspace{\dp0}
-                } \end{minipage} \\ \cdashline{2-3}
-                & {\small Test Data} &
-                \begin{minipage}[t]{13cm}{\scriptsize
-                } \end{minipage} \\ \cdashline{2-3}
-                & {\small Expected Result} &
-                \\ \hdashline
-
-
-                \multirow{3}{*}{\parbox{1.3cm}{ 1-5
-                {\scriptsize from \hyperref[lvv-t1006]
-                {LVV-T1006} } } }
-
-                & {\small Description} &
-                \begin{minipage}[t]{13cm}{\scriptsize
-                Calculate completeness as a function of spuriousness threshold (to the~
-
-\textbf{transSampleSNR~}signal-to-noise limit)
-
+                
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
                 & {\small Test Data} &
@@ -9362,7 +9371,8 @@ broad time span
 
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
-                Cross match coincident DIASources from the series of observations.~
+                Cross match coincident DIASources from the series of observations down
+to \textbf{transSampleSNR} limit.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -9772,8 +9782,8 @@ in the reference catalog.
 
             \multirow{3}{*}{ 3 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Jointcal on the images from step 1 using different reference catalogs
-that do not include the sources selected in step 2.\\
+            Run Jointcal on the images from step 1 using different reference
+catalogs that do not include the sources selected in step 2.\\
 ~\\
 By running the processing with different reference catalogs, we should
 be able to isolate the effects of the DM pipelines.
@@ -9791,10 +9801,28 @@ be able to isolate the effects of the DM pipelines.
             \multirow{3}{*}{ 4 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Find the median zeropoint of the sources in step 2 in each of the
-reprocessings done ins step 3. ~Calculate (ZP-medianZP) within each
+reprocessings done in step 3. ~Calculate (ZP-medianZP) within each
 reprocessing from step 3. ~Plot the distribution of this quantity across
 all of the reprocessings. ~Verify that the RMS scatter of this
 distribution is less than 0.007 AB magnitudes.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Repeat processing for all six bands. ~Calculate colors in each
+reprocessing. ~Verify that the RMS difference in color from the median
+for each object in the test set is less than 0.003 magnitudes.\\
+~\\
+(This should verify the consistency of the color zeropoints)
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -11307,10 +11335,7 @@ Test & Scott Daniel
 \end{longtable}
 
 \subsubsection{Verification Elements}
-\begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-800}{LVV-800} - OSS-REQ-0334-V-01: Flat Fielding Allocations
-
-\end{itemize}
+    None.
 
 \subsubsection{Test Items}
 Verify that the effect of not performing flat fielding is within
@@ -11552,6 +11577,10 @@ Test & Scott Daniel
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-1639}{LVV-1639} - OSS-REQ-0374-V-01: Crosstalk Measurement Capability
 
+\item \href{https://jira.lsstcorp.org/browse/LVV-1633}{LVV-1633} - OSS-REQ-0327-V-01: Crosstalk Magnitude Limits
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-1627}{LVV-1627} - OSS-REQ-0328-V-01: Crosstalk Aggressor Limits
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -11581,7 +11610,10 @@ during downtime
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             During the day, use the Collimated Beam Projector to create a series of
-spot images.
+spot images. ~More detail in how this is done is available
+in~\url{https://docushare.lsst.org/docushare/dsweb/Get/LDM-151}\\
+Section 4.2.10 ~- CBP Crosstalk Measurement.\\
+~\\
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -11612,6 +11644,241 @@ coefficients from the images in 1.
             \begin{minipage}[t]{13cm}{\footnotesize
             Verify that the crosstalk coefficients from 2 are stored in a way that
 the DM pipelines can ingest and use them.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1052}{LVV-T1052}
+    - Galaxy shape verification on recalculated deep coadds}\label{lvv-t1052}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Analysis & Imram Hasan
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1324}{LVV-1324} - OSS-REQ-0161-V-01: Deep Detection and Measurement Quality
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that the shape properties of simulated galaxies injected into
+single visit calexps are accurately measured on deep coadds which are
+created by assembling them.
+
+
+
+\subsubsection{Predecessors}
+​\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1070}{LVV-T1070}​​​
+
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+The following components will be used in this test.\\
+~\\
+- The survey must be run to full lsst depth. The deep coadds themselves
+are not necessary for this test, but the data products used to create
+them are.\\
+- Individual calexp frames used to create deep coadds\\
+- A truth catalog of galaxies to be simulated and injected into single
+visit calexp frames\\
+- The synpipe component of the DM pipelines which are used to inject
+gallium based artificial galaxies on a scene.\\
+- The shape measurement algorithm to be used for shear measurements (eg
+multifit, metacal ...).
+
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Obtain the individual calexp exposures which are used to create the deep
+coadds
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                calexp images. these are data from individual ccds that have been run
+through processCcd.py. they have been detrended (ISR performed),
+calibrated and characterized (photometric zero point, has final psf
+estimate)
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            obtain the truth catalog of sersic galaxies to be simulated and injected
+in the calexps.~
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                we will need the ra, dec, e1, e2, and magnitude of these galaxies in
+particular. This catalog must cover the commissioning footprint. The
+source density of these simulated galaxies on the sky must be within the
+scatter of the TRUE source density of galaxies on the sky, so as not to
+inadvertently create a bias that may affect shape measurement.~
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            simulate images of the galaxies from the truth catalog in step 2, and
+inject them into the individual calexp images.~
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            re-assemble the coadd frames with the new calexp + injected galaxies
+images. the high level processing steps will involve repeating the
+resampling process, and coaddition of the resampled images. the same
+'sky map' that was used to create the original comissioning deep coadds
+must also be used here.~
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                calexps that have simulated galaxies added.
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            re-run the following pipeline scripts from the multiBandDriver.py task
+on the new coaddds:\\
+~\\
+detectCoaddSources.py\\
+mergeCoaddSources.py\\
+deblendCoaddSources.py\\
+measureCoaddSources.py\\
+~\\
+this will do an initial pass at detection and deblending, merge catalogs
+across filters to make a consistent table for sources across filters.
+Finally, it will and perform measurement on the sources using their
+improved positions from the merge process, including shape measurement.
+(this is at least true at the time of writing for HSC's
+re-gaussianization method)
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                deepCoadd\_meas tables for coadds
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 6 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Cross match the truth input catalog of simulated galaxies to the
+deepCoadd\_meas catalogs.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                a catalog of positionally matched sources from the truth and measurement
+catalog. we need to retrieve the magnitude, e1 and e2 from the truth
+catalog, and measured magnitude, measured e1, and measured e1 from the
+deepCoadd\_forced\_src catalog
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 7 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            divide the cross matched catalog from the previous step into two sub
+catalogs. one where the truth catalogs signal to noise is elipTestSNR1
+(10) and a second where the truth catalogs signal to noise is
+elipTestSNR2 (1000)
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 8 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            calculate the RMS of errors in e1 and e2 for both sub catalogs from the
+previous step , using the truth data on their shapes and their measured
+shape parameters.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 9 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            verify that the RMS error in shape for the SNR1 catalog is within 1 \%,
+AND the RMS error in shape for the SNR2 catalog is within .01 \%.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -11960,6 +12227,430 @@ Demonstration & Keith Bechtol
         \\ \midrule
     \end{longtable}
 
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1078}{LVV-T1078}
+    - Generate matched DIASource catalog}\label{lvv-t1078}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Bryce Kalmbach
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+    None.
+
+\subsubsection{Test Items}
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Generate catalog of simulated variable/transient sources
+
+\begin{itemize}
+\tightlist
+\item
+  Sources should have the ~distribution of brightnesses expected for the
+  LSST to 1 magnitude below the single visit detection limit
+\item
+  Sources will be assumed as point sources
+\item
+  Sources will include their light curve in all LSST passbands
+\end{itemize}
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Inject simulated variables/transients into single visit images (after
+ISR) images. Images will be selected to be \textgreater{}30 degrees from
+the Ecliptic to avoid moving source contamination
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Real Images
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run difference imaging on images with injected variables/transients.
+Including output from spuriousness classification algorithm
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Images from Step 2
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Match the input catalog and the DIASource lists
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1081}{LVV-T1081}
+    - Completeness vs. magnitude via external catalogs}\label{lvv-t1081}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Jeffrey Carlin
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1315}{LVV-1315} - OSS-REQ-0164-V-01: Catalog Completeness and Reliability
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Estimate completeness vs. magnitude for stars and galaxies by comparison
+to an external "truth" catalog. Note that in practice there are no
+external catalogs deep enough to separate stars from galaxies over the
+relevant magnitude range, so that this comparison will likely measure
+detection completeness of all sources from the external catalog.
+
+
+
+\subsubsection{Predecessors}
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1070}{LVV-T1070}
+or
+​\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1071}{LVV-T1071}​​​
+
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+This test requires a dataset observed by LSST that overlaps an external
+catalog with space-based (i.e., high spatial resolution) observations
+enabling high quality source classification. (For example, the HST
+COSMOS data.) It is likely that no catalog exists that is as deep as
+LSST 10-year survey data, so a magnitude limit may have to be applied to
+the catalogs when comparing.
+
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Point the butler to appropriate overlapping data sets.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Point the butler to the appropriate deep LSST catalog.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For each object in the external reference catalog, check if there is a
+corresponding detected object in the LSST catalog.\\
+~\\
+The matching should be done via position, but may be improved by
+requiring similar magnitudes between the two catalogs (keeping in mind
+that variable, yet persistent, objects may present different brightness,
+and thus would not necessarily pass a magnitude criterion).
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            In magnitude bins, count the fraction of objects from the external
+catalog that had a corresponding object in the LSST dataset. Plot this
+fraction (the "completeness") as a function of magnitude.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                A figure similar to Fig. 15 of the
+\href{https://arxiv.org/pdf/1702.08449.pdf}{HSC DR1 paper}.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1082}{LVV-T1082}
+    - Completeness vs. magnitude via injected sources}\label{lvv-t1082}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Jeffrey Carlin
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1315}{LVV-1315} - OSS-REQ-0164-V-01: Catalog Completeness and Reliability
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Estimate completeness vs. magnitude for stars and galaxies by inserting
+artificial sources into observed LSST data.
+
+
+
+\subsubsection{Predecessors}
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1070}{LVV-T1070}
+or
+​\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1071}{LVV-T1071}​​​
+
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Create catalogs of artificial sources to be inserted into the images. To
+ensure statistically robust results, at least 1000 objects per magnitude
+bin should be included.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                The artificial star catalog should span the range of colors typical of
+Milky Way stars, and the expected magnitudes to which the input data are
+sensitive (e.g., the GalFast simulated catalog). Artificial galaxies
+should be drawn from a synthetic catalog (e.g., the DESC Data Challenge
+galaxy catalogs).
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Identify the images into which you will insert sources, and run the fake
+source code (in the current LSST Stack, the 'Synpipe' routine(s)).
+Ideally these should be injected into the individual visit images, but
+if that is computationally prohibitive, inserting them into coadds would
+be acceptable.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run the source detection and measurement algorithms on the images
+resulting from the previous steps.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Point the Butler to the catalog resulting from the previous step.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For each object in the input artificial source catalog, check if there
+is a corresponding detected object in the output LSST catalog.\\
+~\\
+The matching should be done via position, but may be improved by
+requiring similar magnitudes between the two catalogs.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 6 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            In magnitude bins, count the fraction of objects from the input "truth"
+catalog that had a corresponding detected object in the LSST dataset.
+Plot this fraction (the "completeness") as a function of magnitude, for
+(1) all sources, (2) objects inserted as stars, and (3) objects inserted
+as galaxies.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                A figure similar to Fig. 15 of the
+\href{https://arxiv.org/pdf/1702.08449.pdf}{HSC DR1 paper}, but with
+separate curves for stars and galaxies.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 7 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Define the criteria for matching of sources. Because the positions of
+injected sources are known, a small matching radius can be used.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 8 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Identify several tracts in the observed data, spanning a range of
+Galactic latitudes/source densities.~
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
 \appendix
 % generated from JIRA project LVV
 % using template at /var/jenkins_home/.local/lib/python3.7/site-packages/docsteady/templates/dm-spec-appendix.latex.jinja2.
@@ -12292,6 +12983,14 @@ Verification Elements & Test Cases\tabularnewline
 \hyperref[lvv-t447]{LVV-T447}
 \hyperref[lvv-t452]{LVV-T452}
 } \\
+\href{https://jira.lsstcorp.org/browse/LVV-790}{LVV-790 - OSS-REQ-0237-V-01: Filter Out of Band Constraints
+}
+& {
+\hyperref[lvv-t434]{LVV-T434}
+\hyperref[lvv-t445]{LVV-T445}
+\hyperref[lvv-t446]{LVV-T446}
+\hyperref[lvv-t447]{LVV-T447}
+} \\
 \href{https://jira.lsstcorp.org/browse/LVV-1261}{LVV-1261 - OSS-REQ-0354-V-01: Difference Source Spuriousness Threshold - MOPS
 }
 & {
@@ -12498,6 +13197,11 @@ Association Quality
 & {
 \hyperref[lvv-t986]{LVV-T986}
 } \\
+\href{https://jira.lsstcorp.org/browse/LVV-1330}{LVV-1330 - OSS-REQ-0340-V-01: Level 2 Moving Object Quality
+}
+& {
+\hyperref[lvv-t986]{LVV-T986}
+} \\
 \href{https://jira.lsstcorp.org/browse/LVV-1274}{LVV-1274 - OSS-REQ-0149-V-02: Level 1 Catalog Precision2
 }
 & {
@@ -12567,7 +13271,6 @@ Association Quality
 }
 & {
 \hyperref[lvv-t1043]{LVV-T1043}
-\hyperref[lvv-t1044]{LVV-T1044}
 } \\
 \href{https://jira.lsstcorp.org/browse/LVV-1621}{LVV-1621 - OSS-REQ-0348-V-01: Alert Production Crosstalk Correction
 }
@@ -12579,10 +13282,31 @@ Association Quality
 & {
 \hyperref[lvv-t1048]{LVV-T1048}
 } \\
+\href{https://jira.lsstcorp.org/browse/LVV-1633}{LVV-1633 - OSS-REQ-0327-V-01: Crosstalk Magnitude Limits
+}
+& {
+\hyperref[lvv-t1048]{LVV-T1048}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1627}{LVV-1627 - OSS-REQ-0328-V-01: Crosstalk Aggressor Limits
+}
+& {
+\hyperref[lvv-t1048]{LVV-T1048}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1324}{LVV-1324 - OSS-REQ-0161-V-01: Deep Detection and Measurement Quality
+}
+& {
+\hyperref[lvv-t1052]{LVV-T1052}
+} \\
 \href{https://jira.lsstcorp.org/browse/LVV-1318}{LVV-1318 - OSS-REQ-0157-V-01: Coaddition for Deep Detection
 }
 & {
 \hyperref[lvv-t1068]{LVV-T1068}
+} \\
+\href{https://jira.lsstcorp.org/browse/LVV-1315}{LVV-1315 - OSS-REQ-0164-V-01: Catalog Completeness and Reliability
+}
+& {
+\hyperref[lvv-t1081]{LVV-T1081}
+\hyperref[lvv-t1082]{LVV-T1082}
 } \\
 \tabularnewline
 \bottomrule
