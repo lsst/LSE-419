@@ -195,6 +195,8 @@ Test Id & Test Name\tabularnewline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1012}{Level 2 astrometric accuracy} \tabularnewline
     \hyperref[lvv-t1023]{LVV-T1023} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1023}{Calibration of Atmospheric Transmission} \tabularnewline
+    \hyperref[lvv-t1029]{LVV-T1029} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1029}{Filter Leak Constraints} \tabularnewline
     \hyperref[lvv-t1030]{LVV-T1030} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1030}{Zeropoint uniformity due to DM} \tabularnewline
     \hyperref[lvv-t1031]{LVV-T1031} &
@@ -1409,7 +1411,7 @@ Analysis & Imram Hasan
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-273}{LVV-273} - LSR-REQ-0093-V-01: Photometric Performance1
 
-\item \href{https://jira.lsstcorp.org/browse/LVV-1372}{LVV-1372} - OSS-REQ-0387-V-01: Photometric Performance\_1
+\item \href{https://jira.lsstcorp.org/browse/LVV-1372}{LVV-1372} - OSS-REQ-0387-V-01: Single visit photometric repeatability
 
 \end{itemize}
 
@@ -1564,7 +1566,7 @@ Analysis & Sam Schmidt
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-274}{LVV-274} - LSR-REQ-0093-V-02: Photometric Performance2
 
-\item \href{https://jira.lsstcorp.org/browse/LVV-1373}{LVV-1373} - OSS-REQ-0387-V-02: Photometric Performance\_2
+\item \href{https://jira.lsstcorp.org/browse/LVV-1373}{LVV-1373} - OSS-REQ-0387-V-02: Zero point spatial uniformity
 
 \end{itemize}
 
@@ -3037,7 +3039,7 @@ Analysis & Sam Schmidt
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-9799}{LVV-9799} - LSR-REQ-0093-V-06: Photometric Performance\_6
 
-\item \href{https://jira.lsstcorp.org/browse/LVV-13367}{LVV-13367} - OSS-REQ-0387-V-06: Photometric Performance\_6
+\item \href{https://jira.lsstcorp.org/browse/LVV-13367}{LVV-13367} - OSS-REQ-0387-V-06: Usable pixel fraction
 
 \end{itemize}
 
@@ -6201,7 +6203,7 @@ Analysis & Sam Schmidt
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-275}{LVV-275} - LSR-REQ-0093-V-03: Photometric Performance3
 
-\item \href{https://jira.lsstcorp.org/browse/LVV-1374}{LVV-1374} - OSS-REQ-0387-V-03: Photometric Performance\_3
+\item \href{https://jira.lsstcorp.org/browse/LVV-1374}{LVV-1374} - OSS-REQ-0387-V-03: Color zeropoints
 
 \end{itemize}
 
@@ -6317,7 +6319,7 @@ Analysis & Sam Schmidt
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-276}{LVV-276} - LSR-REQ-0093-V-04: Photometric Performance4
 
-\item \href{https://jira.lsstcorp.org/browse/LVV-13365}{LVV-13365} - OSS-REQ-0387-V-04: Photometric Performance\_4
+\item \href{https://jira.lsstcorp.org/browse/LVV-13365}{LVV-13365} - OSS-REQ-0387-V-04: AB/physical scale transform
 
 \end{itemize}
 
@@ -6440,7 +6442,7 @@ Analysis & Sam Schmidt
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-9802}{LVV-9802} - LSR-REQ-0093-V-09: Photometric Performance\_9
 
-\item \href{https://jira.lsstcorp.org/browse/LVV-13370}{LVV-13370} - OSS-REQ-0387-V-09: Photometric Performance\_9
+\item \href{https://jira.lsstcorp.org/browse/LVV-13370}{LVV-13370} - OSS-REQ-0387-V-09: Resolved source RMS
 
 \end{itemize}
 
@@ -7386,7 +7388,7 @@ Test & Scott Daniel
 
 \item \href{https://jira.lsstcorp.org/browse/LVV-9801}{LVV-9801} - LSR-REQ-0093-V-08: Photometric Performance\_8
 
-\item \href{https://jira.lsstcorp.org/browse/LVV-13369}{LVV-13369} - OSS-REQ-0387-V-08: Photometric Performance\_8
+\item \href{https://jira.lsstcorp.org/browse/LVV-13369}{LVV-13369} - OSS-REQ-0387-V-08: Ghost area fraction
 
 \end{itemize}
 
@@ -11146,6 +11148,174 @@ the errors by the Stack is at least~\textbf{minFAtmColorAttenuation
         \\ \midrule
     \end{longtable}
 
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1029}{LVV-T1029}
+    - Filter Leak Constraints}\label{lvv-t1029}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Analysis & Sam Schmidt
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-208}{LVV-208} - LSR-REQ-0084-V-01: Filter Bandpass Performance1
+
+\end{itemize}
+
+\subsubsection{Test Items}
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For each filter {[}ugrizy{]} point the telescope at screen and scan
+tunable laser from 300-1200 nm in 10nm intervals with uniform intensity
+of laser, taking an image at each interval (do not rotate/move camera
+during data taking)
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                set of images spanning 300-1200nm
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run ISR on images, take mean/median on some spatial scale (maybe per
+CCD?) and record intensity as a function of spatial position
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                images from step 1
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                set of intensities as a function of physical filter position
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For each spatial position, find the maximum intensity I\_max occurring
+at wavelength wl\_max~
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                intensities from step 2
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                set of I\_max and wl\_max as a function of filter position
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For each spatial position, find the first point both blue-ward and
+red-ward where the intensity falls to 0.1\% compared to I\_max to define
+the main area of the filter, call these points blue\_end and red\_end~
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                intensities from step 2
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                spatial map of blue\_end and red\_end filter extents
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For each spatial position, check ~intensities blue-ward of blue\_end and
+redward of red\_end, if *any* have intensity \textgreater{}FLeak
+(0.01\%) compared to I\_max, then this test fails (as written)~
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                pass/fail for Fleak criterion~
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 6 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Sum up the integrated intensity blue-ward of blue\_end and red-ward of
+red\_end, check the total percentage of the integrated out of band
+intensity is less than FLeakTot (0.05\%) compared to I\_max
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                pass fail for FleakTot criterion
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1030}{LVV-T1030}
     - Zeropoint uniformity due to DM}\label{lvv-t1030}
 
@@ -14328,7 +14498,7 @@ Analysis & Sam Schmidt
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-9800}{LVV-9800} - LSR-REQ-0093-V-07: Photometric Performance\_7
 
-\item \href{https://jira.lsstcorp.org/browse/LVV-13368}{LVV-13368} - OSS-REQ-0387-V-07: Photometric Performance\_7
+\item \href{https://jira.lsstcorp.org/browse/LVV-13368}{LVV-13368} - OSS-REQ-0387-V-07: Cross-talk significance
 
 \end{itemize}
 
@@ -14769,7 +14939,7 @@ Analysis & Sam Schmidt
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-277}{LVV-277} - LSR-REQ-0093-V-05: Photometric Performance5
 
-\item \href{https://jira.lsstcorp.org/browse/LVV-13366}{LVV-13366} - OSS-REQ-0387-V-05: Photometric Performance\_5
+\item \href{https://jira.lsstcorp.org/browse/LVV-13366}{LVV-13366} - OSS-REQ-0387-V-05: Sky Brightness precision
 
 \end{itemize}
 
@@ -14870,7 +15040,7 @@ Analysis & Sam Schmidt
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-277}{LVV-277} - LSR-REQ-0093-V-05: Photometric Performance5
 
-\item \href{https://jira.lsstcorp.org/browse/LVV-13366}{LVV-13366} - OSS-REQ-0387-V-05: Photometric Performance\_5
+\item \href{https://jira.lsstcorp.org/browse/LVV-13366}{LVV-13366} - OSS-REQ-0387-V-05: Sky Brightness precision
 
 \end{itemize}
 
@@ -15777,7 +15947,7 @@ Verification Elements & Test Cases\tabularnewline
 & {
 \hyperref[lvv-t389]{LVV-T389}
 } \\
-\href{https://jira.lsstcorp.org/browse/LVV-1372}{LVV-1372 - OSS-REQ-0387-V-01: Photometric Performance\_1
+\href{https://jira.lsstcorp.org/browse/LVV-1372}{LVV-1372 - OSS-REQ-0387-V-01: Single visit photometric repeatability
 }
 & {
 \hyperref[lvv-t389]{LVV-T389}
@@ -15787,7 +15957,7 @@ Verification Elements & Test Cases\tabularnewline
 & {
 \hyperref[lvv-t390]{LVV-T390}
 } \\
-\href{https://jira.lsstcorp.org/browse/LVV-1373}{LVV-1373 - OSS-REQ-0387-V-02: Photometric Performance\_2
+\href{https://jira.lsstcorp.org/browse/LVV-1373}{LVV-1373 - OSS-REQ-0387-V-02: Zero point spatial uniformity
 }
 & {
 \hyperref[lvv-t390]{LVV-T390}
@@ -16051,7 +16221,7 @@ Verification Elements & Test Cases\tabularnewline
 & {
 \hyperref[lvv-t526]{LVV-T526}
 } \\
-\href{https://jira.lsstcorp.org/browse/LVV-13367}{LVV-13367 - OSS-REQ-0387-V-06: Photometric Performance\_6
+\href{https://jira.lsstcorp.org/browse/LVV-13367}{LVV-13367 - OSS-REQ-0387-V-06: Usable pixel fraction
 }
 & {
 \hyperref[lvv-t526]{LVV-T526}
@@ -16141,7 +16311,7 @@ Verification Elements & Test Cases\tabularnewline
 & {
 \hyperref[lvv-t840]{LVV-T840}
 } \\
-\href{https://jira.lsstcorp.org/browse/LVV-1374}{LVV-1374 - OSS-REQ-0387-V-03: Photometric Performance\_3
+\href{https://jira.lsstcorp.org/browse/LVV-1374}{LVV-1374 - OSS-REQ-0387-V-03: Color zeropoints
 }
 & {
 \hyperref[lvv-t840]{LVV-T840}
@@ -16151,7 +16321,7 @@ Verification Elements & Test Cases\tabularnewline
 & {
 \hyperref[lvv-t841]{LVV-T841}
 } \\
-\href{https://jira.lsstcorp.org/browse/LVV-13365}{LVV-13365 - OSS-REQ-0387-V-04: Photometric Performance\_4
+\href{https://jira.lsstcorp.org/browse/LVV-13365}{LVV-13365 - OSS-REQ-0387-V-04: AB/physical scale transform
 }
 & {
 \hyperref[lvv-t841]{LVV-T841}
@@ -16161,7 +16331,7 @@ Verification Elements & Test Cases\tabularnewline
 & {
 \hyperref[lvv-t853]{LVV-T853}
 } \\
-\href{https://jira.lsstcorp.org/browse/LVV-13370}{LVV-13370 - OSS-REQ-0387-V-09: Photometric Performance\_9
+\href{https://jira.lsstcorp.org/browse/LVV-13370}{LVV-13370 - OSS-REQ-0387-V-09: Resolved source RMS
 }
 & {
 \hyperref[lvv-t853]{LVV-T853}
@@ -16251,7 +16421,7 @@ Association Quality
 \hyperref[lvv-t956]{LVV-T956}
 \hyperref[lvv-t956]{LVV-T956}
 } \\
-\href{https://jira.lsstcorp.org/browse/LVV-13369}{LVV-13369 - OSS-REQ-0387-V-08: Photometric Performance\_8
+\href{https://jira.lsstcorp.org/browse/LVV-13369}{LVV-13369 - OSS-REQ-0387-V-08: Ghost area fraction
 }
 & {
 \hyperref[lvv-t956]{LVV-T956}
@@ -16341,6 +16511,11 @@ Association Quality
 & {
 \hyperref[lvv-t1023]{LVV-T1023}
 } \\
+\href{https://jira.lsstcorp.org/browse/LVV-208}{LVV-208 - LSR-REQ-0084-V-01: Filter Bandpass Performance1
+}
+& {
+\hyperref[lvv-t1029]{LVV-T1029}
+} \\
 \href{https://jira.lsstcorp.org/browse/LVV-1711}{LVV-1711 - OSS-REQ-0275-V-01: Calibration Processing Performance Allocations
 }
 & {
@@ -16423,7 +16598,7 @@ Association Quality
 & {
 \hyperref[lvv-t1067]{LVV-T1067}
 } \\
-\href{https://jira.lsstcorp.org/browse/LVV-13368}{LVV-13368 - OSS-REQ-0387-V-07: Photometric Performance\_7
+\href{https://jira.lsstcorp.org/browse/LVV-13368}{LVV-13368 - OSS-REQ-0387-V-07: Cross-talk significance
 }
 & {
 \hyperref[lvv-t1067]{LVV-T1067}
@@ -16439,7 +16614,7 @@ Association Quality
 \hyperref[lvv-t1074]{LVV-T1074}
 \hyperref[lvv-t1075]{LVV-T1075}
 } \\
-\href{https://jira.lsstcorp.org/browse/LVV-13366}{LVV-13366 - OSS-REQ-0387-V-05: Photometric Performance\_5
+\href{https://jira.lsstcorp.org/browse/LVV-13366}{LVV-13366 - OSS-REQ-0387-V-05: Sky Brightness precision
 }
 & {
 \hyperref[lvv-t1074]{LVV-T1074}
