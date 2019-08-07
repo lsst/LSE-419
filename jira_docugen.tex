@@ -204,7 +204,7 @@ system
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T959}{Inter-band astrometric consistency
 } \tabularnewline
     \hyperref[lvv-t960]{LVV-T960} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T960}{Relative astrometric performance
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T960}{Relative astrometric performance (w/ Gaia)
 } \tabularnewline
     \hyperref[lvv-t961]{LVV-T961} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T961}{Bright source measurement
@@ -406,6 +406,9 @@ sets.
     \hyperref[lvv-t1084]{LVV-T1084} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1084}{Smoothness of Rowe statistics on angular scales of 1 arcmin \textless{}
 theta \textless{} 5 arcmin
+} \tabularnewline
+    \hyperref[lvv-t1278]{LVV-T1278} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1278}{Relative Astrometric Performance (Repeatability)
 } \tabularnewline
 \bottomrule
 \end{longtable}
@@ -7386,6 +7389,11 @@ system.\\[2\baselineskip]
                 \begin{minipage}[t]{13cm}{\scriptsize
                 } \end{minipage} \\ \cdashline{2-3}
                 & {\small Expected Result} &
+                    \begin{minipage}[t]{13cm}{\scriptsize
+                    Raw image data contain the required metadata.
+
+                    \vspace{\dp0}
+                    } \end{minipage}
                 \\ \hdashline
 
 
@@ -8033,7 +8041,7 @@ measurements
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T960}{LVV-T960}
-    - Relative astrometric performance
+    - Relative astrometric performance (w/ Gaia)
 }\label{lvv-t960}
 
 \begin{longtable}[]{llllll}
@@ -16056,6 +16064,218 @@ angular scales of 1 arcmin \textless{} theta \textless{} 5 arcmin
         \\ \midrule
     \end{longtable}
 
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1278}{LVV-T1278}
+    - Relative Astrometric Performance (Repeatability)
+}\label{lvv-t1278}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Defined & Normal &
+Test & Bryce Kalmbach
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-1363}{LVV-1363} - OSS-REQ-0388-V-01: Astrometric Performance
+
+\end{itemize}
+
+\subsubsection{Test Items}
+Verify that relative astrometric separations are as accurate as
+specified
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Image an average field. Repeat at different airmasses.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Run source detection and astrometric measurement on images from step 1
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Images from Step 1
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Calculate the separations between all sources detected in step 2
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Matched source catalogs from Step 2
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Compare source separations from step 3. Calculate RMS for each pair
+across set of visits.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Source separations from Step 3.
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Examine distribution of source separation RMS from step 4 for all pairs
+of sources separated by \textasciitilde{} 5 arcminutes. Verify that the
+median in these measurements is \textless{}= 10 milliarcseconds
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Source separations form Step 4. Positions from Matched Source catalogs
+from Step 2.
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 6 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that no more than 10\% of the source pairs separated by
+\textasciitilde{} 5 arcminutes have separation RMS greater than 20
+milliarcseconds
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Source separations form Step 4. Positions from Matched Source catalogs
+from Step 2.
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 7 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Examine distribution of source separation RMS from step 4 for all pairs
+of sources separated by \textasciitilde{} 20 arcminutes. Verify that the
+median in these measurements is \textless{}= 10 milliarcseconds
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Source separations form Step 4. Positions from Matched Source catalogs
+from Step 2.
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 8 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that no more than 10\% of the source pairs separated by
+\textasciitilde{} 20 arcminutes have separation RMS greater than 20
+milliarcseconds
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Source separations form Step 4. Positions from Matched Source catalogs
+from Step 2.
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 9 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Examine distribution of source separation RMS from step 4 for all pairs
+of sources separated by \textasciitilde{} 200 arcminutes. Verify that
+the median in these measurements is \textless{}= 15 milliarcseconds
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Source separations form Step 4. Positions from Matched Source catalogs
+from Step 2.
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 10 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Verify that no more than 10\% of the source pairs separated by
+\textasciitilde{} 200 arcminutes have separation RMS greater than 30
+milliarcseconds
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                Source separations form Step 4. Positions from Matched Source catalogs
+from Step 2.
+
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
 \newpage
 \section{Reusable Test Cases}
 
@@ -16212,7 +16432,7 @@ metadata are associated with the image data.~
 \toprule
 Version & Status & Priority & Verification Type & Owner
 \\\midrule
-1 & Draft & Normal &
+1 & Defined & Normal &
 Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
