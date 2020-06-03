@@ -1,0 +1,2 @@
+#!/bin/bash
+docsteady generate-spec "/Project Systems Engineering/Commissioning Science Verification" jira_docugen.tex
